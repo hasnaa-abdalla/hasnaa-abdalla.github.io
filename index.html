@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en-GB">
+<html lang="en-GB" class="no-js">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,6 +8,12 @@
   <meta property="og:title" content="Hasnaa Abdalla">
   <meta property="og:description" content="Cultural heritage, research and grants. Alexandria · Doha · Europe.">
   <meta property="og:type" content="website">
+  <meta name="theme-color" content="#f6f0e6" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#1b1714" media="(prefers-color-scheme: dark)">
+  <script>
+    document.documentElement.className = 'js';
+    try { var t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,15 +24,27 @@
 
   <a class="skip" href="#main">Skip to content</a>
 
-  <header class="masthead">
-    <nav class="nav" aria-label="Sections">
+  <div class="progress" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <a class="monogram" href="#top" aria-label="Back to top">H. A.</a>
+    <nav class="nav" id="site-nav" aria-label="Sections">
       <a href="#about">About</a>
       <a href="#work">Work</a>
       <a href="#experience">Experience</a>
       <a href="#study">Study</a>
       <a href="#contact">Contact</a>
     </nav>
+    <div class="bar-actions">
+      <button class="icon-btn theme-toggle" type="button" aria-label="Toggle dark mode">
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg>
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"/></svg>
+      </button>
+      <button class="icon-btn menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav"><span></span></button>
+    </div>
+  </header>
 
+  <div class="masthead" id="top">
     <div class="title">
       <svg class="arch" viewBox="0 0 120 150" aria-hidden="true">
         <path d="M10 148 V62 A50 50 0 0 1 110 62 V148" />
@@ -39,15 +57,16 @@
         Heritage researcher and grants lead, working between the Arab world and Europe
         on memory, reconstruction and the institutions that care for culture.
       </p>
-      <p class="places">Alexandria <span>—</span> Doha <span>—</span> Glasgow <span>—</span> Paris <span>—</span> Rotterdam <span>—</span> Lisbon</p>
+      <p class="places"><b>Alexandria</b> <span>·</span> <b>Doha</b> <span>·</span> <b>Glasgow</b> <span>·</span> <b>Paris</b> <span>·</span> <b>Rotterdam</b> <span>·</span> <b>Lisbon</b></p>
+      <a class="scroll-cue" href="#about" aria-label="Scroll to About"></a>
     </div>
-  </header>
+  </div>
 
   <main id="main">
 
     <section id="about" class="section">
       <h2><span class="num">I.</span> About</h2>
-      <div class="prose">
+      <div class="prose reveal">
         <p class="dropcap">
           I was born in Alexandria and moved to Doha as a young child. My interest in art and
           culture began on visits home, where I kept finding that another historic building had
@@ -66,10 +85,10 @@
 
     <section id="work" class="section">
       <h2><span class="num">II.</span> Selected Work</h2>
-      <p class="section-note">Writing, research and projects. The collection is being assembled; pieces will be added here.</p>
+      <p class="section-note reveal">Writing, research and projects. The collection is being assembled; pieces will be added here.</p>
 
       <div class="gallery">
-        <article class="piece">
+        <article class="piece reveal">
           <div class="plate plate--silos" aria-hidden="true"></div>
           <p class="piece-meta">Thesis · 2026</p>
           <h3>Strategic Non-Reconstruction</h3>
@@ -78,7 +97,7 @@
              <em>Manuscript in preparation for publication.</em></p>
         </article>
 
-        <article class="piece">
+        <article class="piece reveal">
           <div class="plate plate--map" aria-hidden="true"></div>
           <p class="piece-meta">Research · Bibliotheca Alexandrina</p>
           <h3>Alexandria's Lost Geography</h3>
@@ -86,7 +105,7 @@
              and the stories behind the buildings that remain.</p>
         </article>
 
-        <article class="piece piece--empty">
+        <article class="piece piece--empty reveal">
           <div class="plate plate--blank" aria-hidden="true"><span>Forthcoming</span></div>
           <p class="piece-meta">Portfolio</p>
           <h3>More to come</h3>
@@ -98,7 +117,7 @@
     <section id="experience" class="section">
       <h2><span class="num">III.</span> Experience</h2>
       <ol class="timeline">
-        <li>
+        <li class="reveal">
           <p class="when">2022 — present</p>
           <div>
             <h3>Grants Team Lead <span class="where">Fly Minds</span></h3>
@@ -106,7 +125,7 @@
                $100,000 in competitive funding and now leads a team of up to seven. Part-time, remote.</p>
           </div>
         </li>
-        <li>
+        <li class="reveal">
           <p class="when">2024</p>
           <div>
             <h3>Museum Researcher <span class="where">Georgetown University in Qatar</span></h3>
@@ -114,7 +133,7 @@
                planning for the Qatar–Morocco Cultural Year.</p>
           </div>
         </li>
-        <li>
+        <li class="reveal">
           <p class="when">2022 — 2023</p>
           <div>
             <h3>Library Research Intern <span class="where">Bibliotheca Alexandrina</span></h3>
@@ -122,13 +141,13 @@
                communications that grew the institution's outreach.</p>
           </div>
         </li>
-        <li>
+        <li class="reveal">
           <p class="when">2020 — 2022</p>
           <div>
             <h3>Teaching Assistant, Economics <span class="where">Georgetown University in Qatar</span></h3>
           </div>
         </li>
-        <li>
+        <li class="reveal">
           <p class="when">2019</p>
           <div>
             <h3>Museum Intern <span class="where">Museum of Islamic Art, Doha</span></h3>
@@ -140,7 +159,7 @@
     <section id="study" class="section">
       <h2><span class="num">IV.</span> Study &amp; Interests</h2>
       <div class="two-col">
-        <div>
+        <div class="reveal">
           <h3 class="small-head">Education</h3>
           <dl class="study">
             <dt>MA, Managing Art and Cultural Heritage in Global Markets</dt>
@@ -151,7 +170,7 @@
             <dd>Georgetown University in Qatar · 2019–2024 · Minors in History and Economics.</dd>
           </dl>
         </div>
-        <div>
+        <div class="reveal">
           <h3 class="small-head">Research interests</h3>
           <ul class="interests">
             <li>Post-conflict heritage, memory and reconstruction in Lebanon, Syria, Iraq and Palestine</li>
@@ -167,21 +186,22 @@
 
     <section id="contact" class="section contact">
       <h2><span class="num">V.</span> Contact</h2>
-      <p class="contact-line">
+      <p class="contact-line reveal">
         <a href="mailto:hea29@georgetown.edu">hea29@georgetown.edu</a>
       </p>
-      <p class="contact-line">
+      <p class="contact-line reveal">
         <a href="https://www.linkedin.com/in/hasnaa-abdalla-153462240" rel="me noopener">LinkedIn</a>
       </p>
-      <p class="section-note">Based between Doha and the Netherlands.</p>
+      <p class="section-note reveal">Based between Doha and the Netherlands.</p>
     </section>
 
   </main>
 
   <footer class="footer">
     <p>&copy; <span id="year">2026</span> Hasnaa Abdalla</p>
+    <p><a href="#top">Back to top &uarr;</a></p>
   </footer>
 
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script src="assets/js/main.js" defer></script>
 </body>
 </html>
