@@ -336,6 +336,10 @@
     lenses();
     codes();
     tabs();
+    // tap a hero photograph to bring it back into colour (hover does this on desktop)
+    Array.prototype.forEach.call(document.querySelectorAll(".ph"), function (pl) {
+      pl.addEventListener("click", function () { pl.classList.toggle("is-recalled"); });
+    });
     var y = document.getElementById("year");
     if (y) y.textContent = new Date().getFullYear();
   });

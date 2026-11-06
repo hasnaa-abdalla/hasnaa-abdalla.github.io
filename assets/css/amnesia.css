@@ -109,37 +109,85 @@
   color: var(--ink-soft);
 }
 
-/* Illustration: Yellow House (left) and silos (right), with scars */
-.hero-art {
-  display: block;
-  width: 100%;
+/* Photographic diptych: the two buildings, toned in their own material
+   and dissolving into the page. Hover / focus brings each back. */
+.diptych {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
+  gap: clamp(.75rem, .4rem + 1.2vw, 1.5rem);
   max-width: 64rem;
-  height: auto;
   margin: clamp(2.5rem, 1.5rem + 3vw, 4rem) auto 0;
+  padding-bottom: 1.1rem;
 }
-.hero-art .mass  { fill: color-mix(in srgb, var(--stone) 55%, var(--paper)); stroke: var(--accent-soft); stroke-width: 1.1; }
-.hero-art .silos .mass { fill: color-mix(in srgb, var(--concrete) 70%, var(--paper)); stroke: var(--ink-soft); stroke-opacity: .55; }
-.hero-art .open  { fill: color-mix(in srgb, var(--ink) 9%, transparent); stroke: var(--accent-soft); stroke-width: .8; stroke-opacity: .7; }
-.hero-art .silos .open { stroke: var(--ink-soft); stroke-opacity: .4; }
-.hero-art .void  { fill: color-mix(in srgb, var(--ink) 14%, transparent); stroke: none; }
-.hero-art .fine  { stroke: var(--accent-soft); stroke-width: .6; opacity: .6; }
-.hero-art .rebar { stroke: var(--ink-soft); stroke-width: 1; opacity: .7; }
-.hero-art .scars circle { fill: var(--ink); opacity: .32; }
-.hero-art .ground { stroke: var(--rule); stroke-width: 1.2; }
-
-.art-cap {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  max-width: 64rem;
-  margin: 0 auto;
-  padding: .6rem 1.5% 1.6rem;
-  font-family: var(--display);
-  font-size: .78rem;
-  font-style: italic;
-  letter-spacing: .06em;
-  color: var(--ink-soft);
+.ph { margin: 0; min-width: 0; }
+.ph-img {
+  position: relative;
+  height: clamp(15rem, 10rem + 18vw, 27rem);
+  overflow: hidden;
+  background: var(--stone);
+  outline: none;
+  /* the bottom of each photograph fades into the ground line, like a memory going */
+  -webkit-mask: linear-gradient(to bottom, #000 0%, #000 62%, rgba(0,0,0,.35) 88%, transparent 100%);
+          mask: linear-gradient(to bottom, #000 0%, #000 62%, rgba(0,0,0,.35) 88%, transparent 100%);
+}
+.ph--concrete .ph-img { background: var(--concrete); }
+.ph-img img {
+  display: block;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: 50% 30%;
+  filter: grayscale(1) contrast(1.12) brightness(1.04);
+  mix-blend-mode: multiply;
+  opacity: .9;
+  transition: filter 1.4s var(--ease), opacity 1.4s var(--ease), transform 6s var(--ease);
+  animation: develop 3.4s var(--ease) .4s backwards;
+}
+.ph--concrete .ph-img img { object-position: 50% 0; }
+/* printed-ph grain: a fine halftone of paper over the image */
+.ph-img::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: radial-gradient(circle at 50% 50%, var(--paper) 0 .55px, transparent 1.1px) 0 0 / 4px 4px;
+  opacity: .5;
   pointer-events: none;
+  transition: opacity 1.4s var(--ease);
+}
+.ph:hover .ph-img img,
+.ph.is-recalled .ph-img img {
+  filter: none;
+  mix-blend-mode: normal;
+  opacity: 1;
+  transform: scale(1.025);
+}
+.ph:hover .ph-img::after,
+.ph.is-recalled .ph-img::after { opacity: 0; }
+.ph-img { cursor: pointer; }
+@keyframes develop {
+  from { opacity: 0; filter: grayscale(1) contrast(.8) brightness(1.3) blur(10px); }
+}
+
+.ph figcaption {
+  display: grid;
+  gap: .1rem;
+  padding: .55rem .1rem 0;
+  border-top: 1px solid var(--rule);
+  font-family: var(--display);
+  line-height: 1.25;
+}
+.ph-name { font-size: .95rem; font-style: italic; color: var(--ink); letter-spacing: .03em; }
+.ph-meta { font-size: .74rem; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-soft); }
+.ph--concrete figcaption { text-align: right; }
+.ph-hint {
+  grid-column: 1 / -1;
+  margin: -.25rem 0 0;
+  text-align: center;
+  font-family: var(--display);
+  font-size: .72rem;
+  font-style: italic;
+  letter-spacing: .08em;
+  color: var(--ink-soft);
+  opacity: .75;
 }
 
 /* ================= Intro ================= */
@@ -191,6 +239,34 @@
   -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='120'%3E%3Cpath d='M0 .5H240M120.5 0V120' stroke='%23000' stroke-width='1.2' fill='none'/%3E%3Ccircle cx='30' cy='30' r='3'/%3E%3Ccircle cx='90' cy='30' r='3'/%3E%3Ccircle cx='150' cy='30' r='3'/%3E%3Ccircle cx='210' cy='30' r='3'/%3E%3Ccircle cx='30' cy='90' r='3'/%3E%3Ccircle cx='90' cy='90' r='3'/%3E%3Ccircle cx='150' cy='90' r='3'/%3E%3Ccircle cx='210' cy='90' r='3'/%3E%3C/svg%3E") 0 0 / 240px 120px repeat;
           mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='120'%3E%3Cpath d='M0 .5H240M120.5 0V120' stroke='%23000' stroke-width='1.2' fill='none'/%3E%3Ccircle cx='30' cy='30' r='3'/%3E%3Ccircle cx='90' cy='30' r='3'/%3E%3Ccircle cx='150' cy='30' r='3'/%3E%3Ccircle cx='210' cy='30' r='3'/%3E%3Ccircle cx='30' cy='90' r='3'/%3E%3Ccircle cx='90' cy='90' r='3'/%3E%3Ccircle cx='150' cy='90' r='3'/%3E%3Ccircle cx='210' cy='90' r='3'/%3E%3C/svg%3E") 0 0 / 240px 120px repeat;
 }
+/* the buildings themselves, ghosted behind the scroll, swapped by era */
+.band-photos {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  margin: 0 calc(var(--gutter) * -1) -100vh;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+}
+.bp {
+  position: absolute; inset: 0;
+  background: center / cover no-repeat;
+  filter: grayscale(1) contrast(1.15);
+  mix-blend-mode: multiply;
+  opacity: 0;
+  transition: opacity 1.6s var(--ease);
+  -webkit-mask: radial-gradient(ellipse 75% 70% at 50% 50%, #000 20%, transparent 78%);
+          mask: radial-gradient(ellipse 75% 70% at 50% 50%, #000 20%, transparent 78%);
+}
+.bp-stone { background-image: url("../img/amnesia/beit-beirut.jpg"); }
+.bp-concrete { background-image: url("../img/amnesia/port-silos.jpg"); background-position: 50% 20%; }
+.band[data-era="stone"] .bp-stone { opacity: .17; }
+.band[data-era="concrete"] .bp-concrete { opacity: .22; }
+.band[data-era="both"] .bp { opacity: .1; }
+.band[data-era="both"] .bp-stone { -webkit-mask-position: -25vw 0; mask-position: -25vw 0; }
+.band[data-era="both"] .bp-concrete { -webkit-mask-position: 25vw 0; mask-position: 25vw 0; }
+
 .band[data-era="concrete"] { background: var(--concrete); }
 .band[data-era="concrete"]::before { opacity: 0; }
 .band[data-era="concrete"]::after { opacity: 1; }
@@ -575,6 +651,42 @@
 }
 .pull::before, .pull::after { content: "❧"; display: block; font-size: 1rem; color: var(--accent-soft); margin: .6rem 0; }
 .pull::before { transform: scaleX(-1); }
+/* the photographs again, now in full colour: what is kept */
+.recall {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
+  gap: var(--space-2);
+  margin: var(--space-4) 0 0;
+}
+.recall figure { margin: 0; min-width: 0; }
+.recall img {
+  display: block;
+  width: 100%;
+  height: clamp(12rem, 8rem + 14vw, 19rem);
+  object-fit: cover;
+  object-position: 50% 30%;
+  border: 1px solid var(--rule);
+  box-shadow: var(--shadow);
+}
+.recall figure:last-child img { object-position: 50% 18%; }
+.recall figcaption {
+  margin-top: .5rem;
+  font-size: .92rem;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+.recall figcaption b {
+  display: block;
+  font-family: var(--display);
+  font-style: normal;
+  font-weight: 600;
+  font-size: .78rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.credits a { color: inherit; }
+
 .cite { border-top: 1px solid var(--rule); padding-top: var(--space-3); margin: var(--space-4) 0 var(--space-5); font-size: 1rem; }
 .cite p { margin: 0 0 .75rem; }
 
@@ -586,7 +698,9 @@
 }
 
 @media (max-width: 760px) {
-  .art-cap { font-size: .7rem; padding-bottom: 1.1rem; }
+  .diptych { padding-bottom: .8rem; row-gap: .6rem; }
+  .ph-meta { font-size: .64rem; letter-spacing: .08em; }
+  .ph-name { font-size: .85rem; }
   .scrolly { grid-template-columns: 1fr; gap: 0; }
   .chart-wrap {
     order: 0;
@@ -608,6 +722,16 @@
   .m-word { grid-column: 1 / -1; }
 }
 
+/* dark mode: multiply would black the photographs out, so tone with luminosity instead */
+@media (prefers-color-scheme: dark) {
+  :where(:root:not([data-theme="light"])) .ph-img img { mix-blend-mode: luminosity; opacity: .78; }
+  :where(:root:not([data-theme="light"])) .bp { mix-blend-mode: luminosity; }
+  :where(:root:not([data-theme="light"])) .ph-img::after { opacity: .35; }
+}
+:where(:root[data-theme="dark"]) .ph-img img { mix-blend-mode: luminosity; opacity: .78; }
+:where(:root[data-theme="dark"]) .bp { mix-blend-mode: luminosity; }
+:where(:root[data-theme="dark"]) .ph-img::after { opacity: .35; }
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .card { opacity: 1; transform: none; }
@@ -617,7 +741,8 @@
 
 @media print {
   .band { background: none; }
-  .band::before, .band::after { display: none; }
+  .band::before, .band::after, .band-photos { display: none; }
+  .ph-img img { filter: grayscale(1); mix-blend-mode: normal; }
   .chart-wrap { position: static; }
   .card { opacity: 1; box-shadow: none; }
   .lens { display: none; }
