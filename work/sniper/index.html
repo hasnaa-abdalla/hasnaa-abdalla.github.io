@@ -65,7 +65,7 @@
     <section class="story" id="story-1" aria-label="The Yellow House, 1924 to 1990">
       <div class="stage" aria-hidden="true">
         <div class="layer" data-scene="house">
-          <img src="../../assets/img/sniper/barakat-1960.jpg" width="960" height="637" alt="" loading="eager">
+          <img src="../../assets/img/sniper/barakat-1960.jpg" width="1120" height="743" alt="" loading="eager">
         </div>
         <div class="layer" data-scene="light">
           <img src="../../assets/img/sniper/void-light.jpg" width="1280" height="960" alt="">
@@ -168,64 +168,15 @@
 
       <figure class="opening" id="opening" data-eye="architect">
         <div class="frame">
-        <div class="view">
-          <img src="../../assets/img/sniper/barakat-1960.jpg" width="960" height="637"
-            alt="The intersection below the Yellow House around 1960: a red-and-cream bus, parked cars and a pedestrian crossing in the sun." loading="lazy">
-          <div class="light-rays" aria-hidden="true"></div>
-          <div class="scope" aria-hidden="true">
-            <svg viewBox="0 0 200 200"><circle cx="100" cy="100" r="62"/><path d="M100 20v62M100 118v62M20 100h62M118 100h62"/><path d="M96 100h8M100 96v8" class="tick"/></svg>
+          <div class="view">
+            <img src="../../assets/img/sniper/barakat-1960.jpg" width="1120" height="743"
+              alt="The intersection below the Yellow House around 1960: a red-and-cream bus, parked cars and a pedestrian crossing in the sun." loading="lazy">
           </div>
-        </div>
-
-        <!-- Aftimus's arcade: three arched openings on slender columns -->
-        <svg class="wall wall--arcade" viewBox="0 0 1000 625" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-          <defs>
-            <linearGradient id="stoneGrad" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0" stop-color="#d9b77a"/><stop offset=".55" stop-color="#c79f5f"/><stop offset="1" stop-color="#a77f45"/>
-            </linearGradient>
-            <filter id="grain" x="0" y="0" width="100%" height="100%">
-              <feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="4" result="n"/>
-              <feColorMatrix in="n" type="saturate" values="0" result="g"/>
-              <feComponentTransfer in="g" result="g2"><feFuncA type="linear" slope=".22"/></feComponentTransfer>
-              <feComposite in="g2" in2="SourceGraphic" operator="in" result="gm"/>
-              <feBlend in="SourceGraphic" in2="gm" mode="multiply"/>
-            </filter>
-          </defs>
-          <path fill="url(#stoneGrad)" filter="url(#grain)" fill-rule="evenodd" d="
-            M0 0H1000V625H0Z
-            M150 585V260A110 110 0 0 1 370 260V585Z
-            M390 585V260A110 110 0 0 1 610 260V585Z
-            M630 585V260A110 110 0 0 1 850 260V585Z"/>
-          <g class="mould" fill="none" stroke="#8a6534" stroke-opacity=".45" stroke-width="3">
-            <path d="M150 260A110 110 0 0 1 370 260M390 260A110 110 0 0 1 610 260M630 260A110 110 0 0 1 850 260"/>
-            <path d="M120 600H880" stroke-width="6"/>
-          </g>
-          <g class="capitals" fill="#b88d52">
-            <rect x="362" y="252" width="36" height="12" rx="2"/><rect x="602" y="252" width="36" height="12" rx="2"/>
-          </g>
-        </svg>
-
-        <!-- The bunker: sandbags and breeze-block filling the same arcade, one slit left open -->
-        <svg class="wall wall--bunker" viewBox="0 0 1000 625" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-          <defs>
-            <pattern id="bags" width="120" height="56" patternUnits="userSpaceOnUse">
-              <rect width="120" height="56" fill="#2b2721"/>
-              <rect x="3" y="3" width="114" height="24" rx="11" fill="#5d5546"/>
-              <rect x="-57" y="31" width="114" height="22" rx="11" fill="#544c3f"/>
-              <rect x="63" y="31" width="114" height="22" rx="11" fill="#5a5243"/>
-              <path d="M10 14h100" stroke="#3e382f" stroke-width="1.5"/>
-            </pattern>
-            <mask id="slitMask">
-              <rect width="1000" height="625" fill="#fff"/>
-              <rect class="slit-hole" x="380" y="300" width="240" height="70" rx="3" fill="#000"/>
-            </mask>
-          </defs>
-          <g mask="url(#slitMask)">
-            <rect width="1000" height="625" fill="url(#bags)" filter="url(#grain)"/>
-            <rect width="1000" height="625" fill="#0c0a08" opacity=".35"/>
-          </g>
-        </svg>
-
+          <!-- afternoon light through the open plan -->
+          <div class="sunlight" aria-hidden="true"></div>
+          <!-- the bunker closes in: real scarred sandstone from the building -->
+          <div class="shutter shutter--top" aria-hidden="true"></div>
+          <div class="shutter shutter--bottom" aria-hidden="true"></div>
         </div>
         <figcaption class="eye-text" aria-live="polite">
           <p class="eye-copy" data-for="architect">

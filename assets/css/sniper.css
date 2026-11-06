@@ -345,69 +345,84 @@
 .eye-btn:not([aria-pressed="true"]):hover { color: var(--bone); }
 
 .opening { max-width: 62rem; margin: 0 auto; }
-.frame { cursor: pointer; }
 .frame {
   position: relative;
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 3 / 2;
   overflow: hidden;
-  background: #000;
+  background: #0b0907;
   box-shadow: 0 40px 80px -40px rgba(0, 0, 0, .9);
   isolation: isolate;
+  cursor: pointer;
 }
 .view { position: absolute; inset: 0; overflow: hidden; }
 .view img {
   width: 100%; height: 100%;
   object-fit: cover;
   object-position: 50% 60%;
-  filter: sepia(.4) saturate(1.2) brightness(1.02);
-  transition: transform 2.2s cubic-bezier(.65, 0, .25, 1), filter 1.6s var(--ease);
+  transform-origin: 44% 74%;
+  filter: sepia(.22) saturate(1.05) brightness(1.03) contrast(.98);
+  transition: transform 3s cubic-bezier(.45, 0, .2, 1), filter 2.4s var(--ease);
 }
-.light-rays {
-  position: absolute; inset: 0;
-  background:
-    radial-gradient(70% 60% at 50% 30%, rgba(255, 226, 170, .35), transparent 70%),
-    linear-gradient(100deg, transparent 20%, rgba(255, 240, 210, .18) 40%, transparent 60%);
-  mix-blend-mode: screen;
-  transition: opacity 1.4s var(--ease);
-}
-.scope {
-  position: absolute;
-  left: 50%; top: 53.6%;
-  width: 22%;
-  aspect-ratio: 1;
-  transform: translate(-50%, -50%);
-  opacity: 0;
-  transition: opacity 1s var(--ease);
-}
-.scope svg { width: 100%; height: 100%; fill: none; stroke: rgba(240, 236, 228, .65); stroke-width: 1; }
-.scope .tick { stroke: rgba(200, 60, 40, .8); stroke-width: 1.4; }
-
-.wall { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
-.wall--arcade { transition: opacity 1.2s var(--ease), transform 2s var(--ease); }
-.wall--bunker { transform: translateY(102%); transition: transform 1.6s cubic-bezier(.7, 0, .25, 1); }
-
-/* sniper mode */
-.opening[data-eye="sniper"] .view img {
-  /* bring the street below the house into the slit */
-  transform: translate(3.6%, -33.5%) scale(1.8);
-  filter: grayscale(1) contrast(1.35) brightness(.7);
-}
-.opening[data-eye="sniper"] .light-rays { opacity: 0; }
-.opening[data-eye="sniper"] .scope { opacity: 1; transition-delay: 1.4s; animation: sway 7s ease-in-out 1.4s infinite; }
-.opening[data-eye="sniper"] .wall--bunker { transform: none; }
-.opening[data-eye="sniper"] .wall--arcade { opacity: 0; transition-delay: .9s; }
-@keyframes sway {
-  0%, 100% { transform: translate(-50%, -50%); }
-  30% { transform: translate(-46%, -52%); }
-  60% { transform: translate(-53%, -49%); }
-}
-
-.frame::after {          /* the dim room around the opening */
-  content: "";
+/* warm, soft light falling across the street, as the architect meant it to be seen */
+.sunlight {
   position: absolute; inset: 0;
   pointer-events: none;
-  background: radial-gradient(ellipse at 50% 55%, transparent 45%, rgba(20, 12, 4, .5) 100%);
+  background:
+    radial-gradient(90% 70% at 62% 18%, rgba(255, 222, 160, .28), transparent 65%),
+    radial-gradient(ellipse at 50% 50%, transparent 55%, rgba(40, 22, 6, .35) 100%);
+  mix-blend-mode: soft-light;
+  transition: opacity 2s var(--ease);
 }
+
+/* Two leaves of real, bullet-scarred sandstone that close in until only a
+   slit is left at street height. Their inner edges are feathered so they read
+   as broken stone in shadow rather than a drawn shape. */
+.shutter {
+  position: absolute; left: -2%; right: -2%;
+  background-size: cover;
+  background-color: #14100c;
+  filter: contrast(1.1) saturate(.55);
+  transition: transform 2.6s cubic-bezier(.6, 0, .2, 1);
+  will-change: transform;
+}
+.shutter--top {
+  top: 0; height: 63%;
+  background-image:
+    linear-gradient(to bottom, rgba(8, 6, 4, .9) 0%, rgba(8, 6, 4, .78) 70%, rgba(8, 6, 4, .55) 96%, rgba(120, 80, 40, .35) 100%),
+    url("../img/sniper/holes-arcade.jpg");
+  background-position: 50% 70%, 50% 70%;
+  transform: translateY(-104%);
+  -webkit-mask: linear-gradient(to bottom, #000 0, #000 calc(100% - 1.1rem), transparent 100%);
+          mask: linear-gradient(to bottom, #000 0, #000 calc(100% - 1.1rem), transparent 100%);
+}
+.shutter--bottom {
+  bottom: 0; height: 22%;
+  background-image:
+    linear-gradient(to top, rgba(8, 6, 4, .92) 0%, rgba(8, 6, 4, .8) 65%, rgba(8, 6, 4, .55) 95%, rgba(120, 80, 40, .35) 100%),
+    url("../img/sniper/holes-column.jpg");
+  background-position: 50% 40%, 50% 40%;
+  transform: translateY(104%);
+  -webkit-mask: linear-gradient(to top, #000 0, #000 calc(100% - .9rem), transparent 100%);
+          mask: linear-gradient(to top, #000 0, #000 calc(100% - .9rem), transparent 100%);
+}
+
+/* sniper mode: the stone closes, colour drains, the eye settles on the street */
+.opening[data-eye="sniper"] .shutter { transform: none; }
+.opening[data-eye="sniper"] .sunlight { opacity: 0; }
+.opening[data-eye="sniper"] .view img {
+  transform: scale(1.12);
+  filter: grayscale(.92) sepia(.08) contrast(1.08) brightness(.86);
+}
+.opening[data-eye="sniper"] .view {
+  animation: watch 14s ease-in-out 2.6s infinite;
+}
+/* the barely perceptible drift of someone holding still and watching */
+@keyframes watch {
+  0%, 100% { transform: translate(0, 0); }
+  35% { transform: translate(-.6%, .2%); }
+  70% { transform: translate(.5%, -.15%); }
+}
+
 .eye-text {
   min-height: 7.5rem;
   padding: clamp(1rem, .6rem + 1.5vw, 1.75rem) clamp(.5rem, .3rem + 3vw, 3rem) 0;
@@ -495,9 +510,7 @@
   .step, .step:nth-child(even) { justify-content: center; }
   .card { max-width: none; }
   .steps { padding-top: 70svh; }
-  .frame { aspect-ratio: 3 / 4; }
-  .opening[data-eye="sniper"] .view img { transform: translate(6.4%, -28.4%) scale(1.6); }
-  .scope { width: 44%; }
+  .frame { aspect-ratio: 4 / 3; }
   .eye-switch { display: flex; }
   .eye-btn { flex: 1; }
   .witnesses { margin-left: 0; margin-right: 0; }
@@ -507,6 +520,6 @@
 
 @media (prefers-reduced-motion: reduce) {
   .sn-head-img img, .layer.is-on[data-scene="light"]::after, .sn-cue span::after,
-  .opening[data-eye="sniper"] .scope { animation: none; }
-  .layer, .layer img, .slit, .view img, .wall--bunker, .wall--arcade, .card { transition-duration: .01s !important; transition-delay: 0s !important; }
+  .opening[data-eye="sniper"] .view { animation: none; }
+  .layer, .layer img, .slit, .view img, .shutter, .card { transition-duration: .01s !important; transition-delay: 0s !important; }
 }
