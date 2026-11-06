@@ -481,6 +481,7 @@ h3 {
   font-size: 1.05rem;
   font-style: italic;
 }
+.piece .piece-link + .piece-link { margin-top: .1rem; }
 
 /* ---------- Timeline ---------- */
 

@@ -1,0 +1,512 @@
+/* ------------------------------------------------------------------
+   Through the Sniper's Eye: a scroll story of Beit Beirut
+   Builds on style.css tokens. The scroll "stages" are always dark,
+   like a darkened room facing a lit window; the essay around them
+   follows the site's paper / ink theme.
+------------------------------------------------------------------- */
+
+:root {
+  --night: #0e0b09;
+  --night-2: #17120e;
+  --ember: #e3a35f;          /* sandstone in late light */
+  --ember-soft: rgba(227, 163, 95, .55);
+  --bone: #f1e8d8;
+  --bone-soft: rgba(241, 232, 216, .72);
+  --glass: rgba(16, 12, 9, .72);
+  --space-3: 1.5rem;
+  --space-4: 2.5rem;
+  --space-5: clamp(3.5rem, 2.5rem + 4vw, 6rem);
+}
+
+/* ================= Opening ================= */
+
+.sn-head {
+  position: relative;
+  margin-top: calc(var(--bar-h) * -1);
+  min-height: 100svh;
+  display: grid;
+  place-items: end center;
+  padding: calc(var(--bar-h) + 2rem) var(--gutter) clamp(3rem, 2rem + 5vw, 6rem);
+  background: var(--night);
+  color: var(--bone);
+  overflow: hidden;
+  isolation: isolate;
+}
+.sn-head-img { position: absolute; inset: 0; z-index: -1; }
+.sn-head-img img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: 40% 20%;
+  filter: sepia(.35) saturate(.9) brightness(.62) contrast(1.05);
+  transform: scale(1.08);
+  animation: breathe 22s ease-in-out infinite alternate;
+}
+.sn-head::after {               /* light falls from the sky through the void */
+  content: "";
+  position: absolute; inset: 0; z-index: -1;
+  background:
+    radial-gradient(40rem 26rem at 38% 8%, rgba(255, 228, 180, .28), transparent 65%),
+    linear-gradient(to bottom, rgba(14, 11, 9, .15) 0%, rgba(14, 11, 9, .35) 45%, rgba(14, 11, 9, .94) 88%, var(--night) 100%);
+}
+@keyframes breathe { from { transform: scale(1.08); } to { transform: scale(1.16) translateY(-1.5%); } }
+
+.sn-title { max-width: 46rem; text-align: center; }
+.sn-title .kicker { color: var(--ember); }
+.sn-title h1 { margin: .6rem 0 1.25rem; color: var(--bone); text-shadow: 0 2px 30px rgba(0,0,0,.5); }
+.sn-title h1 em { font-weight: 400; color: var(--ember); }
+.sn-title .lede { color: var(--bone-soft); max-width: 34rem; }
+.sn-title .byline {
+  margin: 1.5rem 0 0;
+  font-family: var(--display);
+  font-size: var(--step--1);
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--bone-soft);
+}
+.sn-cue { margin: 2.5rem 0 0; }
+.sn-cue span {
+  display: inline-block;
+  font-family: var(--display);
+  font-size: .75rem;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  color: var(--bone-soft);
+  padding-bottom: 2.6rem;
+  position: relative;
+}
+.sn-cue span::after {
+  content: "";
+  position: absolute; left: 50%; bottom: 0;
+  width: 1px; height: 2rem;
+  background: linear-gradient(var(--ember), transparent);
+  animation: drip 2.4s var(--ease) infinite;
+}
+@keyframes drip { 0% { transform: scaleY(0); transform-origin: top; } 50% { transform: scaleY(1); transform-origin: top; } 51% { transform-origin: bottom; } 100% { transform: scaleY(0); transform-origin: bottom; } }
+
+/* the top bar goes dark glass on this page, like the room behind the window */
+.sniper .topbar.is-scrolled { background: rgba(14, 11, 9, .78); border-bottom-color: rgba(241, 232, 216, .1); }
+.sniper .topbar.is-scrolled .monogram { color: var(--bone); }
+.sniper .topbar.is-scrolled .nav a, .sniper .topbar.is-scrolled .icon-btn { color: var(--bone-soft); }
+.sniper .topbar.is-scrolled .nav a:hover { color: var(--bone); }
+.card h2::after, .eyes h2::after { display: none; }
+.card h2, .eyes h2 { display: block; }
+
+/* topbar over the dark opening */
+.sniper .topbar:not(.is-scrolled) .nav a,
+.sniper .topbar:not(.is-scrolled) .icon-btn { color: var(--bone-soft); }
+.sniper .topbar:not(.is-scrolled) .nav a:hover { color: var(--bone); }
+
+/* ================= Scroll stages ================= */
+
+.sniper main { padding: 0; }
+
+.story {
+  position: relative;
+  background: var(--night);
+  color: var(--bone);
+}
+.stage {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  overflow: hidden;
+  background: var(--night);
+}
+.layer {
+  position: absolute; inset: 0;
+  opacity: 0;
+  transition: opacity 1.6s var(--ease);
+}
+.layer img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transform: scale(1.06);
+  transition: transform 9s ease-out, filter 2s var(--ease);
+}
+.layer.is-on { opacity: 1; }
+.layer.is-on img { transform: scale(1.0); }
+
+/* each scene's light */
+[data-scene="house"] img  { filter: sepia(.45) saturate(1.15) brightness(.78) contrast(1.02); object-position: 55% 40%; }
+[data-scene="light"] img  { filter: saturate(1.1) brightness(.92); object-position: 35% 15%; }
+[data-scene="war"] img    { filter: grayscale(.85) contrast(1.25) brightness(.55); object-position: 50% 45%; }
+[data-scene="inside"] img { filter: grayscale(1) contrast(1.3) brightness(.62); object-position: 50% 45%; }
+[data-scene="witness"] img{ filter: sepia(.2) saturate(.85) brightness(.6) contrast(1.1); object-position: 50% 30%; }
+[data-scene="void"] img   { filter: saturate(.85) brightness(.58); object-position: 50% 30%; }
+[data-scene="museum"] img { filter: saturate(.9) brightness(.7); object-position: 50% 40%; }
+[data-scene="party"] img  { filter: grayscale(.6) brightness(.35) contrast(1.1); object-position: 50% 40%; }
+.layer.is-on[data-scene="light"] img { filter: saturate(1.15) brightness(1.02); }
+
+/* a soft vignette over every stage so the cards always read */
+.stage::after {
+  content: "";
+  position: absolute; inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 50% 45%, transparent 35%, rgba(10, 8, 6, .55) 100%),
+    linear-gradient(to bottom, rgba(10, 8, 6, .35), transparent 25%, transparent 70%, rgba(10, 8, 6, .65));
+}
+/* a shaft of light for "stronger than the destruction" */
+.layer[data-scene="light"]::after {
+  content: "";
+  position: absolute; inset: -20%;
+  background: linear-gradient(115deg, transparent 30%, rgba(255, 236, 200, .22) 42%, transparent 55%);
+  mix-blend-mode: screen;
+  opacity: 0;
+  transition: opacity 3s var(--ease) .6s;
+}
+.layer.is-on[data-scene="light"]::after { opacity: 1; animation: shaft 12s ease-in-out infinite alternate; }
+@keyframes shaft { from { transform: translateX(-4%); } to { transform: translateX(5%); } }
+
+/* bullet pocks arriving over the war scene */
+.pocks { position: absolute; inset: 0; width: 100%; height: 100%; }
+.pocks circle { opacity: 0; transition: opacity .25s; }
+.layer.is-on .pocks circle { opacity: 1; transition-delay: var(--d, 0s); }
+
+/* inside the nest: the view narrows to a slit */
+.slit {
+  position: absolute;
+  left: 50%; top: 30%;
+  width: min(88vw, 62rem);
+  height: 70vh;
+  transform: translate(-50%, -50%);
+  border-radius: 2px;
+  box-shadow: 0 0 0 200vmax rgba(8, 6, 5, .93);
+  transition: height 2.4s cubic-bezier(.7, 0, .2, 1) .3s, width 2.4s cubic-bezier(.7, 0, .2, 1) .3s;
+}
+.layer.is-on .slit { height: clamp(3.5rem, 2.5rem + 3vw, 6rem); width: min(80vw, 40rem); }
+
+.stage-year {
+  position: absolute;
+  right: var(--gutter); bottom: clamp(1rem, .5rem + 2vw, 2rem);
+  font-family: var(--display);
+  font-style: italic;
+  font-size: clamp(3rem, 2rem + 6vw, 7.5rem);
+  line-height: 1;
+  color: rgba(241, 232, 216, .16);
+  z-index: 2;
+  font-variant-numeric: lining-nums;
+}
+.stage-year span { display: inline-block; transition: opacity .6s var(--ease), transform .6s var(--ease); }
+.stage-year span.is-changing { opacity: 0; transform: translateY(.3em); }
+
+/* steps scroll over the sticky stage */
+.steps {
+  position: relative;
+  z-index: 3;
+  margin-top: -100svh;
+  padding: 50svh var(--gutter) 5svh;
+}
+.step {
+  min-height: 95svh;
+  display: flex;
+  align-items: center;
+  max-width: var(--wide);
+  margin: 0 auto;
+}
+.step:last-child { min-height: 70svh; }
+.card {
+  max-width: 31rem;
+  padding: clamp(1.25rem, 1rem + 1.2vw, 2rem) clamp(1.25rem, 1rem + 1.5vw, 2.25rem);
+  background: var(--glass);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(241, 232, 216, .1);
+  border-left: 2px solid var(--ember-soft);
+  box-shadow: 0 30px 60px -30px rgba(0, 0, 0, .8);
+  opacity: .25;
+  transform: translateY(1.5rem);
+  transition: opacity .9s var(--ease), transform .9s var(--ease);
+}
+.no-js .card, .step.is-active .card { opacity: 1; transform: none; }
+.step:nth-child(even) { justify-content: flex-end; }
+
+.card h2 {
+  margin: 0 0 .9rem;
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: var(--step-3);
+  line-height: 1.05;
+  color: var(--bone);
+}
+.card p { margin: 0 0 1rem; color: var(--bone-soft); hyphens: auto; text-wrap: pretty; }
+.card p:last-child { margin-bottom: 0; }
+.card strong { color: var(--bone); font-weight: 500; }
+.card em { color: var(--bone); }
+.step-k {
+  font-family: var(--display);
+  font-size: var(--step--1) !important;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--ember) !important;
+}
+.pic-note {
+  font-size: .9rem;
+  font-style: italic;
+  color: rgba(241, 232, 216, .5) !important;
+  border-top: 1px solid rgba(241, 232, 216, .12);
+  padding-top: .75rem;
+  margin-top: 1.25rem !important;
+}
+.step-strong {
+  font-family: var(--display);
+  font-size: var(--step-1);
+  line-height: 1.35;
+  color: var(--bone) !important;
+  font-style: italic;
+}
+
+.card--quote { max-width: 36rem; border-left: 0; background: rgba(10, 8, 6, .62); }
+.card--quote blockquote { margin: 0; }
+.card--quote blockquote p {
+  font-family: var(--display);
+  font-size: clamp(1.35rem, 1.1rem + 1vw, 1.95rem);
+  line-height: 1.32;
+  color: var(--bone);
+  font-style: italic;
+}
+.card--quote footer {
+  margin-top: 1rem;
+  font-family: var(--display);
+  font-size: var(--step--1);
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--ember);
+}
+.card--quote footer::before { content: "— "; }
+.glow {
+  color: #ffe2b0;
+  text-shadow: 0 0 18px rgba(255, 200, 130, .55);
+  transition: text-shadow 1.2s;
+}
+.card--quiet {
+  background: none; border: 0; box-shadow: none;
+  -webkit-backdrop-filter: none; backdrop-filter: none;
+  max-width: 40rem; margin: 0 auto; text-align: center;
+}
+.card--quiet p {
+  font-family: var(--display);
+  font-style: italic;
+  font-size: clamp(1.6rem, 1.2rem + 2vw, 2.8rem);
+  line-height: 1.2;
+  color: var(--bone);
+  text-shadow: 0 2px 24px rgba(0, 0, 0, .9);
+}
+.step:has(.card--quiet) { justify-content: center; }
+
+/* ================= The two eyes ================= */
+
+.eyes {
+  position: relative;
+  padding: var(--space-5) var(--gutter);
+  background:
+    linear-gradient(to bottom, var(--night) 0, var(--night-2) 30%, var(--night-2) 70%, var(--night) 100%);
+  color: var(--bone);
+  text-align: center;
+}
+.eyes-intro { max-width: 36rem; margin: 0 auto var(--space-4); }
+.eyes-intro .kicker { color: var(--ember); }
+.eyes-intro h2 {
+  margin: .5rem 0 .75rem;
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: var(--step-3);
+  line-height: 1.05;
+}
+.eyes-intro p:last-child { color: var(--bone-soft); font-style: italic; margin: 0; }
+
+.eye-switch {
+  display: inline-flex;
+  padding: .3rem;
+  margin: 0 auto var(--space-3);
+  border: 1px solid rgba(241, 232, 216, .2);
+  border-radius: 999px;
+  background: rgba(0, 0, 0, .3);
+  position: relative;
+}
+.eye-btn {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: .1rem;
+  padding: .6rem clamp(.9rem, .6rem + 1.2vw, 1.6rem);
+  border: 0;
+  border-radius: 999px;
+  background: none;
+  color: var(--bone-soft);
+  font: inherit;
+  cursor: pointer;
+  transition: color .4s var(--ease), background-color .5s var(--ease);
+}
+.eye-name { font-family: var(--display); font-size: var(--step-0); font-weight: 500; line-height: 1.1; }
+.eye-year { font-size: .72rem; letter-spacing: .2em; text-transform: uppercase; opacity: .7; font-variant-numeric: lining-nums; }
+.eye-btn[aria-pressed="true"][data-eye="architect"] { background: var(--ember); color: #24170b; }
+.eye-btn[aria-pressed="true"][data-eye="sniper"] { background: #3b3a37; color: #f2eee6; box-shadow: inset 0 0 0 1px rgba(255,255,255,.15); }
+.eye-btn:not([aria-pressed="true"]):hover { color: var(--bone); }
+
+.opening { max-width: 62rem; margin: 0 auto; }
+.frame { cursor: pointer; }
+.frame {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #000;
+  box-shadow: 0 40px 80px -40px rgba(0, 0, 0, .9);
+  isolation: isolate;
+}
+.view { position: absolute; inset: 0; overflow: hidden; }
+.view img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: 50% 60%;
+  filter: sepia(.4) saturate(1.2) brightness(1.02);
+  transition: transform 2.2s cubic-bezier(.65, 0, .25, 1), filter 1.6s var(--ease);
+}
+.light-rays {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(70% 60% at 50% 30%, rgba(255, 226, 170, .35), transparent 70%),
+    linear-gradient(100deg, transparent 20%, rgba(255, 240, 210, .18) 40%, transparent 60%);
+  mix-blend-mode: screen;
+  transition: opacity 1.4s var(--ease);
+}
+.scope {
+  position: absolute;
+  left: 50%; top: 53.6%;
+  width: 22%;
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 1s var(--ease);
+}
+.scope svg { width: 100%; height: 100%; fill: none; stroke: rgba(240, 236, 228, .65); stroke-width: 1; }
+.scope .tick { stroke: rgba(200, 60, 40, .8); stroke-width: 1.4; }
+
+.wall { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.wall--arcade { transition: opacity 1.2s var(--ease), transform 2s var(--ease); }
+.wall--bunker { transform: translateY(102%); transition: transform 1.6s cubic-bezier(.7, 0, .25, 1); }
+
+/* sniper mode */
+.opening[data-eye="sniper"] .view img {
+  /* bring the street below the house into the slit */
+  transform: translate(3.6%, -33.5%) scale(1.8);
+  filter: grayscale(1) contrast(1.35) brightness(.7);
+}
+.opening[data-eye="sniper"] .light-rays { opacity: 0; }
+.opening[data-eye="sniper"] .scope { opacity: 1; transition-delay: 1.4s; animation: sway 7s ease-in-out 1.4s infinite; }
+.opening[data-eye="sniper"] .wall--bunker { transform: none; }
+.opening[data-eye="sniper"] .wall--arcade { opacity: 0; transition-delay: .9s; }
+@keyframes sway {
+  0%, 100% { transform: translate(-50%, -50%); }
+  30% { transform: translate(-46%, -52%); }
+  60% { transform: translate(-53%, -49%); }
+}
+
+.frame::after {          /* the dim room around the opening */
+  content: "";
+  position: absolute; inset: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse at 50% 55%, transparent 45%, rgba(20, 12, 4, .5) 100%);
+}
+.eye-text {
+  min-height: 7.5rem;
+  padding: clamp(1rem, .6rem + 1.5vw, 1.75rem) clamp(.5rem, .3rem + 3vw, 3rem) 0;
+}
+.eye-copy { margin: 0; }
+.eye-q {
+  display: block;
+  font-family: var(--display);
+  font-style: italic;
+  font-size: clamp(1.05rem, .9rem + .8vw, 1.6rem);
+  line-height: 1.3;
+  color: var(--bone);
+  text-wrap: balance;
+  animation: rise .9s var(--ease) both;
+}
+.eye-who {
+  display: block;
+  margin-top: .4rem;
+  font-family: var(--display);
+  font-size: .78rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--ember);
+}
+@keyframes rise { from { opacity: 0; transform: translateY(.6rem); } to { opacity: 1; transform: none; } }
+
+.eyes-after {
+  margin: var(--space-4) auto 0;
+  text-align: left;
+  color: var(--bone-soft);
+}
+.eyes-after em { color: var(--bone); }
+
+/* ================= Close ================= */
+
+.sn-close {
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: var(--space-5) var(--gutter) 0;
+  box-sizing: content-box;
+}
+.sn-close h2 {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: var(--step-3);
+  margin: 0 0 1.5rem;
+}
+.sn-close h2 .num { color: var(--accent); font-style: italic; margin-right: .3em; }
+.witnesses {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(.5rem, .3rem + 1vw, 1rem);
+  margin: var(--space-4) calc(var(--gutter) * -0.5);
+}
+.witnesses figure { margin: 0; overflow: hidden; aspect-ratio: 3 / 4; background: var(--paper-deep); }
+.witnesses img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  filter: sepia(.25) saturate(.8) contrast(1.05);
+  transition: filter 1.2s var(--ease), transform 3s var(--ease);
+}
+.witnesses figure:hover img { filter: none; transform: scale(1.03); }
+
+.pull {
+  margin: var(--space-4) 0;
+  text-align: center;
+  font-family: var(--display);
+  font-style: italic;
+  font-size: var(--step-2);
+  line-height: 1.25;
+  color: var(--accent);
+  text-wrap: balance;
+}
+.pull::before, .pull::after { content: "❧"; display: block; font-size: 1rem; color: var(--accent-soft); margin: .6rem 0; }
+.pull::before { transform: scaleX(-1); }
+
+.cite { border-top: 1px solid var(--rule); padding-top: var(--space-3); margin: var(--space-4) 0 var(--space-5); font-size: 1rem; }
+.cite p { margin: 0 0 .75rem; }
+.small { font-size: .92rem; color: var(--ink-soft); }
+.credits a { color: inherit; }
+
+/* ================= Small screens ================= */
+
+@media (max-width: 680px) {
+  .step, .step:nth-child(even) { justify-content: center; }
+  .card { max-width: none; }
+  .steps { padding-top: 70svh; }
+  .frame { aspect-ratio: 3 / 4; }
+  .opening[data-eye="sniper"] .view img { transform: translate(6.4%, -28.4%) scale(1.6); }
+  .scope { width: 44%; }
+  .eye-switch { display: flex; }
+  .eye-btn { flex: 1; }
+  .witnesses { margin-left: 0; margin-right: 0; }
+}
+
+/* ================= Reduced motion ================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .sn-head-img img, .layer.is-on[data-scene="light"]::after, .sn-cue span::after,
+  .opening[data-eye="sniper"] .scope { animation: none; }
+  .layer, .layer img, .slit, .view img, .wall--bunker, .wall--arcade, .card { transition-duration: .01s !important; transition-delay: 0s !important; }
+}
