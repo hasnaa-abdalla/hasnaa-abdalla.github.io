@@ -475,6 +475,12 @@ h3 {
   background-image: repeating-linear-gradient(135deg, transparent 0 10px, color-mix(in srgb, var(--rule) 35%, transparent) 10px 11px);
 }
 .piece--empty { opacity: .85; }
+.piece .piece-link {
+  margin-top: .6rem;
+  font-family: var(--display);
+  font-size: 1.05rem;
+  font-style: italic;
+}
 
 /* ---------- Timeline ---------- */
 
