@@ -9,6 +9,7 @@
   <meta property="og:description" content="One word, five speakers, twenty-three years: how “amnesia” gained political charge in Beirut’s heritage debates, 2002–2025.">
   <meta property="og:type" content="article">
   <script>
+    document.documentElement.className = 'js';
     try { var t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
   </script>
   <link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
@@ -22,18 +23,29 @@
 
   <a class="skip" href="#main">Skip to content</a>
 
-  <header class="essay-head">
-    <nav class="nav" aria-label="Site">
-      <a href="../../">Hasnaa Abdalla</a>
-      <a href="../../#work">Selected Work</a>
-    </nav>
+  <div class="progress" aria-hidden="true"></div>
 
+  <header class="topbar">
+    <a class="monogram" href="../../" aria-label="Hasnaa Abdalla, home">H. A.</a>
+    <nav class="nav" id="site-nav" aria-label="Site">
+      <a href="../../">Home</a>
+      <a href="../../#work">Work</a>
+      <a href="../../#contact">Contact</a>
+    </nav>
+    <div class="bar-actions">
+      <button class="icon-btn theme-toggle" type="button" aria-label="Toggle dark mode">
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg>
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"/></svg>
+      </button>
+      <button class="icon-btn menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav"><span></span></button>
+    </div>
+  </header>
+
+  <div class="essay-head" id="top">
     <div class="essay-title">
       <p class="kicker">From the thesis · Strategic Non-Reconstruction</p>
       <h1>The Amnesia <em>Trajectory</em></h1>
-      <p class="word" aria-hidden="true">
-        <span>a</span><span>m</span><span>n</span><span>e</span><span>s</span><span>i</span><span>a</span>
-      </p>
+      <p class="word" aria-hidden="true"><span>a</span><span>m</span><span>n</span><span>e</span><span>s</span><span>i</span><span>a</span></p>
       <p class="lede">
         One word, five speakers, twenty-three years. How Beirut’s heritage debates kept
         reaching for the same metaphor, and how it sharpened every time the speaker
@@ -41,7 +53,211 @@
       </p>
       <p class="byline">Hasnaa Abdalla · Erasmus University Rotterdam, 2026</p>
     </div>
-  </header>
+    <svg class="hero-art" viewBox="110 0 1250 236" preserveAspectRatio="xMidYMax meet" aria-hidden="true" focusable="false">
+<g class="house">
+<rect class="mass" x="150" y="70" width="330" height="162"/>
+<line class="fine" x1="150" x2="480" y1="130" y2="130"/>
+<path class="open" d="M168 128 V112 A20.0 20.0 0 0 1 208 112 V128 Z"/>
+<path class="open" d="M230 128 V112 A20.0 20.0 0 0 1 270 112 V128 Z"/>
+<path class="open" d="M292 128 V112 A20.0 20.0 0 0 1 332 112 V128 Z"/>
+<path class="open" d="M354 128 V112 A20.0 20.0 0 0 1 394 112 V128 Z"/>
+<path class="open" d="M416 128 V112 A20.0 20.0 0 0 1 456 112 V128 Z"/>
+<line class="fine" x1="150" x2="480" y1="182" y2="182"/>
+<path class="open" d="M168 180 V164 A20.0 20.0 0 0 1 208 164 V180 Z"/>
+<path class="open" d="M230 180 V164 A20.0 20.0 0 0 1 270 164 V180 Z"/>
+<path class="open" d="M292 180 V164 A20.0 20.0 0 0 1 332 164 V180 Z"/>
+<path class="open" d="M354 180 V164 A20.0 20.0 0 0 1 394 164 V180 Z"/>
+<path class="open" d="M416 180 V164 A20.0 20.0 0 0 1 456 164 V180 Z"/>
+<line class="fine" x1="150" x2="480" y1="234" y2="234"/>
+<path class="open" d="M168 232 V216 A20.0 20.0 0 0 1 208 216 V232 Z"/>
+<path class="open" d="M230 232 V216 A20.0 20.0 0 0 1 270 216 V232 Z"/>
+<path class="open" d="M292 232 V216 A20.0 20.0 0 0 1 332 216 V232 Z"/>
+<path class="open" d="M354 232 V216 A20.0 20.0 0 0 1 394 216 V232 Z"/>
+<path class="open" d="M416 232 V216 A20.0 20.0 0 0 1 456 216 V232 Z"/>
+<path class="void" d="M410 90 h58 v86 h-58 z"/>
+</g>
+<g class="silos">
+<path class="mass" d="M640 232 V48 Q663.0 34 686 48 V232 Z"/>
+<path class="mass" d="M686 232 V48 Q709.0 34 732 48 V232 Z"/>
+<path class="mass" d="M732 232 V48 Q755.0 34 778 48 V232 Z"/>
+<path class="mass" d="M778 232 V48 Q801.0 34 824 48 V232 Z"/>
+<path class="mass" d="M824 232 V48 Q847.0 34 870 48 V232 Z"/>
+<path class="mass" d="M870 232 V48 Q893.0 34 916 48 V232 Z"/>
+<path class="mass" d="M916 232 V48 Q939.0 34 962 48 V232 Z"/>
+<path class="mass" d="M962 232 V48 Q985.0 34 1008 48 V232 Z"/>
+<path class="mass" d="M1008 232 V48 Q1031.0 34 1054 48 V232 Z"/>
+<path class="mass broken" d="M1054 232 L1054 61 L1063 61 L1072 68 L1082 51 L1091 66 L1100 63 L1100 232 Z"/>
+<line class="rebar" x1="1059" y1="61" x2="1061" y2="47"/>
+<line class="rebar" x1="1081" y1="63" x2="1078" y2="47"/>
+<path class="mass broken" d="M1100 232 L1100 78 L1109 63 L1118 88 L1128 80 L1137 65 L1146 75 L1146 232 Z"/>
+<line class="rebar" x1="1110" y1="82" x2="1106" y2="68"/>
+<line class="rebar" x1="1127" y1="75" x2="1123" y2="59"/>
+<path class="mass broken" d="M1146 232 L1146 111 L1155 92 L1164 97 L1174 101 L1183 92 L1192 106 L1192 232 Z"/>
+<line class="rebar" x1="1151" y1="107" x2="1151" y2="91"/>
+<line class="rebar" x1="1179" y1="108" x2="1177" y2="99"/>
+<path class="mass broken" d="M1192 232 L1192 114 L1201 113 L1210 115 L1220 101 L1229 106 L1238 106 L1238 232 Z"/>
+<line class="rebar" x1="1201" y1="116" x2="1198" y2="108"/>
+<line class="rebar" x1="1223" y1="108" x2="1226" y2="92"/>
+<path class="mass broken" d="M1238 232 L1238 130 L1247 138 L1256 124 L1266 128 L1275 132 L1284 138 L1284 232 Z"/>
+<line class="rebar" x1="1246" y1="129" x2="1246" y2="118"/>
+<line class="rebar" x1="1271" y1="126" x2="1270" y2="117"/>
+<path class="mass broken" d="M1284 232 L1284 166 L1293 156 L1302 163 L1312 162 L1321 175 L1330 162 L1330 232 Z"/>
+<line class="rebar" x1="1294" y1="164" x2="1294" y2="155"/>
+<line class="rebar" x1="1311" y1="165" x2="1313" y2="155"/>
+<rect class="mass" x="570" y="20" width="70" height="212"/>
+<rect class="open" x="582" y="34" width="46" height="10"/>
+<rect class="open" x="582" y="64" width="46" height="10"/>
+<rect class="open" x="582" y="94" width="46" height="10"/>
+<rect class="open" x="582" y="124" width="46" height="10"/>
+<rect class="open" x="582" y="154" width="46" height="10"/>
+<rect class="open" x="582" y="184" width="46" height="10"/>
+</g>
+<g class="scars">
+<circle cx="398" cy="97" r="2.6"/>
+<circle cx="290" cy="220" r="1.2"/>
+<circle cx="400" cy="161" r="2"/>
+<circle cx="264" cy="127" r="2.6"/>
+<circle cx="341" cy="143" r="1.2"/>
+<circle cx="458" cy="146" r="1.2"/>
+<circle cx="174" cy="181" r="2.6"/>
+<circle cx="246" cy="133" r="2"/>
+<circle cx="161" cy="144" r="1.6"/>
+<circle cx="351" cy="149" r="1.6"/>
+<circle cx="401" cy="94" r="1.6"/>
+<circle cx="282" cy="213" r="2.6"/>
+<circle cx="180" cy="142" r="2"/>
+<circle cx="438" cy="199" r="2"/>
+<circle cx="381" cy="224" r="2.6"/>
+<circle cx="462" cy="97" r="1.6"/>
+<circle cx="203" cy="174" r="1.2"/>
+<circle cx="310" cy="164" r="2"/>
+<circle cx="245" cy="96" r="2"/>
+<circle cx="350" cy="122" r="1.6"/>
+<circle cx="376" cy="152" r="1.2"/>
+<circle cx="301" cy="206" r="2.6"/>
+<circle cx="282" cy="134" r="2.6"/>
+<circle cx="358" cy="83" r="1.2"/>
+<circle cx="471" cy="141" r="1.2"/>
+<circle cx="263" cy="82" r="1.2"/>
+<circle cx="337" cy="156" r="2"/>
+<circle cx="352" cy="85" r="1.6"/>
+<circle cx="352" cy="97" r="2"/>
+<circle cx="462" cy="166" r="2.6"/>
+<circle cx="194" cy="203" r="2.6"/>
+<circle cx="309" cy="121" r="1.6"/>
+<circle cx="187" cy="126" r="2"/>
+<circle cx="308" cy="179" r="1.2"/>
+<circle cx="220" cy="219" r="2"/>
+<circle cx="201" cy="157" r="1.2"/>
+<circle cx="398" cy="119" r="1.2"/>
+<circle cx="378" cy="114" r="2"/>
+<circle cx="446" cy="128" r="1.6"/>
+<circle cx="325" cy="192" r="2"/>
+<circle cx="359" cy="167" r="1.6"/>
+<circle cx="414" cy="198" r="1.6"/>
+<circle cx="218" cy="149" r="1.2"/>
+<circle cx="473" cy="194" r="2.6"/>
+<circle cx="237" cy="179" r="2"/>
+<circle cx="298" cy="216" r="2"/>
+<circle cx="462" cy="129" r="1.6"/>
+<circle cx="187" cy="145" r="2"/>
+<circle cx="220" cy="169" r="1.2"/>
+<circle cx="308" cy="173" r="1.2"/>
+<circle cx="423" cy="92" r="2.6"/>
+<circle cx="406" cy="188" r="2.6"/>
+<circle cx="440" cy="140" r="2"/>
+<circle cx="182" cy="218" r="2.6"/>
+<circle cx="303" cy="187" r="1.2"/>
+<circle cx="387" cy="100" r="1.6"/>
+<circle cx="163" cy="164" r="2.6"/>
+<circle cx="414" cy="96" r="2.6"/>
+<circle cx="366" cy="127" r="1.6"/>
+<circle cx="161" cy="196" r="1.2"/>
+<circle cx="324" cy="216" r="2.6"/>
+<circle cx="472" cy="104" r="1.6"/>
+<circle cx="163" cy="106" r="1.6"/>
+<circle cx="400" cy="124" r="2.6"/>
+<circle cx="423" cy="83" r="2"/>
+<circle cx="443" cy="175" r="2.6"/>
+<circle cx="420" cy="207" r="1.6"/>
+<circle cx="325" cy="154" r="1.2"/>
+<circle cx="435" cy="192" r="1.2"/>
+<circle cx="404" cy="97" r="1.6"/>
+<circle cx="1185" cy="194" r="1.2"/>
+<circle cx="1144" cy="170" r="2.6"/>
+<circle cx="1270" cy="122" r="1.2"/>
+<circle cx="1123" cy="142" r="1.2"/>
+<circle cx="1194" cy="175" r="1.2"/>
+<circle cx="1176" cy="181" r="1.6"/>
+<circle cx="1245" cy="162" r="2.6"/>
+<circle cx="1194" cy="139" r="2"/>
+<circle cx="1309" cy="214" r="1.6"/>
+<circle cx="1286" cy="126" r="1.2"/>
+<circle cx="1162" cy="147" r="1.6"/>
+<circle cx="1172" cy="135" r="2"/>
+<circle cx="1270" cy="214" r="1.6"/>
+<circle cx="1313" cy="185" r="2"/>
+<circle cx="1093" cy="212" r="2.6"/>
+<circle cx="1115" cy="220" r="2.6"/>
+<circle cx="1298" cy="129" r="1.6"/>
+<circle cx="1099" cy="160" r="2.6"/>
+<circle cx="1148" cy="133" r="2"/>
+<circle cx="1079" cy="152" r="2"/>
+<circle cx="1207" cy="161" r="1.2"/>
+<circle cx="1160" cy="170" r="2"/>
+<circle cx="1195" cy="117" r="1.6"/>
+<circle cx="1322" cy="122" r="2"/>
+<circle cx="1129" cy="215" r="1.6"/>
+<circle cx="1129" cy="125" r="2.6"/>
+<circle cx="1288" cy="188" r="2"/>
+<circle cx="1166" cy="172" r="2.6"/>
+<circle cx="1247" cy="120" r="1.2"/>
+<circle cx="1275" cy="131" r="1.2"/>
+<circle cx="1128" cy="112" r="1.2"/>
+<circle cx="1275" cy="120" r="1.6"/>
+<circle cx="1072" cy="210" r="2.6"/>
+<circle cx="1057" cy="225" r="2.6"/>
+<circle cx="1310" cy="141" r="1.6"/>
+<circle cx="1066" cy="192" r="1.2"/>
+<circle cx="1322" cy="140" r="1.6"/>
+<circle cx="1110" cy="146" r="2"/>
+<circle cx="1201" cy="134" r="2.6"/>
+<circle cx="1192" cy="131" r="2"/>
+<circle cx="1276" cy="225" r="1.2"/>
+<circle cx="1058" cy="195" r="1.6"/>
+<circle cx="1196" cy="138" r="2.6"/>
+<circle cx="1083" cy="205" r="2.6"/>
+<circle cx="1235" cy="173" r="2.6"/>
+<circle cx="1040" cy="111" r="1.6"/>
+<circle cx="1046" cy="117" r="1.6"/>
+<circle cx="766" cy="118" r="1.2"/>
+<circle cx="975" cy="62" r="2"/>
+<circle cx="778" cy="69" r="2.6"/>
+<circle cx="991" cy="171" r="2"/>
+<circle cx="860" cy="175" r="1.2"/>
+<circle cx="792" cy="86" r="2.6"/>
+<circle cx="572" cy="120" r="2"/>
+<circle cx="1041" cy="151" r="1.6"/>
+<circle cx="587" cy="206" r="1.6"/>
+<circle cx="743" cy="60" r="2.6"/>
+<circle cx="611" cy="106" r="1.6"/>
+<circle cx="690" cy="189" r="1.2"/>
+<circle cx="698" cy="75" r="2.6"/>
+<circle cx="854" cy="125" r="2"/>
+<circle cx="717" cy="99" r="1.6"/>
+<circle cx="888" cy="179" r="2.6"/>
+<circle cx="940" cy="180" r="2.6"/>
+<circle cx="642" cy="180" r="1.6"/>
+<circle cx="591" cy="199" r="2.6"/>
+<circle cx="925" cy="195" r="1.6"/>
+<circle cx="1010" cy="185" r="1.2"/>
+<circle cx="970" cy="157" r="1.6"/>
+<circle cx="611" cy="67" r="2"/>
+</g>
+<line class="ground" x1="0" x2="1440" y1="232" y2="232"/>
+</svg>
+    <p class="art-cap" aria-hidden="true"><span>Beit Beirut, the Yellow House</span><span>Beirut Port Grain Silos</span></p>
+  </div>
 
   <main id="main">
 
@@ -67,14 +283,16 @@
     </section>
 
     <!-- ===================== Scrollytelling ===================== -->
+    <div class="band" id="band" data-era="stone">
     <section class="scrolly" aria-label="The trajectory, step by step">
 
       <figure class="chart-wrap" aria-hidden="true">
-        <svg id="chart" viewBox="0 0 560 420" role="img"></svg>
+        <p class="era"><span class="era-swatch"></span><span id="era-text">Beit Beirut · Civil War, 1975–1990</span></p>
+        <svg id="chart" viewBox="0 0 560 404" role="img"></svg>
         <figcaption class="chart-cap">
-          <span class="cap-dot"></span> where the speaker stands
-          <span class="cap-line"></span> how far back they reach to the violence
-          <span class="cap-band">I–IV</span> rising political charge
+          <span><i class="cap-dot"></i>speaker</span>
+          <span><i class="cap-line"></i>reach back to the violence</span>
+          <span><i class="cap-band">I–IV</i>political charge</span>
         </figcaption>
       </figure>
 
@@ -82,178 +300,189 @@
 
         <!-- Step 1: Sarraf -->
         <article class="step" data-step="0" id="s-2002">
-          <p class="step-year">2002</p>
-          <h2 class="step-who">Governor Sarraf <span>Governor of Beirut · expropriation speech</span></h2>
-          <p class="register"><span class="reg-num">I</span> Amnesia as a <em>force</em>: actorless</p>
-
-          <blockquote class="quote" data-grammar>
-            Heritage destroyed is “a space for memory so as not to
-            <span class="g g-passive" data-note="Passive voice: something happens to us">be swept up</span>
-            by <span class="g g-force" data-note="Amnesia is the only actor, like weather">amnesia</span>.”
-          </blockquote>
-          <button class="lens" type="button" aria-pressed="false">Read the grammar</button>
-          <p class="lens-note" hidden>Nobody forgets here. Amnesia acts on the city the way a flood
-            would, and the sentence has no room for anyone who might be causing it.</p>
-
-          <p>When the Municipality announced the expropriation of the Barakat Building, twelve years
-            after the war’s end, the governor introduced a metaphor that would travel through the next
-            twenty-three years of debate. In his speech amnesia is passive and almost weather-like. It is
-            unfortunate and inevitable, and nobody is responsible for it.</p>
-
-          <details class="coding">
-            <summary>How this source was coded</summary>
-            <div class="codes" data-codes='[["Healing · official",4]]'></div>
-            <dl class="dims">
-              <dt>Distance</dt><dd>Long · 12 years after 1990</dd>
-              <dt>Closure</dt><dd>War formally ended; accountability absent</dd>
-              <dt>Voice</dt><dd>Official</dd>
-              <dt>Framing</dt><dd>Mixed</dd>
-            </dl>
-            <p class="src">S1 · Sarraf (2002–03), via Brones (2012), pp. 14–15</p>
-          </details>
+          <div class="card">
+            <p class="step-year">2002</p>
+            <h2 class="step-who">Governor Sarraf <span>Governor of Beirut · expropriation speech</span></h2>
+            <p class="register"><span class="reg-num">I</span> Amnesia as a <em>force</em>: actorless</p>
+  
+            <blockquote class="quote" data-grammar>
+              Heritage destroyed is “a space for memory so as not to
+              <span class="g g-passive" data-note="Passive voice: something happens to us">be swept up</span>
+              by <span class="g g-force" data-note="Amnesia is the only actor, like weather">amnesia</span>.”
+            </blockquote>
+            <button class="lens" type="button" aria-pressed="false">Read the grammar</button>
+            <p class="lens-note" hidden>Nobody forgets here. Amnesia acts on the city the way a flood
+              would, and the sentence has no room for anyone who might be causing it.</p>
+  
+            <p>When the Municipality announced the expropriation of the Barakat Building, twelve years
+              after the war’s end, the governor introduced a metaphor that would travel through the next
+              twenty-three years of debate. In his speech amnesia is passive and almost weather-like. It is
+              unfortunate and inevitable, and nobody is responsible for it.</p>
+  
+            <details class="coding">
+              <summary>How this source was coded</summary>
+              <div class="codes" data-codes='[["Healing · official",4]]'></div>
+              <dl class="dims">
+                <dt>Distance</dt><dd>Long · 12 years after 1990</dd>
+                <dt>Closure</dt><dd>War formally ended; accountability absent</dd>
+                <dt>Voice</dt><dd>Official</dd>
+                <dt>Framing</dt><dd>Mixed</dd>
+              </dl>
+              <p class="src">S1 · Sarraf (2002–03), via Brones (2012), pp. 14–15</p>
+            </details>
+          </div>
         </article>
 
         <!-- Step 2: Hallak -->
         <article class="step" data-step="1" id="s-2012">
-          <p class="step-year">2012</p>
-          <h2 class="step-who">Mona El Hallak <span>Architect and heritage activist · Planisphere interview</span></h2>
-          <p class="register"><span class="reg-num">II</span> Amnesia as a <em>condition</em>: structural</p>
-
-          <blockquote class="quote" data-grammar>
-            “The general <span class="g g-force" data-note="Still a noun with no agent">amnesia</span>
-            <span class="g g-passive" data-note="It belongs to a whole nation, so it reads as natural">of Lebanon</span>.”
-          </blockquote>
-          <button class="lens" type="button" aria-pressed="false">Read the grammar</button>
-          <p class="lens-note" hidden>Amnesia now has an owner, the nation, and Hallak can list its
-            causes. But it is still described as a national condition rather than as someone’s decision.</p>
-
-          <p>Hallak had been fighting for the building since 1994. She still uses Sarraf’s word, but
-            the amnesia is bigger now and has a structure. She names where it comes from:</p>
-
-          <ul class="causes" aria-label="Causes Hallak names">
-            <li><b>1989</b> Taif Accord</li>
-            <li><b>1991</b> Amnesty law</li>
-            <li><b>1990s</b> SOLIDERE demolitions</li>
-            <li><b>—</b> Civil War left out of school curricula</li>
-          </ul>
-
-          <p class="aside">“Not one apology has been made in twenty-two years.” Even so, she makes a
-            deliberate trade-off for the museum: <em>“No names. No parties. No militias.”</em> With the
-            accountability window sealed since 1991, the demand for justice is kept in the building’s
-            scars instead of being spoken aloud.</p>
-
-          <details class="coding">
-            <summary>How this source was coded</summary>
-            <div class="codes" data-codes='[["Resistance · erasure",4],["Healing · genuine",2]]'></div>
-            <dl class="dims">
-              <dt>Distance</dt><dd>Long · 22 years after 1990</dd>
-              <dt>Closure</dt><dd>Accountability absent</dd>
-              <dt>Voice</dt><dd>Postmemory</dd>
-              <dt>Framing</dt><dd>Mixed, with present-tense proximity</dd>
-            </dl>
-            <p class="src">S6 · El Hallak (2012), The Planisphere · 32 coded quotations</p>
-          </details>
+          <div class="card">
+            <p class="step-year">2012</p>
+            <h2 class="step-who">Mona El Hallak <span>Architect and heritage activist · Planisphere interview</span></h2>
+            <p class="register"><span class="reg-num">II</span> Amnesia as a <em>condition</em>: structural</p>
+  
+            <blockquote class="quote" data-grammar>
+              “The general <span class="g g-force" data-note="Still a noun with no agent">amnesia</span>
+              <span class="g g-passive" data-note="It belongs to a whole nation, so it reads as natural">of Lebanon</span>.”
+            </blockquote>
+            <button class="lens" type="button" aria-pressed="false">Read the grammar</button>
+            <p class="lens-note" hidden>Amnesia now has an owner, the nation, and Hallak can list its
+              causes. But it is still described as a national condition rather than as someone’s decision.</p>
+  
+            <p>Hallak had been fighting for the building since 1994. She still uses Sarraf’s word, but
+              the amnesia is bigger now and has a structure. She names where it comes from:</p>
+  
+            <ul class="causes" aria-label="Causes Hallak names">
+              <li><b>1989</b> Taif Accord</li>
+              <li><b>1991</b> Amnesty law</li>
+              <li><b>1990s</b> SOLIDERE demolitions</li>
+              <li><b>—</b> Civil War left out of school curricula</li>
+            </ul>
+  
+            <p class="aside">“Not one apology has been made in twenty-two years.” Even so, she makes a
+              deliberate trade-off for the museum: <em>“No names. No parties. No militias.”</em> With the
+              accountability window sealed since 1991, the demand for justice is kept in the building’s
+              scars instead of being spoken aloud.</p>
+  
+            <details class="coding">
+              <summary>How this source was coded</summary>
+              <div class="codes" data-codes='[["Resistance · erasure",4],["Healing · genuine",2]]'></div>
+              <dl class="dims">
+                <dt>Distance</dt><dd>Long · 22 years after 1990</dd>
+                <dt>Closure</dt><dd>Accountability absent</dd>
+                <dt>Voice</dt><dd>Postmemory</dd>
+                <dt>Framing</dt><dd>Mixed, with present-tense proximity</dd>
+              </dl>
+              <p class="src">S6 · El Hallak (2012), The Planisphere · 32 coded quotations</p>
+            </details>
+          </div>
         </article>
 
         <!-- Step 3: 2022, two voices -->
         <article class="step" data-step="2" id="s-2022">
-          <p class="step-year">2022</p>
-          <h2 class="step-who">Two voices, one year <span>Two years after the port explosion</span></h2>
-          <p class="register"><span class="reg-num">III</span> Amnesia as a <em>choice</em>: deliberate</p>
-
-          <p>The Cabinet orders the silos demolished in April. In August, the northern section collapses.
-            In the same year, two very different institutions use the word from opposite positions.</p>
-
-          <div class="pair">
-            <div class="voice">
-              <h3>ICOMOS <span>Heritage Alert · August</span></h3>
-              <blockquote class="quote" data-grammar>
-                “<span class="g g-agent" data-note="An act: demolition becomes the cause">Demolishing the silos</span>,
-                removing this landmark, and creating a physical void will give the impression of an
-                absence of space and only serve to <span class="g g-verb" data-note="Amnesia can be increased by a decision">enhance</span>
-                psychological <span class="g g-force" data-note="Now a harm done to the public mind">amnesia</span>.”
-              </blockquote>
+          <div class="card">
+            <p class="step-year">2022</p>
+            <h2 class="step-who">Two voices, one year <span>Two years after the port explosion</span></h2>
+            <p class="register"><span class="reg-num">III</span> Amnesia as a <em>choice</em>: deliberate</p>
+  
+            <p>The Cabinet orders the silos demolished in April. In August, the northern section collapses.
+              In the same year, two very different institutions use the word from opposite positions.</p>
+  
+            <div class="pair">
+              <div class="voice">
+                <h3>ICOMOS <span>Heritage Alert · August</span></h3>
+                <blockquote class="quote" data-grammar>
+                  “<span class="g g-agent" data-note="An act: demolition becomes the cause">Demolishing the silos</span>,
+                  removing this landmark, and creating a physical void will give the impression of an
+                  absence of space and only serve to <span class="g g-verb" data-note="Amnesia can be increased by a decision">enhance</span>
+                  psychological <span class="g g-force" data-note="Now a harm done to the public mind">amnesia</span>.”
+                </blockquote>
+              </div>
+              <div class="voice">
+                <h3>Mona Fawaz <span>Beirut Urban Lab · DAWN, May</span></h3>
+                <blockquote class="quote" data-grammar>
+                  “<span class="g g-agent" data-note="Someone chose this">Deliberate</span> or
+                  <span class="g g-agent" data-note="Someone imposed this">forced</span>
+                  <span class="g g-force" data-note="Forgetting as a political strategy">amnesia</span>.”
+                </blockquote>
+                <p class="aside small">She names who did the forgetting: <em>“warlords-turned-statesmen.”</em></p>
+              </div>
             </div>
-            <div class="voice">
-              <h3>Mona Fawaz <span>Beirut Urban Lab · DAWN, May</span></h3>
-              <blockquote class="quote" data-grammar>
-                “<span class="g g-agent" data-note="Someone chose this">Deliberate</span> or
-                <span class="g g-agent" data-note="Someone imposed this">forced</span>
-                <span class="g g-force" data-note="Forgetting as a political strategy">amnesia</span>.”
-              </blockquote>
-              <p class="aside small">She names who did the forgetting: <em>“warlords-turned-statesmen.”</em></p>
-            </div>
+            <button class="lens" type="button" aria-pressed="false">Read the grammar</button>
+            <p class="lens-note" hidden>For the first time, the sentence has an actor. For ICOMOS,
+              amnesia is the psychological result of a state decision. For Fawaz, the single word
+              “deliberate” turns forgetting into something somebody chose.</p>
+  
+            <details class="coding">
+              <summary>How these sources were coded</summary>
+              <p class="code-head">ICOMOS (S16) · 15 quotations</p>
+              <div class="codes" data-codes='[["Resistance · ruin",7],["Resistance · erasure",3]]'></div>
+              <p class="code-head">Fawaz (S17) · 33 quotations</p>
+              <div class="codes" data-codes='[["Resistance · erasure",9],["Revolution · structural",8],["Revolution · justice",6]]'></div>
+              <dl class="dims">
+                <dt>Distance</dt><dd>Short · 2 years after 2020</dd>
+                <dt>Closure</dt><dd>Investigation open but blocked</dd>
+                <dt>Voice</dt><dd>International body · institutional proxy</dd>
+                <dt>Framing</dt><dd>Proximity dominant</dd>
+              </dl>
+              <p class="src">S16 · ICOMOS (2022) · S17 · Fawaz &amp; Mneimneh (2022)</p>
+            </details>
           </div>
-          <button class="lens" type="button" aria-pressed="false">Read the grammar</button>
-          <p class="lens-note" hidden>For the first time, the sentence has an actor. For ICOMOS,
-            amnesia is the psychological result of a state decision. For Fawaz, the single word
-            “deliberate” turns forgetting into something somebody chose.</p>
-
-          <details class="coding">
-            <summary>How these sources were coded</summary>
-            <p class="code-head">ICOMOS (S16) · 15 quotations</p>
-            <div class="codes" data-codes='[["Resistance · ruin",7],["Resistance · erasure",3]]'></div>
-            <p class="code-head">Fawaz (S17) · 33 quotations</p>
-            <div class="codes" data-codes='[["Resistance · erasure",9],["Revolution · structural",8],["Revolution · justice",6]]'></div>
-            <dl class="dims">
-              <dt>Distance</dt><dd>Short · 2 years after 2020</dd>
-              <dt>Closure</dt><dd>Investigation open but blocked</dd>
-              <dt>Voice</dt><dd>International body · institutional proxy</dd>
-              <dt>Framing</dt><dd>Proximity dominant</dd>
-            </dl>
-            <p class="src">S16 · ICOMOS (2022) · S17 · Fawaz &amp; Mneimneh (2022)</p>
-          </details>
         </article>
 
         <!-- Step 4: Vartivarian -->
         <article class="step" data-step="3" id="s-2025">
-          <p class="step-year">2025</p>
-          <h2 class="step-who">Annie Vartivarian <span>Mother of a victim of the explosion · The National</span></h2>
-          <p class="register"><span class="reg-num">IV</span> Amnesia as <em>not resilience</em></p>
-
-          <blockquote class="quote quote--large" data-grammar>
-            “As Lebanese, <span class="g g-agent" data-note="‘We’: the speaker includes herself">we</span> talk about
-            <span class="g g-verb" data-note="The national self-image">resilience and moving on</span>, but there is resilience,
-            and then there is <span class="g g-force" data-note="Named as its opposite">amnesia</span>.”
-          </blockquote>
-          <button class="lens" type="button" aria-pressed="false">Read the grammar</button>
-          <p class="lens-note" hidden>“We” takes in the speaker and her listeners. The sentence takes
-            apart a virtue Lebanon tells itself it has: forgetting and calling it resilience is not
-            resilience at all.</p>
-
-          <p>Annie Vartivarian lost her daughter in the 2020 explosion and a cousin in the Civil War.
-            Her words, quoted in coverage of the <em>Freedom Recalled</em> exhibition held inside
-            Beit Beirut, are the last stage of the trajectory. The museum built to remember one war was
-            now hosting the debate about the second disaster.</p>
-
-          <p class="aside">She stands closest to the violence of anyone in this sequence, at five years,
-            and she also reaches furthest back, to 1990. Her source is the only one coded as speaking
-            from <em>both</em> distances at once.</p>
-
-          <details class="coding">
-            <summary>How this source was coded</summary>
-            <div class="codes" data-codes='[["Resistance · erasure",3],["Revolution · justice",3]]'></div>
-            <dl class="dims">
-              <dt>Distance</dt><dd>Mixed · 5 and 35 years</dd>
-              <dt>Closure</dt><dd>Accountability absent</dd>
-              <dt>Voice</dt><dd>Victim family</dd>
-              <dt>Framing</dt><dd>Proximity</dd>
-            </dl>
-            <p class="src">S10 · McKelvey (2025), The National · 13 coded quotations</p>
-          </details>
+          <div class="card">
+            <p class="step-year">2025</p>
+            <h2 class="step-who">Annie Vartivarian <span>Mother of a victim of the explosion · The National</span></h2>
+            <p class="register"><span class="reg-num">IV</span> Amnesia as <em>not resilience</em></p>
+  
+            <blockquote class="quote quote--large" data-grammar>
+              “As Lebanese, <span class="g g-agent" data-note="‘We’: the speaker includes herself">we</span> talk about
+              <span class="g g-verb" data-note="The national self-image">resilience and moving on</span>, but there is resilience,
+              and then there is <span class="g g-force" data-note="Named as its opposite">amnesia</span>.”
+            </blockquote>
+            <button class="lens" type="button" aria-pressed="false">Read the grammar</button>
+            <p class="lens-note" hidden>“We” takes in the speaker and her listeners. The sentence takes
+              apart a virtue Lebanon tells itself it has: forgetting and calling it resilience is not
+              resilience at all.</p>
+  
+            <p>Annie Vartivarian lost her daughter in the 2020 explosion and a cousin in the Civil War.
+              Her words, quoted in coverage of the <em>Freedom Recalled</em> exhibition held inside
+              Beit Beirut, are the last stage of the trajectory. The museum built to remember one war was
+              now hosting the debate about the second disaster.</p>
+  
+            <p class="aside">She stands closest to the violence of anyone in this sequence, at five years,
+              and she also reaches furthest back, to 1990. Her source is the only one coded as speaking
+              from <em>both</em> distances at once.</p>
+  
+            <details class="coding">
+              <summary>How this source was coded</summary>
+              <div class="codes" data-codes='[["Resistance · erasure",3],["Revolution · justice",3]]'></div>
+              <dl class="dims">
+                <dt>Distance</dt><dd>Mixed · 5 and 35 years</dd>
+                <dt>Closure</dt><dd>Accountability absent</dd>
+                <dt>Voice</dt><dd>Victim family</dd>
+                <dt>Framing</dt><dd>Proximity</dd>
+              </dl>
+              <p class="src">S10 · McKelvey (2025), The National · 13 coded quotations</p>
+            </details>
+          </div>
         </article>
 
         <article class="step step--end" data-step="4">
-          <p class="step-year">2002 → 2025</p>
-          <h2 class="step-who">The whole arc</h2>
-          <p>The lines that reach back get shorter and the points climb. The closer a speaker
-            stands to violence that is still unresolved, the more the word implies that someone is
-            responsible: <em>at long distance amnesia is actorless and unfortunate; at immediate
-            distance it is a deliberate harm done by state actors to the public.</em></p>
+          <div class="card">
+            <p class="step-year">2002 → 2025</p>
+            <h2 class="step-who">The whole arc</h2>
+            <p>The lines that reach back get shorter and the points climb. The closer a speaker
+              stands to violence that is still unresolved, the more the word implies that someone is
+              responsible: <em>at long distance amnesia is actorless and unfortunate; at immediate
+              distance it is a deliberate harm done by state actors to the public.</em></p>
+          </div>
         </article>
 
       </div>
     </section>
+    </div>
 
     <!-- ===================== Matrix ===================== -->
     <section class="matrix-sec">
@@ -305,6 +534,7 @@
     <p>&copy; <span id="year">2026</span> Hasnaa Abdalla</p>
   </footer>
 
+  <script src="../../assets/js/main.js" defer></script>
   <script src="../../assets/js/amnesia.js" defer></script>
 </body>
 </html>

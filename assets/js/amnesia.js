@@ -87,7 +87,7 @@
     CONTEXT.forEach(function (c) {
       var g = el("g", { "class": "ctx" }, gC);
       el("circle", { cx: x(c.year), cy: BOTTOM, r: 2.6 }, g);
-      txt(g, c.label, { x: x(c.year), y: BOTTOM + 40 + c.row * 16, "text-anchor": c.anchor });
+      txt(g, c.label, { x: x(c.year), y: BOTTOM + 38 + c.row * 15, "text-anchor": c.anchor });
       ctxEls.push({ g: g, on: c.on });
     });
 
@@ -134,10 +134,26 @@
     return pts.map(function (p, i) { return (i ? "L" : "M") + x(p.year).toFixed(1) + " " + p.y; }).join(" ");
   }
 
+  var ERAS = {
+    stone: "Beit Beirut · Civil War, 1975–1990",
+    concrete: "Port Grain Silos · explosion, 4 August 2020",
+    both: "Both sites · 2002–2025"
+  };
+  var band = document.getElementById("band");
+  var eraText = document.getElementById("era-text");
+  function setEra(step) {
+    var era = step >= 4 ? "both" : step >= 2 ? "concrete" : "stone";
+    if (band && band.getAttribute("data-era") !== era) {
+      band.setAttribute("data-era", era);
+      if (eraText) eraText.textContent = ERAS[era];
+    }
+  }
+
   var current = -2;
   function setStep(step) {
     if (step === current || !svg) return;
     current = step;
+    setEra(step);
     var end = step >= 4;
 
     bandEls.forEach(function (b, i) {
@@ -280,17 +296,17 @@
       var cells = "";
       if (dim === "quant") {
         var bars = c.quant.years.map(function (y, i) {
-          return '<div class="yrs"><span class="yrs-bar' + (i ? " alt" : "") + '" style="width:' + (y / 35 * 100) + '%"></span><span>' + y + " yrs</span></div>";
+          return '<div class="yrs"><span class="yrs-track"><span class="yrs-bar' + (i ? " alt" : "") + '" style="width:' + (y / 35 * 100).toFixed(1) + '%"></span></span><span>' + y + " years</span></div>";
         }).join("");
         cells = cell("Years from the violence", bars) + cell("Violence referred to", esc(c.quant.ref)) + cell("Who speaks", esc(c.quant.gen));
       } else if (dim === "qual") {
         cells = cell("Window for justice", '<span class="pill ' + (c.qual.open ? "open" : "closed") + '">' + (c.qual.open ? "Open" : "Closed") + "</span><br>" + esc(c.qual.window)) +
-                cell("Speaker’s position", esc(c.qual.pos));
+                cell("Speaker’s position", esc(c.qual.pos)) + cell("Register", esc(["", "Actorless", "Structural", "Deliberate", "Distinct from resilience"][c.reg]));
       } else {
         cells = cell("Grammar", esc(c.disc.gram)) + cell("What it does", esc(c.disc.does)) + cell("Framing code", esc(c.disc.frame));
       }
-      return '<div class="m-col"><span class="m-year">' + c.year + '</span><span class="m-who">' + esc(c.who) +
-        '</span><span class="m-word" style="background:var(--charge-' + c.reg + ')">' + esc(c.word) + "</span>" + cells + "</div>";
+      return '<div class="m-row"><div class="m-head"><span class="m-year">' + c.year + '</span><span class="m-who">' + esc(c.who) +
+        '</span><span class="m-word" style="background:var(--charge-' + c.reg + ')">' + esc(c.word) + "</span></div>" + cells + "</div>";
     }).join("");
   }
   function cell(label, html) { return '<div class="m-cell"><b>' + label + "</b>" + html + "</div>"; }
