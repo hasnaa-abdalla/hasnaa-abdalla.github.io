@@ -334,26 +334,6 @@ h1 {
 .places span { color: var(--accent-soft); margin: 0 .1em; }
 .places b { font-weight: 500; white-space: nowrap; }
 
-.scroll-cue {
-  display: block;
-  width: 1px;
-  height: 3.25rem;
-  margin: clamp(2rem, 1rem + 3vw, 3.5rem) auto 0;
-  background: linear-gradient(var(--rule), var(--rule)) 0 0 / 1px 100% no-repeat;
-  position: relative;
-  overflow: hidden;
-}
-.scroll-cue::after {
-  content: "";
-  position: absolute; left: 0; top: 0;
-  width: 1px; height: 40%;
-  background: var(--accent);
-  animation: cue 2.4s var(--ease) infinite;
-}
-@keyframes cue {
-  0%   { transform: translateY(-100%); }
-  100% { transform: translateY(260%); }
-}
 
 /* ---------- Sections ---------- */
 
@@ -659,7 +639,6 @@ h3 {
     transition-delay: 0s !important;
   }
   .js .reveal, .js .title > * { opacity: 1; transform: none; }
-  .scroll-cue::after { display: none; }
 }
 
 /* ---------- Tablet ---------- */
@@ -731,7 +710,7 @@ h3 {
 }
 
 @media print {
-  body::before, .topbar, .progress, .skip, .scroll-cue { display: none; }
+  body::before, .topbar, .progress, .skip { display: none; }
   body { background: #fff; }
   .reveal, .title > * { opacity: 1 !important; transform: none !important; }
 }
