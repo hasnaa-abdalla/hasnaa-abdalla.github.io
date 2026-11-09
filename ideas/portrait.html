@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Portrait Ideas</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <style>
+    /* ---------- Demo scaffolding ---------- */
+    .intro { max-width: var(--measure); margin: 0 auto; padding: 4rem 1rem 2rem; text-align: center; }
+    .intro p { color: var(--ink-soft); font-style: italic; }
+
+    .demo { --p: 0; position: relative; height: 220vh; border-top: 1px solid var(--rule); }
+    .stage {
+      position: sticky; top: 0; height: 100vh; overflow: hidden;
+      display: grid; grid-template-columns: 1fr minmax(16rem, 22rem);
+      align-items: center; gap: 2rem;
+      max-width: var(--wide); margin: 0 auto; padding: 0 1rem;
+    }
+    .art { position: relative; height: min(78vh, 40rem); display: grid; place-items: center; }
+    .note h2 { font-size: 1.9rem; margin-bottom: .75rem; }
+    .note h2::after { display: none; }
+    .note p { margin: 0 0 .8rem; font-size: 1.05rem; }
+    .note .tag { font-family: var(--display); letter-spacing: .18em; text-transform: uppercase; font-size: .8rem; color: var(--accent); margin: 0; }
+    .layer { position: absolute; inset: -10%; pointer-events: none; will-change: transform; }
+    .fade { position: absolute; inset: 0; overflow: hidden; pointer-events: none;
+      -webkit-mask-image: radial-gradient(closest-side, #000 72%, transparent);
+              mask-image: radial-gradient(closest-side, #000 72%, transparent); }
+
+    /* Portrait treatments */
+    .sketch { position: relative; height: 100%; width: auto; max-width: 100%; object-fit: contain; z-index: 1; }
+    .arch-photo {
+      position: relative; z-index: 1;
+      width: min(22rem, 70vw); aspect-ratio: 3 / 4;
+      object-fit: cover; object-position: 50% 20%;
+      border-radius: 50% 50% 0 0 / 34% 34% 0 0;
+      box-shadow: 0 0 0 6px var(--paper), 0 0 0 7px var(--accent);
+    }
+
+    /* 1 — Map drift */
+    .map path, .map circle, .map line { fill: none; stroke: var(--ink-soft); stroke-opacity: .45; stroke-width: 1.2; }
+    .map .coast { stroke: var(--accent); stroke-opacity: .8; stroke-width: 2.2; }
+    .map .sea { stroke: var(--rule); stroke-dasharray: 2 6; }
+    .map text { font-family: var(--display); font-style: italic; fill: var(--ink-soft); font-size: 22px; }
+    .demo--map .layer { transform: translateY(calc((var(--p) - .5) * -30%)) rotate(calc(var(--p) * 8deg)); }
+
+    /* 2 — Arch draws itself */
+    .big-arch { position: absolute; width: min(34rem, 92%); height: auto; z-index: 0; }
+    .big-arch path { fill: none; stroke: var(--accent); stroke-width: 1.4; stroke-dasharray: 1; stroke-dashoffset: calc(1 - var(--p) * 1.6); }
+    .big-arch path:nth-child(2) { stroke-dashoffset: calc(1 - (var(--p) - .15) * 1.6); }
+    .big-arch path:nth-child(3) { stroke: var(--accent-soft); stroke-dashoffset: calc(1 - (var(--p) - .3) * 1.6); }
+
+    /* 3 — City ribbon */
+    .ribbon { position: absolute; left: 0; right: 0; display: flex; flex-direction: column; justify-content: center; gap: 1.2rem; inset: 0; }
+    .ribbon div {
+      white-space: nowrap; font-family: var(--display); font-style: italic; font-weight: 500;
+      font-size: clamp(3rem, 9vw, 7rem); line-height: 1; color: transparent; opacity: .7;
+      -webkit-text-stroke: 1.2px var(--accent-soft);
+    }
+    .ribbon div:nth-child(odd)  { transform: translateX(calc(-10% - var(--p) * 35%)); }
+    .ribbon div:nth-child(even) { transform: translateX(calc(-45% + var(--p) * 35%)); }
+    .ribbon span { color: var(--accent-soft); -webkit-text-stroke: 0; font-style: normal; margin: 0 .3em; }
+
+    /* 4 — Mashrabiya lattice */
+    .lattice { inset: -40%; transform: translateY(calc(var(--p) * -25%)); }
+    .lattice svg { width: 100%; height: 100%; }
+    .lattice .tile { fill: none; stroke: var(--accent-soft); stroke-width: 1.2; opacity: .9; }
+    .glow { position: absolute; width: 26rem; aspect-ratio: 1; border-radius: 50%;
+      background: radial-gradient(var(--paper) 45%, transparent 70%); z-index: 0; }
+
+    /* 5 — Sketch turns into photo */
+    .flip { perspective: 1600px; width: min(22rem, 70vw); aspect-ratio: 3 / 4; position: relative; z-index: 1; }
+    .card { position: absolute; inset: 0; transform-style: preserve-3d;
+      transform: rotateY(calc(clamp(0, (var(--p) - .3) * 2.5, 1) * 180deg)); }
+    .card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 15%;
+      backface-visibility: hidden; border: 1px solid var(--rule); outline: 1px solid var(--rule); outline-offset: 6px; background: #faf6f0; }
+    .card .back { transform: rotateY(180deg); }
+    .rings { position: absolute; width: min(36rem, 95%); aspect-ratio: 1; z-index: 0; transform: rotate(calc(var(--p) * 120deg)); }
+    .rings circle { fill: none; stroke: var(--rule); }
+    .rings text { font-family: var(--display); font-size: 15px; letter-spacing: .35em; fill: var(--accent); text-transform: uppercase; }
+
+    @media (max-width: 760px) {
+      .stage { grid-template-columns: 1fr; grid-template-rows: 1fr auto; align-content: center; padding-bottom: 1.5rem; }
+      .art { height: 58vh; }
+      .note { text-align: center; }
+      .note h2 { justify-content: center; }
+      .note p:not(.tag) { font-size: .98rem; }
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) .sketch--ink { filter: invert(1) sepia(.25); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .demo { --p: .5 !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="intro">
+    <p class="kicker">Portrait ideas · scroll slowly</p>
+    <h1 style="font-size:clamp(2.4rem,7vw,4rem)">Something behind the picture</h1>
+    <p>Five ways to place your portrait with a background that moves as the page scrolls. Each one stays in the paper-and-ink style of the site.</p>
+  </header>
+
+  <!-- 1 -->
+  <section class="demo demo--map">
+    <div class="stage">
+      <div class="art">
+        <div class="fade"><div class="layer">
+          <svg class="map" viewBox="0 0 800 800" preserveAspectRatio="xMidYMid slice" width="100%" height="100%" aria-hidden="true">
+            <path class="sea" d="M0 210 C200 170 420 240 800 180" />
+            <path class="sea" d="M0 170 C220 130 430 200 800 140" />
+            <path class="coast" d="M0 250 C120 230 180 300 260 280 C330 262 340 200 400 210 C470 222 470 300 560 290 C650 280 700 240 800 250" />
+            <circle cx="400" cy="150" r="10" /><text x="420" y="140">Pharos</text>
+            <path d="M330 262 C350 180 450 180 470 260" stroke-dasharray="4 4" /><text x="560" y="230" style="font-size:16px">Eastern Harbour</text>
+            <line x1="0" y1="430" x2="800" y2="380" /><text x="520" y="375" style="font-size:16px">Canopic Way</text>
+            <line x1="0" y1="560" x2="800" y2="520" />
+            <g>
+              <line x1="80" y1="260" x2="120" y2="800" /><line x1="180" y1="290" x2="220" y2="800" />
+              <line x1="280" y1="280" x2="320" y2="800" /><line x1="380" y1="230" x2="420" y2="800" />
+              <line x1="480" y1="290" x2="520" y2="800" /><line x1="580" y1="290" x2="620" y2="800" />
+              <line x1="680" y1="260" x2="720" y2="800" />
+              <line x1="0" y1="660" x2="800" y2="620" /><line x1="0" y1="740" x2="800" y2="700" />
+            </g>
+            <g transform="translate(680 650)">
+              <circle r="46" /><circle r="38" />
+              <path d="M0 -60 L8 0 L0 60 L-8 0 Z M-60 0 L0 -8 L60 0 L0 8 Z" />
+              <text y="-68" text-anchor="middle" style="font-size:16px;font-style:normal">N</text>
+            </g>
+          </svg>
+        </div></div>
+        <img class="sketch sketch--ink" src="../assets/img/portrait-sketch-ink.webp" alt="Pencil portrait of Hasnaa Abdalla">
+      </div>
+      <div class="note">
+        <p class="tag">Idea 1 · Sketch</p>
+        <h2>An old map drifts behind</h2>
+        <p>A hand-drawn map of Alexandria (coastline, the Pharos, Canopic Way) slides and turns slowly as you scroll.</p>
+        <p>The sketch has its paper removed, so the map lines show through around you, like a drawing on top of an archive sheet.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section class="demo demo--arch">
+    <div class="stage">
+      <div class="art">
+        <svg class="big-arch" viewBox="0 0 400 520" aria-hidden="true">
+          <path pathLength="1" d="M20 515 V200 A180 180 0 0 1 380 200 V515" />
+          <path pathLength="1" d="M45 515 V205 A155 155 0 0 1 355 205 V515" />
+          <path pathLength="1" d="M0 515 H400" />
+        </svg>
+        <img class="arch-photo" src="../assets/img/portrait-photo.webp" alt="Photograph of Hasnaa Abdalla">
+      </div>
+      <div class="note">
+        <p class="tag">Idea 2 · Photo</p>
+        <h2>The arch draws itself</h2>
+        <p>Your photo sits in an arched window, echoing the "HA" arch at the top of the site.</p>
+        <p>As you scroll, terracotta lines draw around it one after another, like ink being laid down with a pen.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section class="demo demo--ribbon">
+    <div class="stage">
+      <div class="art">
+        <div class="fade" style="-webkit-mask-image:linear-gradient(90deg,transparent,#000 15%,#000 85%,transparent);mask-image:linear-gradient(90deg,transparent,#000 15%,#000 85%,transparent)"><div class="ribbon" aria-hidden="true">
+          <div>Alexandria<span>·</span>Doha<span>·</span>Glasgow<span>·</span>Paris<span>·</span>Rotterdam<span>·</span>Lisbon<span>·</span>Alexandria<span>·</span>Doha</div>
+          <div>Lisbon<span>·</span>Rotterdam<span>·</span>Paris<span>·</span>Glasgow<span>·</span>Doha<span>·</span>Alexandria<span>·</span>Lisbon<span>·</span>Rotterdam</div>
+          <div>Doha<span>·</span>Glasgow<span>·</span>Alexandria<span>·</span>Lisbon<span>·</span>Paris<span>·</span>Rotterdam<span>·</span>Doha<span>·</span>Glasgow</div>
+        </div></div>
+        <img class="sketch sketch--ink" src="../assets/img/portrait-sketch-ink.webp" alt="Pencil portrait of Hasnaa Abdalla">
+      </div>
+      <div class="note">
+        <p class="tag">Idea 3 · Sketch</p>
+        <h2>The cities pass by</h2>
+        <p>Large outlined names of the places in your story glide sideways behind you, each row in the opposite direction.</p>
+        <p>It tells the "life in a suitcase" story without a word of extra text.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section class="demo demo--lattice">
+    <div class="stage">
+      <div class="art">
+        <div class="fade"><div class="layer lattice" aria-hidden="true">
+          <svg>
+            <defs>
+              <pattern id="star" width="64" height="64" patternUnits="userSpaceOnUse">
+                <g class="tile" transform="translate(32 32)">
+                  <rect x="-16" y="-16" width="32" height="32" />
+                  <rect x="-16" y="-16" width="32" height="32" transform="rotate(45)" />
+                  <circle r="7" />
+                  <path d="M-32 0 H-22.6 M22.6 0 H32 M0 -32 V-22.6 M0 22.6 V32" />
+                </g>
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#star)" />
+          </svg>
+        </div></div>
+        <img class="arch-photo" src="../assets/img/portrait-photo.webp" alt="Photograph of Hasnaa Abdalla">
+      </div>
+      <div class="note">
+        <p class="tag">Idea 4 · Photo</p>
+        <h2>A mashrabiya screen</h2>
+        <p>An eight-point star lattice, the kind carved into wooden window screens across Cairo, Alexandria and Doha, slides up slowly behind the photo.</p>
+        <p>The pattern fades out at the edges, so it frames you without crowding the photo.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section class="demo demo--flip">
+    <div class="stage">
+      <div class="art">
+        <svg class="rings" viewBox="0 0 500 500" aria-hidden="true">
+          <defs><path id="ring" d="M250 250 m-215 0 a215 215 0 1 1 430 0 a215 215 0 1 1 -430 0" /></defs>
+          <circle cx="250" cy="250" r="240" /><circle cx="250" cy="250" r="190" />
+          <text><textPath href="#ring">Art · Cultural Heritage · Research · Memory · Reconstruction · Archives ·</textPath></text>
+        </svg>
+        <div class="flip">
+          <div class="card">
+            <img class="front" src="../assets/img/portrait-sketch.webp" alt="Pencil portrait of Hasnaa Abdalla">
+            <img class="back" src="../assets/img/portrait-photo.webp" alt="" aria-hidden="true">
+          </div>
+        </div>
+      </div>
+      <div class="note">
+        <p class="tag">Idea 5 · Both</p>
+        <h2>Sketch turns into photo</h2>
+        <p>Use both pictures: the drawing turns over like a page to reveal the photograph halfway down the scroll.</p>
+        <p>Behind it, a ring of words from your work rotates slowly, like a museum seal.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer"><p>Demo page · not linked from the main site</p></footer>
+
+  <script>
+    (function () {
+      var demos = document.querySelectorAll('.demo');
+      if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      function update() {
+        var vh = innerHeight;
+        demos.forEach(function (d) {
+          var r = d.getBoundingClientRect();
+          var p = (vh - r.top) / (r.height + vh);          // 0 when it enters, 1 when it leaves
+          d.style.setProperty('--p', Math.max(0, Math.min(1, p)).toFixed(4));
+        });
+      }
+      var ticking = false;
+      addEventListener('scroll', function () {
+        if (!ticking) { ticking = true; requestAnimationFrame(function () { update(); ticking = false; }); }
+      }, { passive: true });
+      addEventListener('resize', update);
+      update();
+    })();
+  </script>
+</body>
+</html>
