@@ -33,7 +33,7 @@
               mask-image: radial-gradient(closest-side, #000 72%, transparent); }
 
     /* Portrait treatments */
-    .sketch { position: relative; height: 100%; width: auto; max-width: 100%; object-fit: contain; z-index: 1; }
+    .sketch { mix-blend-mode: multiply; position: relative; height: 100%; width: auto; max-width: 100%; object-fit: contain; z-index: 1; }
     .arch-photo {
       position: relative; z-index: 1;
       width: min(22rem, 70vw); aspect-ratio: 3 / 4;
@@ -92,7 +92,6 @@
       .note p:not(.tag) { font-size: .98rem; }
     }
     @media (prefers-color-scheme: dark) {
-      :root:not([data-theme="light"]) .sketch--ink { filter: invert(1) sepia(.25); }
     }
     @media (prefers-reduced-motion: reduce) {
       .demo { --p: .5 !important; }
@@ -134,13 +133,13 @@
             </g>
           </svg>
         </div></div>
-        <img class="sketch sketch--ink" src="../assets/img/portrait-sketch-ink.webp" alt="Pencil portrait of Hasnaa Abdalla">
+        <img class="sketch sketch--ink" src="../assets/img/portrait-sketch.webp" alt="Pencil portrait of Hasnaa Abdalla">
       </div>
       <div class="note">
         <p class="tag">Idea 1 · Sketch</p>
         <h2>An old map drifts behind</h2>
         <p>A hand-drawn map of Alexandria (coastline, the Pharos, Canopic Way) slides and turns slowly as you scroll.</p>
-        <p>The sketch has its paper removed, so the map lines show through around you, like a drawing on top of an archive sheet.</p>
+        <p>The sketch's white paper blends into the page, so the map lines show through around you, like a drawing on top of an archive sheet.</p>
       </div>
     </div>
   </section>
@@ -174,7 +173,7 @@
           <div>Lisbon<span>·</span>Rotterdam<span>·</span>Paris<span>·</span>Glasgow<span>·</span>Doha<span>·</span>Alexandria<span>·</span>Lisbon<span>·</span>Rotterdam</div>
           <div>Doha<span>·</span>Glasgow<span>·</span>Alexandria<span>·</span>Lisbon<span>·</span>Paris<span>·</span>Rotterdam<span>·</span>Doha<span>·</span>Glasgow</div>
         </div></div>
-        <img class="sketch sketch--ink" src="../assets/img/portrait-sketch-ink.webp" alt="Pencil portrait of Hasnaa Abdalla">
+        <img class="sketch sketch--ink" src="../assets/img/portrait-sketch.webp" alt="Pencil portrait of Hasnaa Abdalla">
       </div>
       <div class="note">
         <p class="tag">Idea 3 · Sketch</p>

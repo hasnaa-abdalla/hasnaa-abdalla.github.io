@@ -47,6 +47,41 @@
 
     <section id="about" class="section">
       <h2><span class="num">I.</span> About</h2>
+      <div class="about">
+      <figure class="portrait">
+        <div class="portrait-map" aria-hidden="true">
+          <!-- Stylised map of Alexandria; it drifts as the page scrolls (see script at the bottom) -->
+          <svg viewBox="0 0 600 700" preserveAspectRatio="xMidYMid slice">
+            <path class="sea" d="M-20 150 C140 120 330 175 620 125" />
+            <path class="sea" d="M-20 110 C150 80 340 135 620 85" />
+            <path class="coast" d="M-20 210 C80 190 130 250 200 235 C260 222 265 165 310 172 C365 182 365 245 440 238 C510 232 550 200 620 208" />
+            <path class="harbour" d="M262 222 C275 150 352 150 368 222" />
+            <circle cx="310" cy="105" r="8" />
+            <text x="324" y="99">Pharos</text>
+            <text x="380" y="190" class="small">Eastern Harbour</text>
+            <line x1="-20" y1="360" x2="620" y2="322" />
+            <text x="400" y="318" class="small">Canopic Way</text>
+            <line x1="-20" y1="470" x2="620" y2="436" />
+            <line x1="-20" y1="570" x2="620" y2="538" />
+            <line x1="-20" y1="660" x2="620" y2="630" />
+            <line x1="40" y1="215" x2="70" y2="720" />
+            <line x1="125" y1="235" x2="155" y2="720" />
+            <line x1="210" y1="235" x2="240" y2="720" />
+            <line x1="300" y1="185" x2="330" y2="720" />
+            <line x1="390" y1="238" x2="420" y2="720" />
+            <line x1="475" y1="232" x2="505" y2="720" />
+            <line x1="560" y1="208" x2="590" y2="720" />
+            <g transform="translate(500 600)">
+              <circle r="38" />
+              <circle r="31" />
+              <path d="M0 -50 L7 0 L0 50 L-7 0 Z M-50 0 L0 -7 L50 0 L0 7 Z" />
+              <text y="-56" text-anchor="middle" class="small upright">N</text>
+            </g>
+          </svg>
+        </div>
+        <img src="assets/img/portrait-sketch.webp" width="760" height="847"
+             alt="Pencil portrait of Hasnaa Abdalla, smiling, with long curly hair and a leather jacket">
+      </figure>
       <div class="prose">
         <p class="dropcap">
           I was born in Alexandria and moved to Doha as a young child. My interest in art and
@@ -61,6 +96,7 @@
           Middle East and lead grants work for a STEM education nonprofit, helping good programmes
           find the funding they need.
         </p>
+      </div>
       </div>
     </section>
 
@@ -182,6 +218,26 @@
     <p>&copy; <span id="year">2026</span> Hasnaa Abdalla</p>
   </footer>
 
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Portrait: drift the map behind the sketch as the page scrolls.
+    (function () {
+      var fig = document.querySelector('.portrait');
+      if (!fig || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      var ticking = false;
+      function update() {
+        var r = fig.getBoundingClientRect(), vh = innerHeight;
+        var p = (vh - r.top) / (vh + r.height);   // 0 as it enters the screen, 1 as it leaves
+        fig.style.setProperty('--p', Math.max(0, Math.min(1, p)).toFixed(4));
+        ticking = false;
+      }
+      addEventListener('scroll', function () {
+        if (!ticking) { ticking = true; requestAnimationFrame(update); }
+      }, { passive: true });
+      addEventListener('resize', update);
+      update();
+    })();
+  </script>
 </body>
 </html>
