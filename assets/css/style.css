@@ -573,8 +573,8 @@ h3 {
   color: var(--accent) !important;
 }
 
-/* Plates: framed placeholders until real images are added.
-   To use a picture, replace the div with
+/* Plates: the picture at the top of each Selected Work card.
+   To use a picture, use
    <img class="plate" src="assets/img/..." alt="..."> */
 .plate {
   display: block;
@@ -585,6 +585,7 @@ h3 {
   outline-offset: 6px;
   margin: 7px;
   width: calc(100% - 14px);
+  height: auto;
   background-color: var(--paper-deep);
   transition: outline-offset .6s var(--ease), transform .6s var(--ease), box-shadow .6s var(--ease), outline-color .4s;
 }
@@ -594,27 +595,31 @@ h3 {
   transform: translateY(-4px);
   box-shadow: var(--shadow);
 }
-.plate--silos {
-  background-image:
-    linear-gradient(to top, var(--plate-b) 0 22%, transparent 22%),
-    repeating-linear-gradient(90deg, var(--plate-a) 0 14%, var(--plate-b) 14% 16%),
-    linear-gradient(var(--paper-deep), var(--paper-deep));
-  background-size: 100% 100%, 70% 58%, 100% 100%;
-  background-position: 0 0, 50% 78%, 0 0;
-  background-repeat: no-repeat;
+/* Alexandria's Lost Geography: an old-style map of the ancient city */
+.plate--art { overflow: hidden; background-color: var(--paper-deep); }
+.plate--art svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  transition: transform 1.2s var(--ease);
+  --map-stain: var(--paper-deep);
 }
-.plate--map {
-  background-image:
-    radial-gradient(circle at 30% 60%, transparent 0 18%, var(--plate-a) 18.5% 19%, transparent 19.5%),
-    radial-gradient(circle at 30% 60%, transparent 0 28%, var(--plate-a) 28.5% 29%, transparent 29.5%),
-    repeating-linear-gradient(0deg, transparent 0 24px, var(--rule) 24px 25px),
-    repeating-linear-gradient(90deg, transparent 0 24px, var(--rule) 24px 25px);
-  background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%;
-  transition: background-size 1.2s var(--ease), outline-offset .6s var(--ease), transform .6s var(--ease), box-shadow .6s var(--ease), outline-color .4s;
-}
-.piece:hover .plate--map {
-  background-size: 115% 115%, 108% 108%, 100% 100%, 100% 100%;
-}
+.piece:hover .plate--art svg { transform: scale(1.06); }
+.plate--art .ln { fill: none; stroke: var(--ink-soft); stroke-opacity: .55; stroke-width: 1.2; stroke-linecap: round; }
+.plate--art .fine { stroke-width: .8; stroke-opacity: .4; }
+.plate--art .sea { stroke-width: .8; stroke-opacity: .4; }
+.plate--art .rhumbs .ln { stroke-width: .6; stroke-opacity: .28; }
+.plate--art .coast { stroke: var(--accent); stroke-opacity: .8; stroke-width: 1.7; }
+.plate--art .wall { stroke-width: 1.6; stroke-opacity: .65; }
+.plate--art .lb { font-family: var(--display); font-style: italic; font-size: 19px; fill: var(--ink-soft); }
+.plate--art .small { font-size: 16px; }
+.plate--art .tiny { font-size: 13px; }
+.plate--art .caps { font-style: normal; font-size: 15px; letter-spacing: .45em; }
+.plate--art .title, .plate--art .upright { font-style: normal; font-size: 15px; }
+
+.piece .piece-credit { margin-top: .5rem; font-size: .78rem; line-height: 1.5; color: var(--ink-soft); opacity: .85; }
+.piece-credit a { color: inherit; }
+
 .plate--blank {
   display: grid;
   place-items: center;
@@ -624,6 +629,17 @@ h3 {
   color: var(--ink-soft);
   background-image: repeating-linear-gradient(135deg, transparent 0 10px, color-mix(in srgb, var(--rule) 35%, transparent) 10px 11px);
 }
+.plate--blank { position: relative; }
+.plate--blank span { position: relative; }
+.blank-arch {
+  position: absolute;
+  left: 50%; top: 50%;
+  height: 72%;
+  width: auto;
+  transform: translate(-50%, -50%);
+}
+.blank-arch path { fill: var(--paper-deep); stroke: var(--accent-soft); stroke-width: 1.2; stroke-dasharray: 4 5; }
+.blank-arch .guide { fill: none; stroke: var(--rule); stroke-width: .8; stroke-dasharray: 2 4; }
 .piece--empty { opacity: .85; }
 .piece .piece-link {
   margin-top: .6rem;
