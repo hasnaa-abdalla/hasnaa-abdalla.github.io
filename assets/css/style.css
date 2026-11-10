@@ -595,27 +595,9 @@ h3 {
   transform: translateY(-4px);
   box-shadow: var(--shadow);
 }
-/* Alexandria's Lost Geography: an old-style map of the ancient city */
-.plate--art { overflow: hidden; background-color: var(--paper-deep); }
-.plate--art svg {
-  display: block;
-  width: 100%;
-  height: 100%;
-  transition: transform 1.2s var(--ease);
-  --map-stain: var(--paper-deep);
-}
-.piece:hover .plate--art svg { transform: scale(1.06); }
-.plate--art .ln { fill: none; stroke: var(--ink-soft); stroke-opacity: .55; stroke-width: 1.2; stroke-linecap: round; }
-.plate--art .fine { stroke-width: .8; stroke-opacity: .4; }
-.plate--art .sea { stroke-width: .8; stroke-opacity: .4; }
-.plate--art .rhumbs .ln { stroke-width: .6; stroke-opacity: .28; }
-.plate--art .coast { stroke: var(--accent); stroke-opacity: .8; stroke-width: 1.7; }
-.plate--art .wall { stroke-width: 1.6; stroke-opacity: .65; }
-.plate--art .lb { font-family: var(--display); font-style: italic; font-size: 19px; fill: var(--ink-soft); }
-.plate--art .small { font-size: 16px; }
-.plate--art .tiny { font-size: 13px; }
-.plate--art .caps { font-style: normal; font-size: 15px; letter-spacing: .45em; }
-.plate--art .title, .plate--art .upright { font-style: normal; font-size: 15px; }
+/* Alexandria's Lost Geography: a historical plan of the ancient city */
+.plate--print { object-position: 50% 50%; }
+:root[data-theme="dark"] .plate--print { filter: brightness(.88); }
 
 .piece .piece-credit { margin-top: .5rem; font-size: .78rem; line-height: 1.5; color: var(--ink-soft); opacity: .85; }
 .piece-credit a { color: inherit; }
