@@ -49,6 +49,23 @@
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setMenu(false); });
   window.matchMedia('(min-width: 681px)').addEventListener('change', function (e) { if (e.matches) setMenu(false); });
 
+  /* ---- Portrait: drift the Alexandria map behind the sketch ---- */
+  var portrait = document.querySelector('.portrait');
+  if (portrait && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    var mapTicking = false;
+    var drift = function () {
+      var r = portrait.getBoundingClientRect(), vh = window.innerHeight;
+      var p = (vh - r.top) / (vh + r.height);   // 0 as it enters the screen, 1 as it leaves
+      portrait.style.setProperty('--p', Math.max(0, Math.min(1, p)).toFixed(4));
+      mapTicking = false;
+    };
+    window.addEventListener('scroll', function () {
+      if (!mapTicking) { mapTicking = true; requestAnimationFrame(drift); }
+    }, { passive: true });
+    window.addEventListener('resize', drift);
+    drift();
+  }
+
   if (!('IntersectionObserver' in window)) {
     document.querySelectorAll('.reveal, .section').forEach(function (el) { el.classList.add('is-in'); });
     return;
