@@ -44,15 +44,142 @@
     </div>
   </header>
 
-  <div class="masthead" id="top">
-    <div class="title">
-      <svg class="arch" viewBox="0 0 120 150" aria-hidden="true">
-        <path d="M10 148 V62 A50 50 0 0 1 110 62 V148" />
-        <path d="M22 148 V64 A38 38 0 0 1 98 64 V148" />
-        <text x="60" y="112" text-anchor="middle">HA</text>
-      </svg>
-      <p class="kicker">Art · Cultural Heritage · Research</p>
-      <h1>Hasnaa Abdalla</h1>
+  <div class="masthead hero" id="top">
+    <div class="hero-track">
+      <div class="hero-stage">
+        <div class="hero-sky" aria-hidden="true">
+          <!-- Alexandria skyline. Each building constructs itself as the page scrolls:
+               --p (0 to 1) is set in assets/js/main.js; each building has a start (--s)
+               and a duration (--d) on that scale. Left to right: Qaitbay Citadel, the
+               Corniche, Abu al-Abbas al-Mursi Mosque, the Bibliotheca Alexandrina and its
+               planetarium, Pompey's Pillar, Stanley Bridge. -->
+          <svg viewBox="0 0 1600 420" preserveAspectRatio="xMidYMax slice">
+            <defs><clipPath id="sky-above"><rect x="0" y="0" width="1600" height="360" /></clipPath></defs>
+            <g class="sun" clip-path="url(#sky-above)">
+              <circle class="sun-disc" cx="800" cy="300" r="170" />
+              <circle class="sun-ring" cx="800" cy="300" r="200" />
+            </g>
+            <g class="bld far" style="--s:0.500;--d:0.160">
+              <path class="fill" d="M0 360 V333 H46 V301 H97 V338 H126 V336 H186 V305 H235 V310 H264 V340 H303 V315 H334 V338 H386 V337 H427 V339 H480 V328 H513 V306 H542 V339 H593 V340 H633 V324 H667 V333 H719 V335 H779 V307 H824 V336 H861 V319 H899 V307 H931 V306 H961 V303 H990 V311 H1029 V315 H1089 V313 H1135 V319 H1190 V327 H1235 V298 H1272 V337 H1313 V309 H1358 V321 H1415 V324 H1469 V335 H1499 V316 H1557 V294 H1593 V333 H1640 V360" />
+              <path class="d" pathLength="1" d="M0 360 V333 H46 V301 H97 V338 H126 V336 H186 V305 H235 V310 H264 V340 H303 V315 H334 V338 H386 V337 H427 V339 H480 V328 H513 V306 H542 V339 H593 V340 H633 V324 H667 V333 H719 V335 H779 V307 H824 V336 H861 V319 H899 V307 H931 V306 H961 V303 H990 V311 H1029 V315 H1089 V313 H1135 V319 H1190 V327 H1235 V298 H1272 V337 H1313 V309 H1358 V321 H1415 V324 H1469 V335 H1499 V316 H1557 V294 H1593 V333 H1640 V360" />
+            </g>
+            <g class="bld " style="--s:0.020;--d:0.120">
+              <path class="guide" d="M640 360 V222 M720 360 V222 M622 250 H738" />
+              <path class="fill" d="M640 360 V250 H720 V360 Z" />
+              <path class="d" pathLength="1" d="M640 360 V250 H720 V360 Z" />
+              <path class="d dt" pathLength="1" d="M652 266 h9 v12 h-9 Z M652 288 h9 v12 h-9 Z M652 310 h9 v12 h-9 Z M652 332 h9 v12 h-9 Z M672 266 h9 v12 h-9 Z M672 288 h9 v12 h-9 Z M672 310 h9 v12 h-9 Z M672 332 h9 v12 h-9 Z M692 266 h9 v12 h-9 Z M692 288 h9 v12 h-9 Z M692 310 h9 v12 h-9 Z M692 332 h9 v12 h-9 Z" />
+            </g>
+            <g class="bld " style="--s:0.040;--d:0.120">
+              <path class="guide" d="M720 360 V257 M790 360 V257 M702 285 H808" />
+              <path class="fill" d="M720 360 V285 H790 V360 Z" />
+              <path class="d" pathLength="1" d="M720 360 V285 H790 V360 Z" />
+              <path class="d dt" pathLength="1" d="M732 310 V302.0 A4.0 4.0 0 0 1 740 302.0 V310 Z M732 330 V322.0 A4.0 4.0 0 0 1 740 322.0 V330 Z M732 350 V342.0 A4.0 4.0 0 0 1 740 342.0 V350 Z M750 310 V302.0 A4.0 4.0 0 0 1 758 302.0 V310 Z M750 330 V322.0 A4.0 4.0 0 0 1 758 322.0 V330 Z M750 350 V342.0 A4.0 4.0 0 0 1 758 342.0 V350 Z M768 310 V302.0 A4.0 4.0 0 0 1 776 302.0 V310 Z M768 330 V322.0 A4.0 4.0 0 0 1 776 322.0 V330 Z M768 350 V342.0 A4.0 4.0 0 0 1 776 342.0 V350 Z" />
+            </g>
+            <g class="bld " style="--s:0.060;--d:0.140">
+              <path class="guide" d="M790 360 V198 M880 360 V198 M772 226 H898" />
+              <path class="fill" d="M790 360 V238 H808 V226 H862 V238 H880 V360 Z" />
+              <path class="d" pathLength="1" d="M790 360 V238 H808 V226 H862 V238 H880 V360 Z" />
+              <path class="d dt" pathLength="1" d="M800 266 V256.5 A4.5 4.5 0 0 1 809 256.5 V266 Z M800 288 V278.5 A4.5 4.5 0 0 1 809 278.5 V288 Z M800 310 V300.5 A4.5 4.5 0 0 1 809 300.5 V310 Z M800 332 V322.5 A4.5 4.5 0 0 1 809 322.5 V332 Z M816 266 V256.5 A4.5 4.5 0 0 1 825 256.5 V266 Z M816 288 V278.5 A4.5 4.5 0 0 1 825 278.5 V288 Z M816 310 V300.5 A4.5 4.5 0 0 1 825 300.5 V310 Z M816 332 V322.5 A4.5 4.5 0 0 1 825 322.5 V332 Z M832 266 V256.5 A4.5 4.5 0 0 1 841 256.5 V266 Z M832 288 V278.5 A4.5 4.5 0 0 1 841 278.5 V288 Z M832 310 V300.5 A4.5 4.5 0 0 1 841 300.5 V310 Z M832 332 V322.5 A4.5 4.5 0 0 1 841 322.5 V332 Z M848 266 V256.5 A4.5 4.5 0 0 1 857 256.5 V266 Z M848 288 V278.5 A4.5 4.5 0 0 1 857 278.5 V288 Z M848 310 V300.5 A4.5 4.5 0 0 1 857 300.5 V310 Z M848 332 V322.5 A4.5 4.5 0 0 1 857 322.5 V332 Z M864 266 V256.5 A4.5 4.5 0 0 1 873 256.5 V266 Z M864 288 V278.5 A4.5 4.5 0 0 1 873 278.5 V288 Z M864 310 V300.5 A4.5 4.5 0 0 1 873 300.5 V310 Z M864 332 V322.5 A4.5 4.5 0 0 1 873 322.5 V332 Z M790 244 H880" />
+            </g>
+            <g class="bld " style="--s:0.080;--d:0.120">
+              <path class="guide" d="M880 360 V240 M960 360 V240 M862 268 H978" />
+              <path class="fill" d="M880 360 V268 H960 V360 Z" />
+              <path class="d" pathLength="1" d="M880 360 V268 H960 V360 Z" />
+              <path class="d dt" pathLength="1" d="M892 282 h9 v11 h-9 Z M892 302 h9 v11 h-9 Z M892 322 h9 v11 h-9 Z M910 282 h9 v11 h-9 Z M910 302 h9 v11 h-9 Z M910 322 h9 v11 h-9 Z M928 282 h9 v11 h-9 Z M928 302 h9 v11 h-9 Z M928 322 h9 v11 h-9 Z M946 282 h9 v11 h-9 Z M946 302 h9 v11 h-9 Z M946 322 h9 v11 h-9 Z" />
+            </g>
+            <g class="bld " style="--s:0.080;--d:0.180" transform="translate(-40 0)">
+              <path class="guide" d="M528 360 V68 M626 360 V68 M510 96 H644" />
+              <path class="fill" d="M528 360 V300 H540 V290 A10 10 0 0 1 556 290 V300 H560 V282 H566 C566 255 584 240 585 228 L585 218 L587 218 L587 228 C588 240 606 255 606 282 H612 V300 H618 V360 Z M612 360 V214 H626 V360 Z M609 214 H629 V208 H611 Z M614 208 V170 H624 V208 M610 170 H628 V165 H610 Z M615 165 V132 H623 V165 M615 132 C615 120 619 114 619 108 C619 114 623 120 623 132 Z M619 108 V96" />
+              <path class="d" pathLength="1" d="M528 360 V300 H540 V290 A10 10 0 0 1 556 290 V300 H560 V282 H566 C566 255 584 240 585 228 L585 218 L587 218 L587 228 C588 240 606 255 606 282 H612 V300 H618 V360 Z M612 360 V214 H626 V360 Z M609 214 H629 V208 H611 Z M614 208 V170 H624 V208 M610 170 H628 V165 H610 Z M615 165 V132 H623 V165 M615 132 C615 120 619 114 619 108 C619 114 623 120 623 132 Z M619 108 V96" />
+              <path class="d dt" pathLength="1" d="M534 334 V320.0 A4.0 4.0 0 0 1 542 320.0 V334 Z M550 334 V320.0 A4.0 4.0 0 0 1 558 320.0 V334 Z M566 334 V320.0 A4.0 4.0 0 0 1 574 320.0 V334 Z M582 334 V320.0 A4.0 4.0 0 0 1 590 320.0 V334 Z M598 334 V320.0 A4.0 4.0 0 0 1 606 320.0 V334 Z M560 300 H612 M570 290 H602 M619 230 V250 M619 185 V200 M619 145 V158" />
+            </g>
+            <g class="bld " style="--s:0.120;--d:0.180">
+              <path class="guide" d="M968 360 V218 M1146 360 V218 M950 246 H1164" />
+              <path class="fill" d="M968 360 V344 L1146 246 V360 Z" />
+              <path class="d" pathLength="1" d="M968 360 V344 L1146 246 V360 Z" />
+              <path class="d dt" pathLength="1" d="M968 345.8 L1146 248.3 M968 347.6 L1146 250.6 M968 349.3 L1146 252.8 M968 351.1 L1146 255.1 M968 352.9 L1146 257.4 M968 354.7 L1146 259.7 M968 356.4 L1146 262.0 M968 358.2 L1146 264.2 M984 335.2 L984 345.2 M1000 326.4 L1000 336.4 M1016 317.6 L1016 327.6 M1032 308.8 L1032 318.8 M1048 300.0 L1048 310.0 M1064 291.1 L1064 301.1 M1080 282.3 L1080 292.3 M1096 273.5 L1096 283.5 M1112 264.7 L1112 274.7 M1128 255.9 L1128 265.9 M1144 247.1 L1144 257.1 M1122 326 h3 M1069 348 h7 M1133 350 h5 M1103 344 h5 M1136 331 h7 M1118 304 h3 M1094 330 h3 M1067 346 h5 M1133 343 h6 M1096 345 h6 M1104 301 h6 M1105 310 h7 M1074 331 h3 M1087 349 h5 M1076 347 h4 M1110 325 h6 M1070 310 h6 M1111 335 h5 M1077 352 h6 M1130 317 h6 M1105 343 h6 M1089 309 h3 M1082 309 h4 M1089 300 h6 M1135 311 h5 M1096 300 h4" />
+            </g>
+            <g class="bld " style="--s:0.200;--d:0.080">
+              <path class="guide" d="M978 360 V280 M1030 360 V280 M960 308 H1048" />
+              <path class="fill" d="M978 334 A26 26 0 1 1 1030 334 A26 26 0 1 1 978 334 Z" />
+              <path class="d" pathLength="1" d="M978 334 A26 26 0 1 1 1030 334 A26 26 0 1 1 978 334 Z" />
+              <path class="d dt" pathLength="1" d="M978 334 H1030 M984 320 Q1004 314 1024 320 M984 348 Q1004 354 1024 348" />
+            </g>
+            <g class="bld " style="--s:0.400;--d:0.140" transform="translate(-250 0)">
+              <path class="guide" d="M338 360 V240 M410 360 V240 M320 268 H428" />
+              <path class="fill" d="M338 360 V268 H410 V360 Z" />
+              <path class="d" pathLength="1" d="M338 360 V268 H410 V360 Z" />
+              <path class="d dt" pathLength="1" d="M346 294 V286.5 A4.5 4.5 0 0 1 355 286.5 V294 Z M346 312 V304.5 A4.5 4.5 0 0 1 355 304.5 V312 Z M346 330 V322.5 A4.5 4.5 0 0 1 355 322.5 V330 Z M346 348 V340.5 A4.5 4.5 0 0 1 355 340.5 V348 Z M364 294 V286.5 A4.5 4.5 0 0 1 373 286.5 V294 Z M364 312 V304.5 A4.5 4.5 0 0 1 373 304.5 V312 Z M364 330 V322.5 A4.5 4.5 0 0 1 373 322.5 V330 Z M364 348 V340.5 A4.5 4.5 0 0 1 373 340.5 V348 Z M382 294 V286.5 A4.5 4.5 0 0 1 391 286.5 V294 Z M382 312 V304.5 A4.5 4.5 0 0 1 391 304.5 V312 Z M382 330 V322.5 A4.5 4.5 0 0 1 391 322.5 V330 Z M382 348 V340.5 A4.5 4.5 0 0 1 391 340.5 V348 Z M400 294 V286.5 A4.5 4.5 0 0 1 409 286.5 V294 Z M400 312 V304.5 A4.5 4.5 0 0 1 409 304.5 V312 Z M400 330 V322.5 A4.5 4.5 0 0 1 409 322.5 V330 Z M400 348 V340.5 A4.5 4.5 0 0 1 409 340.5 V348 Z M338 276 H410 M342 300 H406 M342 318 H406 M342 336 H406" />
+            </g>
+            <g class="bld " style="--s:0.430;--d:0.140" transform="translate(-250 0)">
+              <path class="guide" d="M410 360 V187 M474 360 V187 M392 215 H492" />
+              <path class="fill" d="M410 360 V240 H452 V226 A11 11 0 0 1 474 226 V360 Z M452 240 H474" />
+              <path class="d" pathLength="1" d="M410 360 V240 H452 V226 A11 11 0 0 1 474 226 V360 Z M452 240 H474" />
+              <path class="d dt" pathLength="1" d="M418 254 h8 v12 h-8 Z M418 274 h8 v12 h-8 Z M418 294 h8 v12 h-8 Z M418 314 h8 v12 h-8 Z M418 334 h8 v12 h-8 Z M434 254 h8 v12 h-8 Z M434 274 h8 v12 h-8 Z M434 294 h8 v12 h-8 Z M434 314 h8 v12 h-8 Z M434 334 h8 v12 h-8 Z M456 250 V350 M470 250 V350 M463 215 V206" />
+            </g>
+            <g class="bld " style="--s:0.460;--d:0.120" transform="translate(-250 0)">
+              <path class="guide" d="M474 360 V258 M522 360 V258 M456 286 H540" />
+              <path class="fill" d="M474 360 V286 H522 V360 Z" />
+              <path class="d" pathLength="1" d="M474 360 V286 H522 V360 Z" />
+              <path class="d dt" pathLength="1" d="M482 309 V301.5 A3.5 3.5 0 0 1 489 301.5 V309 Z M482 327 V319.5 A3.5 3.5 0 0 1 489 319.5 V327 Z M482 345 V337.5 A3.5 3.5 0 0 1 489 337.5 V345 Z M496 309 V301.5 A3.5 3.5 0 0 1 503 301.5 V309 Z M496 327 V319.5 A3.5 3.5 0 0 1 503 319.5 V327 Z M496 345 V337.5 A3.5 3.5 0 0 1 503 337.5 V345 Z M510 309 V301.5 A3.5 3.5 0 0 1 517 301.5 V309 Z M510 327 V319.5 A3.5 3.5 0 0 1 517 319.5 V327 Z M510 345 V337.5 A3.5 3.5 0 0 1 517 337.5 V345 Z" />
+            </g>
+            <g class="bld " style="--s:0.260;--d:0.120">
+              <path class="guide" d="M1179 360 V138 M1203 360 V138 M1161 166 H1221" />
+              <path class="fill" d="M1150 360 Q1190 336 1232 360 Z M1180 346 V330 H1202 V346 M1185 330 V178 H1197 V330 M1179 178 L1203 178 L1199 166 L1183 166 Z" />
+              <path class="d" pathLength="1" d="M1150 360 Q1190 336 1232 360 Z M1180 346 V330 H1202 V346 M1185 330 V178 H1197 V330 M1179 178 L1203 178 L1199 166 L1183 166 Z" />
+              <path class="d dt" pathLength="1" d="M1191 320 V190" />
+            </g>
+            <g class="bld " style="--s:0.300;--d:0.200" transform="translate(219.2 72) scale(.8)">
+              <path class="guide" d="M66 360 V126 M334 360 V126 M48 154 H352" />
+              <path class="fill" d="M66 360 V306 L66 299 L74 299 L74 306 L80 306 L80 299 L88 299 L88 306 L94 306 L94 299 L102 299 L102 306 L108 306 L108 299 L116 299 L116 306 L122 306 L122 299 L130 299 L130 306 L136 306 L136 299 L144 299 L144 306 L150 306 L150 299 L158 299 L158 306 L164 306 L164 299 L172 299 L172 306 L178 306 L178 299 L186 299 L186 306 L192 306 L192 299 L200 299 L200 306 L206 306 L206 299 L214 299 L214 306 L220 306 L220 299 L228 299 L228 306 L234 306 L234 299 L242 299 L242 306 L248 306 L248 299 L256 299 L256 306 L262 306 L262 299 L270 299 L270 306 L276 306 L276 299 L284 299 L284 306 L290 306 L290 299 L298 299 L298 306 L304 306 L304 299 L312 299 L312 306 L318 306 L318 299 L326 299 L326 306 L332 306 L334 306 V360 Z M66 360 V284 A15 15 0 0 1 96 284 V360 M304 360 V284 A15 15 0 0 1 334 284 V360 M150 306 V214 L150 208 L157 208 L157 214 L162 214 L162 208 L169 208 L169 214 L174 214 L174 208 L181 208 L181 214 L186 214 L186 208 L193 208 L193 214 L198 214 L198 208 L205 208 L205 214 L210 214 L210 208 L217 208 L217 214 L222 214 L222 208 L229 208 L229 214 L234 214 L234 208 L241 208 L241 214 L246 214 L250 214 V306 M144 306 V202 A9 9 0 0 1 162 202 V306 M238 306 V202 A9 9 0 0 1 256 202 V306 M196 214 V168 H204 V214 M192 176 H208 V172 H192 Z M197 168 L200 154 L203 168" />
+              <path class="d" pathLength="1" d="M66 360 V306 L66 299 L74 299 L74 306 L80 306 L80 299 L88 299 L88 306 L94 306 L94 299 L102 299 L102 306 L108 306 L108 299 L116 299 L116 306 L122 306 L122 299 L130 299 L130 306 L136 306 L136 299 L144 299 L144 306 L150 306 L150 299 L158 299 L158 306 L164 306 L164 299 L172 299 L172 306 L178 306 L178 299 L186 299 L186 306 L192 306 L192 299 L200 299 L200 306 L206 306 L206 299 L214 299 L214 306 L220 306 L220 299 L228 299 L228 306 L234 306 L234 299 L242 299 L242 306 L248 306 L248 299 L256 299 L256 306 L262 306 L262 299 L270 299 L270 306 L276 306 L276 299 L284 299 L284 306 L290 306 L290 299 L298 299 L298 306 L304 306 L304 299 L312 299 L312 306 L318 306 L318 299 L326 299 L326 306 L332 306 L334 306 V360 Z M66 360 V284 A15 15 0 0 1 96 284 V360 M304 360 V284 A15 15 0 0 1 334 284 V360 M150 306 V214 L150 208 L157 208 L157 214 L162 214 L162 208 L169 208 L169 214 L174 214 L174 208 L181 208 L181 214 L186 214 L186 208 L193 208 L193 214 L198 214 L198 208 L205 208 L205 214 L210 214 L210 208 L217 208 L217 214 L222 214 L222 208 L229 208 L229 214 L234 214 L234 208 L241 208 L241 214 L246 214 L250 214 V306 M144 306 V202 A9 9 0 0 1 162 202 V306 M238 306 V202 A9 9 0 0 1 256 202 V306 M196 214 V168 H204 V214 M192 176 H208 V172 H192 Z M197 168 L200 154 L203 168" />
+              <path class="d dt" pathLength="1" d="M190 360 V340.0 A10.0 10.0 0 0 1 210 340.0 V360 Z M166 236 V250 M178 236 V250 M190 236 V250 M202 236 V250 M214 236 V250 M226 236 V250 M160 276 V266.0 A4.0 4.0 0 0 1 168 266.0 V276 Z M180 276 V266.0 A4.0 4.0 0 0 1 188 266.0 V276 Z M200 276 V266.0 A4.0 4.0 0 0 1 208 266.0 V276 Z M220 276 V266.0 A4.0 4.0 0 0 1 228 266.0 V276 Z M240 276 V266.0 A4.0 4.0 0 0 1 248 266.0 V276 Z M76 300 V312 M86 300 V312 M314 300 V312 M324 300 V312" />
+            </g>
+            <g class="bld " style="--s:0.420;--d:0.200">
+              <path class="guide" d="M1236 360 V234 M1564 360 V234 M1218 262 H1582" />
+              <path class="fill" d="M1236 360 V330 H1564 V360 M1244 360 V346 A16 16 0 0 1 1276 346 V360 M1284 360 V346 A16 16 0 0 1 1316 346 V360 M1324 360 V346 A16 16 0 0 1 1356 346 V360 M1364 360 V346 A16 16 0 0 1 1396 346 V360 M1404 360 V346 A16 16 0 0 1 1436 346 V360 M1444 360 V346 A16 16 0 0 1 1476 346 V360 M1484 360 V346 A16 16 0 0 1 1516 346 V360 M1524 360 V346 A16 16 0 0 1 1556 346 V360 M1296 330 V276 L1308 262 L1320 276 V330 M1293 276 H1323 M1488 330 V276 L1500 262 L1512 276 V330 M1485 276 H1515 M1236 330 V306 L1248 292 L1260 306 V330 M1233 306 H1263 M1540 330 V306 L1552 292 L1564 306 V330 M1537 306 H1567" />
+              <path class="d" pathLength="1" d="M1236 360 V330 H1564 V360 M1244 360 V346 A16 16 0 0 1 1276 346 V360 M1284 360 V346 A16 16 0 0 1 1316 346 V360 M1324 360 V346 A16 16 0 0 1 1356 346 V360 M1364 360 V346 A16 16 0 0 1 1396 346 V360 M1404 360 V346 A16 16 0 0 1 1436 346 V360 M1444 360 V346 A16 16 0 0 1 1476 346 V360 M1484 360 V346 A16 16 0 0 1 1516 346 V360 M1524 360 V346 A16 16 0 0 1 1556 346 V360 M1296 330 V276 L1308 262 L1320 276 V330 M1293 276 H1323 M1488 330 V276 L1500 262 L1512 276 V330 M1485 276 H1515 M1236 330 V306 L1248 292 L1260 306 V330 M1233 306 H1263 M1540 330 V306 L1552 292 L1564 306 V330 M1537 306 H1567" />
+              <path class="d dt" pathLength="1" d="M1236 322 H1564 M1240 322 V330 M1250 322 V330 M1260 322 V330 M1270 322 V330 M1280 322 V330 M1290 322 V330 M1300 322 V330 M1310 322 V330 M1320 322 V330 M1330 322 V330 M1340 322 V330 M1350 322 V330 M1360 322 V330 M1370 322 V330 M1380 322 V330 M1390 322 V330 M1400 322 V330 M1410 322 V330 M1420 322 V330 M1430 322 V330 M1440 322 V330 M1450 322 V330 M1460 322 V330 M1470 322 V330 M1480 322 V330 M1490 322 V330 M1500 322 V330 M1510 322 V330 M1520 322 V330 M1530 322 V330 M1540 322 V330 M1550 322 V330 M1560 322 V330 M1302 312 V296.0 A6.0 6.0 0 0 1 1314 296.0 V312 Z M1494 312 V296.0 A6.0 6.0 0 0 1 1506 296.0 V312 Z" />
+            </g>
+            <g class="bld mid" style="--s:0.480;--d:0.120">
+              <path class="guide" d="M1330 360 V186 M1472 360 V186 M1312 214 H1490" />
+              <path class="fill" d="M1330 330 V214 H1366 V330 M1392 330 V232 H1430 V330 M1446 330 V250 H1472 V330" />
+              <path class="d" pathLength="1" d="M1330 330 V214 H1366 V330 M1392 330 V232 H1430 V330 M1446 330 V250 H1472 V330" />
+              <path class="d dt" pathLength="1" d="M1334 224 H1362 M1334 234 H1362 M1334 244 H1362 M1334 254 H1362 M1334 264 H1362 M1334 274 H1362 M1334 284 H1362 M1334 294 H1362 M1334 304 H1362 M1334 314 H1362 M1334 324 H1362 M1396 242 H1426 M1396 252 H1426 M1396 262 H1426 M1396 272 H1426 M1396 282 H1426 M1396 292 H1426 M1396 302 H1426 M1396 312 H1426 M1396 322 H1426" />
+            </g>
+            <g class="bld palm" style="--s:0.580;--d:.06">
+              <path class="d" pathLength="1" d="M70 360 Q68.4 330.0 62 300 M62.0 300.0 Q46.0 284.2 30.1 288.4 M62.0 300.0 Q53.4 277.7 44.8 275.4 M62.0 300.0 Q69.5 277.0 77.0 274.0 M62.0 300.0 Q78.0 284.2 93.9 288.4 M62.0 300.0 Q61.0 279.0 60.1 278.1 M62.0 300.0 Q49.2 292.3 36.4 304.5 M62.0 300.0 Q74.8 292.3 87.6 304.5" />
+            </g>
+            <g class="bld palm" style="--s:0.600;--d:.06">
+              <path class="d" pathLength="1" d="M268 360 Q269.2 328.0 274 296 M274.0 296.0 Q258.0 280.2 242.1 284.4 M274.0 296.0 Q265.4 273.7 256.8 271.4 M274.0 296.0 Q281.5 273.0 289.0 270.0 M274.0 296.0 Q290.0 280.2 305.9 284.4 M274.0 296.0 Q273.0 275.0 272.1 274.1 M274.0 296.0 Q261.2 288.3 248.4 300.5 M274.0 296.0 Q286.8 288.3 299.6 300.5" />
+            </g>
+            <g class="bld palm" style="--s:0.620;--d:.06">
+              <path class="d" pathLength="1" d="M1158 360 Q1156.8 331.0 1152 302 M1152.0 302.0 Q1136.0 286.2 1120.1 290.4 M1152.0 302.0 Q1143.4 279.7 1134.8 277.4 M1152.0 302.0 Q1159.5 279.0 1167.0 276.0 M1152.0 302.0 Q1168.0 286.2 1183.9 290.4 M1152.0 302.0 Q1151.0 281.0 1150.1 280.1 M1152.0 302.0 Q1139.2 294.3 1126.4 306.5 M1152.0 302.0 Q1164.8 294.3 1177.6 306.5" />
+            </g>
+            <g class="bld palm" style="--s:0.640;--d:.06">
+              <path class="d" pathLength="1" d="M1236 360 Q1237.6 335.0 1244 310 M1244.0 310.0 Q1228.0 294.2 1212.1 298.4 M1244.0 310.0 Q1235.4 287.7 1226.8 285.4 M1244.0 310.0 Q1251.5 287.0 1259.0 284.0 M1244.0 310.0 Q1260.0 294.2 1275.9 298.4 M1244.0 310.0 Q1243.0 289.0 1242.1 288.1 M1244.0 310.0 Q1231.2 302.3 1218.4 314.5 M1244.0 310.0 Q1256.8 302.3 1269.6 314.5" />
+            </g>
+            <g class="bld palm" style="--s:0.600;--d:.06">
+              <path class="d" pathLength="1" d="M930 360 Q931.0 333.0 935 306 M935.0 306.0 Q919.0 290.2 903.1 294.4 M935.0 306.0 Q926.4 283.7 917.8 281.4 M935.0 306.0 Q942.5 283.0 950.0 280.0 M935.0 306.0 Q951.0 290.2 966.9 294.4 M935.0 306.0 Q934.0 285.0 933.1 284.1 M935.0 306.0 Q922.2 298.3 909.4 310.5 M935.0 306.0 Q947.8 298.3 960.6 310.5" />
+            </g>
+            <g class="bld palm" style="--s:0.610;--d:.06">
+              <path class="d" pathLength="1" d="M660 360 Q659.0 335.0 655 310 M655.0 310.0 Q639.0 294.2 623.1 298.4 M655.0 310.0 Q646.4 287.7 637.8 285.4 M655.0 310.0 Q662.5 287.0 670.0 284.0 M655.0 310.0 Q671.0 294.2 686.9 298.4 M655.0 310.0 Q654.0 289.0 653.1 288.1 M655.0 310.0 Q642.2 302.3 629.4 314.5 M655.0 310.0 Q667.8 302.3 680.6 314.5" />
+            </g>
+            <path class="ground" pathLength="1" d="M0 360 H1600" />
+            <path class="waves" pathLength="1" d="M858 406 q7 -4 14 0 t14 0 M1248 408 q6 -4 13 0 t13 0 M257 404 q9 -4 18 0 t18 0 M1341 375 q8 -4 15 0 t15 0 M1393 407 q7 -4 14 0 t14 0 M815 397 q7 -4 14 0 t14 0 M212 402 q9 -4 18 0 t18 0 M820 375 q6 -4 11 0 t11 0 M137 385 q8 -4 15 0 t15 0 M332 379 q6 -4 13 0 t13 0 M1230 375 q5 -4 10 0 t10 0 M0 408 q5 -4 10 0 t10 0 M1098 378 q7 -4 14 0 t14 0 M1256 373 q4 -4 9 0 t9 0 M425 411 q7 -4 14 0 t14 0 M304 412 q6 -4 12 0 t12 0 M711 410 q7 -4 14 0 t14 0 M971 379 q5 -4 10 0 t10 0 M999 401 q8 -4 16 0 t16 0 M990 391 q4 -4 9 0 t9 0 M295 378 q10 -4 20 0 t20 0 M701 388 q8 -4 16 0 t16 0 M1417 382 q8 -4 16 0 t16 0 M47 385 q8 -4 16 0 t16 0 M740 381 q10 -4 19 0 t19 0 M1112 373 q10 -4 20 0 t20 0 M1081 391 q9 -4 18 0 t18 0 M186 388 q8 -4 16 0 t16 0 M751 382 q7 -4 14 0 t14 0 M456 406 q8 -4 16 0 t16 0 M1029 393 q9 -4 18 0 t18 0 M456 411 q10 -4 20 0 t20 0 M399 387 q7 -4 14 0 t14 0 M1515 386 q6 -4 11 0 t11 0 M1060 403 q7 -4 14 0 t14 0 M1497 373 q4 -4 8 0 t8 0 M572 402 q6 -4 12 0 t12 0 M396 410 q7 -4 14 0 t14 0 M915 394 q7 -4 14 0 t14 0 M164 386 q5 -4 10 0 t10 0 M464 402 q6 -4 11 0 t11 0 M691 385 q8 -4 16 0 t16 0 M1278 411 q4 -4 8 0 t8 0 M981 394 q9 -4 18 0 t18 0 M173 379 q7 -4 14 0 t14 0 M1457 384 q8 -4 16 0 t16 0" />
+            <path class="birds" d="M700 150 q6 -6 12 0 q6 -6 12 0 M742 128 q5 -5 10 0 q5 -5 10 0 M668 120 q4 -4 8 0 q4 -4 8 0" />
+          </svg>
+        </div>
+        <div class="hero-head">
+          <p class="kicker">Art · Cultural Heritage · Research</p>
+          <h1>Hasnaa Abdalla</h1>
+        </div>
+        <img class="hero-photo" src="assets/img/portrait-photo.webp" width="900" height="900"
+             alt="Photograph of Hasnaa Abdalla, smiling, with long curly hair and a black blazer">
+        <p class="hero-cue" aria-hidden="true">Scroll</p>
+      </div>
+    </div>
+    <div class="title hero-after">
       <p class="lede">
         Heritage researcher and grants lead, working between the Arab world and Europe
         on memory, reconstruction and the institutions that care for culture.
@@ -65,125 +192,6 @@
 
     <section id="about" class="section">
       <h2><span class="num">I.</span> About</h2>
-      <div class="about">
-      <figure class="portrait reveal">
-        <div class="portrait-map" aria-hidden="true">
-          <!-- An old map of ancient Alexandria that draws itself as the page scrolls.
-               Each line has its own start (--s) and duration (--d); --p is set in assets/js/main.js. -->
-          <svg viewBox="0 0 600 690" preserveAspectRatio="xMidYMid meet">
-            <defs>
-              <clipPath id="map-inner"><rect x="22" y="22" width="556" height="646" /></clipPath>
-              <clipPath id="map-wall"><path d="M60 262 C120 250 200 248 296 252 C400 250 480 254 545 266 C560 330 555 420 530 470 C420 490 180 492 75 470 C50 400 50 320 60 262 Z" /></clipPath>
-              <clipPath id="map-lake"><path d="M30 560 C90 535 200 548 300 545 C400 542 500 540 572 556 C580 600 570 640 540 655 C420 668 180 668 60 655 C30 630 22 590 30 560 Z" /></clipPath>
-              <radialGradient id="map-stain" cx="50%" cy="45%" r="70%">
-                <stop offset="0" stop-color="var(--paper)" stop-opacity="0" />
-                <stop offset="1" stop-color="var(--map-stain)" stop-opacity=".9" />
-              </radialGradient>
-            </defs>
-            <rect class="sheet" x="12" y="12" width="576" height="666" fill="url(#map-stain)" />
-            <rect class="d" pathLength="1" x="12" y="12" width="576" height="666" style="--s:0.020;--d:0.120" />
-            <rect class="d" pathLength="1" x="22" y="22" width="556" height="646" style="--s:0.050;--d:0.120" />
-            <path class="d fine" pathLength="1" d="M42 12 V22 M42 668 V678 M62 12 V22 M62 668 V678 M82 12 V22 M82 668 V678 M102 12 V22 M102 668 V678 M122 12 V22 M122 668 V678 M142 12 V22 M142 668 V678 M162 12 V22 M162 668 V678 M182 12 V22 M182 668 V678 M202 12 V22 M202 668 V678 M222 12 V22 M222 668 V678 M242 12 V22 M242 668 V678 M262 12 V22 M262 668 V678 M282 12 V22 M282 668 V678 M302 12 V22 M302 668 V678 M322 12 V22 M322 668 V678 M342 12 V22 M342 668 V678 M362 12 V22 M362 668 V678 M382 12 V22 M382 668 V678 M402 12 V22 M402 668 V678 M422 12 V22 M422 668 V678 M442 12 V22 M442 668 V678 M462 12 V22 M462 668 V678 M482 12 V22 M482 668 V678 M502 12 V22 M502 668 V678 M522 12 V22 M522 668 V678 M542 12 V22 M542 668 V678 M562 12 V22 M562 668 V678 M12 42 H22 M578 42 H588 M12 62 H22 M578 62 H588 M12 82 H22 M578 82 H588 M12 102 H22 M578 102 H588 M12 122 H22 M578 122 H588 M12 142 H22 M578 142 H588 M12 162 H22 M578 162 H588 M12 182 H22 M578 182 H588 M12 202 H22 M578 202 H588 M12 222 H22 M578 222 H588 M12 242 H22 M578 242 H588 M12 262 H22 M578 262 H588 M12 282 H22 M578 282 H588 M12 302 H22 M578 302 H588 M12 322 H22 M578 322 H588 M12 342 H22 M578 342 H588 M12 362 H22 M578 362 H588 M12 382 H22 M578 382 H588 M12 402 H22 M578 402 H588 M12 422 H22 M578 422 H588 M12 442 H22 M578 442 H588 M12 462 H22 M578 462 H588 M12 482 H22 M578 482 H588 M12 502 H22 M578 502 H588 M12 522 H22 M578 522 H588 M12 542 H22 M578 542 H588 M12 562 H22 M578 562 H588 M12 582 H22 M578 582 H588 M12 602 H22 M578 602 H588 M12 622 H22 M578 622 H588 M12 642 H22 M578 642 H588 M12 662 H22 M578 662 H588" style="--s:0.100;--d:0.100" />
-            <g clip-path="url(#map-inner)" class="rhumbs">
-              <line class="d" pathLength="1" x1="74" y1="168" x2="74.0" y2="-732.0" style="--s:0.120;--d:0.160" />
-              <line class="d" pathLength="1" x1="74" y1="168" x2="418.4" y2="-663.5" style="--s:0.124;--d:0.160" />
-              <line class="d" pathLength="1" x1="74" y1="168" x2="710.4" y2="-468.4" style="--s:0.128;--d:0.160" />
-              <line class="d" pathLength="1" x1="74" y1="168" x2="905.5" y2="-176.4" style="--s:0.132;--d:0.160" />
-              <line class="d" pathLength="1" x1="74" y1="168" x2="974.0" y2="168.0" style="--s:0.136;--d:0.160" />
-              <line class="d" pathLength="1" x1="74" y1="168" x2="905.5" y2="512.4" style="--s:0.140;--d:0.160" />
-              <line class="d" pathLength="1" x1="74" y1="168" x2="710.4" y2="804.4" style="--s:0.144;--d:0.160" />
-              <line class="d" pathLength="1" x1="74" y1="168" x2="418.4" y2="999.5" style="--s:0.148;--d:0.160" />
-              <line class="d" pathLength="1" x1="74" y1="168" x2="74.0" y2="1068.0" style="--s:0.152;--d:0.160" />
-              <line class="d" pathLength="1" x1="74" y1="168" x2="-270.4" y2="999.5" style="--s:0.156;--d:0.160" />
-              <line class="d" pathLength="1" x1="74" y1="168" x2="-562.4" y2="804.4" style="--s:0.160;--d:0.160" />
-              <line class="d" pathLength="1" x1="74" y1="168" x2="-757.5" y2="512.4" style="--s:0.164;--d:0.160" />
-              <line class="d" pathLength="1" x1="74" y1="168" x2="-826.0" y2="168.0" style="--s:0.168;--d:0.160" />
-              <line class="d" pathLength="1" x1="74" y1="168" x2="-757.5" y2="-176.4" style="--s:0.172;--d:0.160" />
-              <line class="d" pathLength="1" x1="74" y1="168" x2="-562.4" y2="-468.4" style="--s:0.176;--d:0.160" />
-              <line class="d" pathLength="1" x1="74" y1="168" x2="-270.4" y2="-663.5" style="--s:0.180;--d:0.160" />
-            </g>
-            <path class="d sea" pathLength="1" transform="translate(0 -11)" d="M12 232 C60 220 90 250 130 240 C170 230 190 205 230 210 C255 213 262 236 290 238 L310 238 C340 236 350 205 385 205 C425 205 440 240 480 236 C520 232 550 214 588 222" style="--s:0.195;--d:.16;opacity:0.90" />
-            <path class="d sea" pathLength="1" transform="translate(0 -22)" d="M12 232 C60 220 90 250 130 240 C170 230 190 205 230 210 C255 213 262 236 290 238 L310 238 C340 236 350 205 385 205 C425 205 440 240 480 236 C520 232 550 214 588 222" style="--s:0.210;--d:.16;opacity:0.80" />
-            <path class="d sea" pathLength="1" transform="translate(0 -33)" d="M12 232 C60 220 90 250 130 240 C170 230 190 205 230 210 C255 213 262 236 290 238 L310 238 C340 236 350 205 385 205 C425 205 440 240 480 236 C520 232 550 214 588 222" style="--s:0.225;--d:.16;opacity:0.70" />
-            <path class="d sea" pathLength="1" transform="translate(0 -44)" d="M12 232 C60 220 90 250 130 240 C170 230 190 205 230 210 C255 213 262 236 290 238 L310 238 C340 236 350 205 385 205 C425 205 440 240 480 236 C520 232 550 214 588 222" style="--s:0.240;--d:.16;opacity:0.60" />
-            <path class="d sea" pathLength="1" transform="translate(0 -55)" d="M12 232 C60 220 90 250 130 240 C170 230 190 205 230 210 C255 213 262 236 290 238 L310 238 C340 236 350 205 385 205 C425 205 440 240 480 236 C520 232 550 214 588 222" style="--s:0.255;--d:.16;opacity:0.50" />
-            <path class="d sea" pathLength="1" transform="translate(0 -66)" d="M12 232 C60 220 90 250 130 240 C170 230 190 205 230 210 C255 213 262 236 290 238 L310 238 C340 236 350 205 385 205 C425 205 440 240 480 236 C520 232 550 214 588 222" style="--s:0.270;--d:.16;opacity:0.40" />
-            <path class="d sea" pathLength="1" transform="translate(0 -77)" d="M12 232 C60 220 90 250 130 240 C170 230 190 205 230 210 C255 213 262 236 290 238 L310 238 C340 236 350 205 385 205 C425 205 440 240 480 236 C520 232 550 214 588 222" style="--s:0.285;--d:.16;opacity:0.30" />
-            <path class="d coast" pathLength="1" d="M12 232 C60 220 90 250 130 240 C170 230 190 205 230 210 C255 213 262 236 290 238 L310 238 C340 236 350 205 385 205 C425 205 440 240 480 236 C520 232 550 214 588 222" style="--s:0.160;--d:0.180" />
-            <path class="d coast" pathLength="1" d="M240 98 C250 82 300 80 345 88 C370 92 372 108 350 112 C310 118 262 116 245 110 Z" style="--s:0.220;--d:0.100" />
-            <path class="d" pathLength="1" d="M296 114 V238 M304 114 V238" style="--s:0.280;--d:0.080" />
-            <path class="d" pathLength="1" d="M356 104 V88 L360 82 L364 88 V104 Z" style="--s:0.300;--d:0.050" />
-            <path class="d wall" pathLength="1" d="M60 262 C120 250 200 248 296 252 C400 250 480 254 545 266 C560 330 555 420 530 470 C420 490 180 492 75 470 C50 400 50 320 60 262 Z" style="--s:0.300;--d:0.160" />
-            <g clip-path="url(#map-wall)">
-              <line class="d fine" pathLength="1" x1="70" y1="240" x2="76" y2="500" style="--s:0.360;--d:0.100" />
-              <line class="d fine" pathLength="1" x1="100" y1="240" x2="106" y2="500" style="--s:0.366;--d:0.100" />
-              <line class="d fine" pathLength="1" x1="130" y1="240" x2="136" y2="500" style="--s:0.372;--d:0.100" />
-              <line class="d fine" pathLength="1" x1="160" y1="240" x2="166" y2="500" style="--s:0.378;--d:0.100" />
-              <line class="d fine" pathLength="1" x1="190" y1="240" x2="196" y2="500" style="--s:0.384;--d:0.100" />
-              <line class="d fine" pathLength="1" x1="220" y1="240" x2="226" y2="500" style="--s:0.390;--d:0.100" />
-              <line class="d fine" pathLength="1" x1="250" y1="240" x2="256" y2="500" style="--s:0.396;--d:0.100" />
-              <line class="d fine" pathLength="1" x1="280" y1="240" x2="286" y2="500" style="--s:0.402;--d:0.100" />
-              <line class="d fine" pathLength="1" x1="310" y1="240" x2="316" y2="500" style="--s:0.408;--d:0.100" />
-              <line class="d fine" pathLength="1" x1="340" y1="240" x2="346" y2="500" style="--s:0.414;--d:0.100" />
-              <line class="d fine" pathLength="1" x1="370" y1="240" x2="376" y2="500" style="--s:0.420;--d:0.100" />
-              <line class="d fine" pathLength="1" x1="400" y1="240" x2="406" y2="500" style="--s:0.426;--d:0.100" />
-              <line class="d fine" pathLength="1" x1="430" y1="240" x2="436" y2="500" style="--s:0.432;--d:0.100" />
-              <line class="d fine" pathLength="1" x1="460" y1="240" x2="466" y2="500" style="--s:0.438;--d:0.100" />
-              <line class="d fine" pathLength="1" x1="490" y1="240" x2="496" y2="500" style="--s:0.444;--d:0.100" />
-              <line class="d fine" pathLength="1" x1="520" y1="240" x2="526" y2="500" style="--s:0.450;--d:0.100" />
-              <line class="d fine" pathLength="1" x1="40" y1="278" x2="570" y2="272" style="--s:0.380;--d:0.100" />
-              <line class="d fine" pathLength="1" x1="40" y1="304" x2="570" y2="298" style="--s:0.388;--d:0.100" />
-              <line class="d fine" pathLength="1" x1="40" y1="330" x2="570" y2="324" style="--s:0.396;--d:0.100" />
-              <line class="d fine" pathLength="1" x1="40" y1="356" x2="570" y2="350" style="--s:0.404;--d:0.100" />
-              <line class="d fine" pathLength="1" x1="40" y1="382" x2="570" y2="376" style="--s:0.412;--d:0.100" />
-              <line class="d fine" pathLength="1" x1="40" y1="408" x2="570" y2="402" style="--s:0.420;--d:0.100" />
-              <line class="d fine" pathLength="1" x1="40" y1="434" x2="570" y2="428" style="--s:0.428;--d:0.100" />
-              <line class="d fine" pathLength="1" x1="40" y1="460" x2="570" y2="454" style="--s:0.436;--d:0.100" />
-              <line class="d fine" pathLength="1" x1="40" y1="486" x2="570" y2="480" style="--s:0.444;--d:0.100" />
-              <line class="d main-road" pathLength="1" x1="40" y1="362" x2="570" y2="352" style="--s:0.400;--d:0.120" />
-            </g>
-            <path class="d" pathLength="1" d="M150 548 C135 500 120 440 110 380 C100 320 95 280 100 245" style="--s:0.420;--d:0.100" />
-            <path class="d coast" pathLength="1" d="M30 560 C90 535 200 548 300 545 C400 542 500 540 572 556 C580 600 570 640 540 655 C420 668 180 668 60 655 C30 630 22 590 30 560 Z" style="--s:0.440;--d:0.140" />
-            <g clip-path="url(#map-lake)">
-              <line class="d fine" pathLength="1" x1="20" y1="566" x2="590" y2="566" style="--s:0.480;--d:0.080" />
-              <line class="d fine" pathLength="1" x1="20" y1="575" x2="590" y2="575" style="--s:0.486;--d:0.080" />
-              <line class="d fine" pathLength="1" x1="20" y1="584" x2="590" y2="584" style="--s:0.492;--d:0.080" />
-              <line class="d fine" pathLength="1" x1="20" y1="593" x2="590" y2="593" style="--s:0.498;--d:0.080" />
-              <line class="d fine" pathLength="1" x1="20" y1="602" x2="590" y2="602" style="--s:0.504;--d:0.080" />
-              <line class="d fine" pathLength="1" x1="20" y1="611" x2="590" y2="611" style="--s:0.510;--d:0.080" />
-              <line class="d fine" pathLength="1" x1="20" y1="620" x2="590" y2="620" style="--s:0.516;--d:0.080" />
-              <line class="d fine" pathLength="1" x1="20" y1="629" x2="590" y2="629" style="--s:0.522;--d:0.080" />
-              <line class="d fine" pathLength="1" x1="20" y1="638" x2="590" y2="638" style="--s:0.528;--d:0.080" />
-              <line class="d fine" pathLength="1" x1="20" y1="647" x2="590" y2="647" style="--s:0.534;--d:0.080" />
-              <line class="d fine" pathLength="1" x1="20" y1="656" x2="590" y2="656" style="--s:0.540;--d:0.080" />
-              <line class="d fine" pathLength="1" x1="20" y1="665" x2="590" y2="665" style="--s:0.546;--d:0.080" />
-            </g>
-            <g class="rose" transform="translate(74 168)">
-              <circle class="d" pathLength="1" r="36" style="--s:0.140;--d:0.100" />
-              <circle class="d fine" pathLength="1" r="30" style="--s:0.160;--d:0.100" />
-              <path class="d" pathLength="1" d="M21.2 -21.2 L4.2 4.2 L-21.2 21.2 L-4.2 -4.2 Z M21.2 21.2 L-4.2 4.2 L-21.2 -21.2 L4.2 -4.2 Z" style="--s:0.180;--d:0.080" />
-              <path class="d coast" pathLength="1" d="M0 -48 L7 0 L0 48 L-7 0 Z M-48 0 L0 -7 L48 0 L0 7 Z" style="--s:0.200;--d:0.100" />
-              <text class="t upright" y="-54" text-anchor="middle" style="--s:0.240;--d:0.060">N</text>
-            </g>
-            <path class="d" pathLength="1" d="M494 600 V612 M574 600 V612 M494 606 h16 M510 606 h16 M526 606 h16 M542 606 h16 M558 606 h16" style="--s:0.500;--d:0.060" />
-            <path class="d fine" pathLength="1" d="M494 602 H574 M494 610 H574 M510 602 V610 M526 602 V610 M542 602 V610 M558 602 V610" style="--s:0.520;--d:0.060" />
-            <text class="t tiny" x="534" y="630" text-anchor="middle" style="--s:0.540;--d:0.060">Stadia</text>
-            <rect class="d" pathLength="1" x="186" y="645" width="228" height="30" rx="15" style="--s:0.520;--d:0.080" />
-            <rect class="d fine" pathLength="1" x="192" y="649" width="216" height="22" rx="11" style="--s:0.540;--d:0.080" />
-            <text class="t title" x="300" y="666" text-anchor="middle" style="--s:0.580;--d:0.060">ALEXANDRIA</text>
-            <text class="t caps" x="300" y="54" text-anchor="middle" style="--s:0.300;--d:0.080">MARE MEDITERRANEUM</text>
-            <text class="t" x="374" y="90" style="--s:0.320;--d:0.060">Pharos</text>
-            <text class="t small" x="498" y="186" style="--s:0.360;--d:0.060">Portus</text>
-            <text class="t small" x="498" y="202" style="--s:0.370;--d:0.060">Magnus</text>
-            <text class="t small" x="28" y="226" style="--s:0.380;--d:0.060">Eunostos</text>
-            <text class="t small" x="494" y="344" style="--s:0.440;--d:0.060">Via Canopica</text>
-            <text class="t small" x="34" y="606" style="--s:0.520;--d:0.060">Lacus</text>
-            <text class="t small" x="34" y="622" style="--s:0.530;--d:0.060">Mareotis</text>
-          </svg>
-        </div>
-        <img class="portrait-photo" src="assets/img/portrait-photo.webp" width="900" height="900"
-             alt="Photograph of Hasnaa Abdalla, smiling, with long curly hair and a black blazer">
-      </figure>
       <div class="prose reveal">
         <p class="dropcap">
           I was born in Alexandria and moved to Doha as a young child. My interest in art and
@@ -198,7 +206,6 @@
           Middle East and lead grants work for a STEM education nonprofit, helping good programmes
           find the funding they need.
         </p>
-      </div>
       </div>
     </section>
 
