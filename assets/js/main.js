@@ -49,21 +49,24 @@
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setMenu(false); });
   window.matchMedia('(min-width: 681px)').addEventListener('change', function (e) { if (e.matches) setMenu(false); });
 
-  /* ---- Portrait: drift the Alexandria map behind the sketch ---- */
-  var portrait = document.querySelector('.portrait');
-  if (portrait && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    var mapTicking = false;
-    var drift = function () {
-      var r = portrait.getBoundingClientRect(), vh = window.innerHeight;
-      var p = (vh - r.top) / (vh + r.height);   // 0 as it enters the screen, 1 as it leaves
-      portrait.style.setProperty('--p', Math.max(0, Math.min(1, p)).toFixed(4));
-      mapTicking = false;
+  /* ---- Hero: the Alexandria skyline constructs itself as you scroll ---- */
+  var hero = document.querySelector('.hero');
+  var track = hero && hero.querySelector('.hero-track');
+  if (track && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    hero.classList.add('is-scrolly');
+    var heroTicking = false;
+    var build = function () {
+      var r = track.getBoundingClientRect();
+      var dist = r.height - window.innerHeight;          // how far the stage stays pinned
+      var p = dist > 0 ? -r.top / dist : 1;
+      hero.style.setProperty('--p', Math.max(0, Math.min(1, p)).toFixed(4));
+      heroTicking = false;
     };
     window.addEventListener('scroll', function () {
-      if (!mapTicking) { mapTicking = true; requestAnimationFrame(drift); }
+      if (!heroTicking) { heroTicking = true; requestAnimationFrame(build); }
     }, { passive: true });
-    window.addEventListener('resize', drift);
-    drift();
+    window.addEventListener('resize', build);
+    build();
   }
 
   if (!('IntersectionObserver' in window)) {
