@@ -1,0 +1,241 @@
+{
+  "type": "FeatureCollection",
+  "name": "alexandria_heritage_sites",
+  "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [29.8856, 31.2140] },
+      "properties": {
+        "id": "qaitbay",
+        "name": "Citadel of Qaitbay",
+        "name_ar": "قلعة قايتباي",
+        "status": "standing",
+        "district": "Eastern Harbour / Pharos peninsula",
+        "built": "1477–1479",
+        "lost": null,
+        "summary": "Mamluk fort raised by Sultan al-Ashraf Qaitbay on the site of the ancient Pharos lighthouse, reusing stone from its ruins.",
+        "story": "The citadel is the clearest case in the city of one landmark standing on top of another. Maps from every period show this point, but they disagree about what stands on it.",
+        "sources": ["Description de l'Égypte, État moderne (1809–1828)"],
+        "precision": "approximate",
+        "verified": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [29.8964, 31.1825] },
+      "properties": {
+        "id": "serapeum",
+        "name": "Serapeum and 'Pompey's Pillar'",
+        "name_ar": "عمود السواري والسرابيوم",
+        "status": "altered",
+        "district": "Karmouz",
+        "built": "Column c. 297 CE; temple Ptolemaic",
+        "lost": "Temple destroyed 391 CE",
+        "summary": "A Roman victory column raised for Diocletian, still standing on the hill of the Serapeum, the temple of Serapis destroyed in 391.",
+        "story": "Its popular name is a medieval mistake. The column survived, and the temple it stood among became an archaeological site.",
+        "sources": [],
+        "precision": "approximate",
+        "verified": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [29.9045, 31.1945] },
+      "properties": {
+        "id": "kom-el-dikka",
+        "name": "Kom el-Dikka",
+        "name_ar": "كوم الدكة",
+        "status": "standing",
+        "district": "City centre",
+        "built": "Roman to late antique",
+        "lost": null,
+        "summary": "A Roman theatre (or odeon), with baths and lecture halls, found in the 1960s on ground that had been cleared for new building.",
+        "story": "A site that was lost and then found again. It survived because it lay buried under the city, and it came back to light because of construction work.",
+        "sources": [],
+        "precision": "approximate",
+        "verified": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [29.8929, 31.1785] },
+      "properties": {
+        "id": "kom-el-shoqafa",
+        "name": "Catacombs of Kom el-Shoqafa",
+        "name_ar": "مقابر كوم الشقافة",
+        "status": "standing",
+        "district": "Karmouz",
+        "built": "c. 2nd century CE",
+        "lost": null,
+        "summary": "A multi-level rock-cut tomb complex that mixes Egyptian, Greek and Roman forms. It was rediscovered in 1900.",
+        "story": "The usual story is that a donkey fell through the ground into the shaft. Worth tracing who first told it, and where.",
+        "sources": [],
+        "precision": "approximate",
+        "verified": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [29.9035, 31.2015] },
+      "properties": {
+        "id": "cleopatras-needles",
+        "name": "Site of 'Cleopatra's Needles'",
+        "name_ar": "موقع مسلتي كليوباترا",
+        "status": "removed",
+        "district": "Raml Station",
+        "built": "Re-erected here c. 13 BCE",
+        "lost": "Removed 1877–1881",
+        "summary": "Two obelisks of Thutmose III, brought from Heliopolis to stand in front of the Caesareum. One was taken to London in 1877–78 and the other to New York in 1880–81.",
+        "story": "Here the loss happened by moving things away, not by knocking them down. The monuments still exist, in two other cities, and only the old maps keep this spot.",
+        "sources": [],
+        "precision": "approximate",
+        "verified": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [29.8955, 31.1995] },
+      "properties": {
+        "id": "manshiyya",
+        "name": "Place des Consuls / Midan al-Manshiyya",
+        "name_ar": "ميدان المنشية",
+        "status": "altered",
+        "district": "Manshiyya",
+        "built": "19th century",
+        "lost": "Heavily damaged 1882",
+        "summary": "The consular square at the heart of the 19th-century city, with the equestrian statue of Muhammad Ali. It was badly damaged in the British bombardment of 1882 and later rebuilt.",
+        "story": "The square has been destroyed and rebuilt more than once. Comparing plans from before and after 1882 is one of the first map tasks.",
+        "sources": [],
+        "precision": "approximate",
+        "verified": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [29.8975, 31.1990] },
+      "properties": {
+        "id": "bourse",
+        "name": "Alexandria Stock Exchange (Bourse)",
+        "name_ar": "بورصة الإسكندرية",
+        "status": "lost",
+        "district": "Manshiyya",
+        "built": "Late 19th century (date to confirm)",
+        "lost": "Burned 1977; later demolished (to confirm)",
+        "summary": "The exchange building on the Manshiyya square. Accounts say it was set on fire during the unrest of January 1977 and later pulled down.",
+        "story": "Needs a firm building date, the architect, and the date it was demolished, all from primary sources.",
+        "sources": [],
+        "precision": "approximate",
+        "verified": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [29.9004, 31.2005] },
+      "properties": {
+        "id": "cecil",
+        "name": "Cecil Hotel",
+        "name_ar": "فندق سيسيل",
+        "status": "altered",
+        "district": "Saad Zaghloul Square",
+        "built": "1929",
+        "lost": null,
+        "summary": "A seafront hotel on Saad Zaghloul Square, one of the city's best-known interwar landmarks. It has been renovated and is still in use.",
+        "story": "Written about more than almost any other building in the city. Compare the literary hotel with the one on the plans.",
+        "sources": [],
+        "precision": "approximate",
+        "verified": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [29.9030, 31.1977] },
+      "properties": {
+        "id": "eliyahu-hanavi",
+        "name": "Eliyahu Hanavi Synagogue",
+        "name_ar": "معبد إلياهو هانبي",
+        "status": "standing",
+        "district": "Nabi Daniel Street",
+        "built": "Rebuilt 1850",
+        "lost": null,
+        "summary": "The great synagogue on Nabi Daniel Street, rebuilt in the mid-19th century. After a major restoration it reopened in 2020.",
+        "story": "A building that still stands although the community that used it has almost entirely left. A different kind of loss.",
+        "sources": [],
+        "precision": "approximate",
+        "verified": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [29.9105, 31.1975] },
+      "properties": {
+        "id": "sayed-darwish",
+        "name": "Sayed Darwish Theatre",
+        "name_ar": "مسرح سيد درويش",
+        "status": "standing",
+        "district": "Fouad Street",
+        "built": "1918–1921",
+        "lost": null,
+        "summary": "Opened as the Teatro Mohamed Ali on the old Canopic Way. Later renamed after the Alexandrian composer Sayed Darwish, and restored in the 2000s.",
+        "story": "Confirm the year of the renaming and who the architect was.",
+        "sources": [],
+        "precision": "approximate",
+        "verified": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [29.9095, 31.2000] },
+      "properties": {
+        "id": "graeco-roman-museum",
+        "name": "Graeco-Roman Museum",
+        "name_ar": "المتحف اليوناني الروماني",
+        "status": "standing",
+        "district": "Mathaf Street",
+        "built": "1895",
+        "lost": null,
+        "summary": "The city's museum of antiquities, in its neoclassical building since 1895. It reopened in 2023 after a long closure.",
+        "story": "The institution that collected objects from the lost sites. Its archives are a likely source in their own right.",
+        "sources": [],
+        "precision": "approximate",
+        "verified": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "id": "villa-aghion",
+        "name": "Villa Aghion",
+        "name_ar": "فيلا أجيون",
+        "status": "lost",
+        "district": "To confirm",
+        "built": "1920s",
+        "lost": "Demolished 2016",
+        "summary": "A modernist villa by Auguste and Gustave Perret. It was demolished in 2016 although it was on the list of protected buildings.",
+        "story": "The case that best shows the gap between legal protection and what actually survives. Not yet placed on the map: the plot needs to be found on a cadastral sheet.",
+        "sources": [],
+        "precision": "unlocated",
+        "verified": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "id": "villa-ambron",
+        "name": "Villa Ambron",
+        "name_ar": "فيلا أمبرون",
+        "status": "threatened",
+        "district": "Moharram Bey",
+        "built": "Early 20th century",
+        "lost": "Partial demolition reported 2017 (to confirm)",
+        "summary": "A villa in Moharram Bey, known for its literary associations, including Lawrence Durrell's years in the city. Its condition and legal status are both disputed.",
+        "story": "Not yet placed on the map. Find the plot, and note what is currently left of the building.",
+        "sources": [],
+        "precision": "unlocated",
+        "verified": false
+      }
+    }
+  ]
+}
