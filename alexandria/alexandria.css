@@ -1,0 +1,207 @@
+/* Alexandria's Lost Geography — project page.
+   Builds on ../assets/css/style.css; only adds what the atlas needs. */
+
+:root {
+  --st-standing: #4f6b4a;   /* verdigris green */
+  --st-altered: #b08a3e;    /* ochre */
+  --st-threatened: #c0622f; /* burnt orange */
+  --st-lost: #8a2f2f;       /* oxblood */
+  --st-removed: #2f4a6b;    /* lapis */
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --st-standing: #8fb486;
+    --st-altered: #d9b468;
+    --st-threatened: #e58c5c;
+    --st-lost: #d9736f;
+    --st-removed: #9fb7d4;
+  }
+}
+
+.masthead--project .title { margin-top: 3rem; }
+.project-title { font-size: clamp(2.4rem, 7.5vw, 4.4rem); }
+.title-ar {
+  margin: -.25rem 0 1.25rem;
+  font-family: "Amiri", serif;
+  font-size: 1.5rem;
+  color: var(--accent);
+}
+
+/* ---------- Status dots & filter chips ---------- */
+
+.dot {
+  display: inline-block;
+  width: .7em; height: .7em;
+  border-radius: 50%;
+  margin-right: .45em;
+  vertical-align: .02em;
+  border: 1px solid var(--paper);
+  box-shadow: 0 0 0 1px currentColor;
+}
+.dot--standing   { background: var(--st-standing);   color: var(--st-standing); }
+.dot--altered    { background: var(--st-altered);    color: var(--st-altered); }
+.dot--threatened { background: var(--st-threatened); color: var(--st-threatened); }
+.dot--lost       { background: var(--st-lost);       color: var(--st-lost); }
+.dot--removed    { background: var(--st-removed);    color: var(--st-removed); }
+
+.filters { display: flex; flex-wrap: wrap; gap: .5rem; margin: 1.25rem 0 1.5rem; }
+.chip {
+  font: inherit;
+  font-family: var(--display);
+  font-size: .95rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  background: transparent;
+  color: var(--ink-soft);
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  padding: .3rem .95rem;
+  cursor: pointer;
+}
+.chip:hover { color: var(--accent); border-color: var(--accent-soft); }
+.chip.is-on { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.chip:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* ---------- Map ---------- */
+
+.atlas { margin: 0; }
+.map {
+  height: min(70vh, 34rem);
+  border: 1px solid var(--rule);
+  outline: 1px solid var(--rule);
+  outline-offset: 6px;
+  background: var(--paper-deep);
+}
+/* tint the modern base map so it reads like old paper */
+.map .leaflet-tile-pane { filter: sepia(.45) saturate(.7) contrast(.95); }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .map .leaflet-tile-pane {
+    filter: invert(.9) hue-rotate(180deg) sepia(.35) saturate(.6) brightness(.9);
+  }
+}
+.map-fallback { display: grid; place-items: center; height: 100%; margin: 0; padding: 1rem; text-align: center; font-style: italic; color: var(--ink-soft); }
+.atlas-caption {
+  margin-top: 1rem;
+  font-size: .95rem;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+.leaflet-container { font-family: var(--body); }
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip { background: var(--paper); color: var(--ink); }
+.leaflet-popup-content { margin: .8rem 1rem; font-size: 1rem; line-height: 1.4; }
+.leaflet-popup-content h4 { margin: 0 0 .2rem; font-family: var(--display); font-size: 1.2rem; }
+.leaflet-popup-content p { margin: .2rem 0; }
+.leaflet-popup-content .ar { font-family: "Amiri", serif; color: var(--accent); }
+.leaflet-control-attribution { font-size: .7rem; }
+
+/* ---------- Gazetteer ---------- */
+
+.count { color: var(--ink-soft); font-style: italic; margin: 0 0 .5rem; }
+
+.gazetteer { list-style: none; margin: 0; padding: 0; max-width: 48rem; }
+.site {
+  padding: 1.25rem 0 1.25rem 1rem;
+  border-bottom: 1px dotted var(--rule);
+  border-left: 3px solid transparent;
+  transition: border-color .2s, background-color .2s;
+}
+.site.is-active { border-left-color: var(--accent); background: var(--paper-deep); }
+.site[hidden] { display: none; }
+
+.site-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: .25rem 1rem; }
+.site-head h3 { margin: 0; }
+.site-head .ar { font-family: "Amiri", serif; color: var(--accent); font-size: 1.15rem; }
+
+.site-meta {
+  margin: .3rem 0 .5rem;
+  font-family: var(--display);
+  font-size: .85rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.site p { margin: .3rem 0; }
+.site .story { font-style: italic; color: var(--ink-soft); }
+
+.site-foot { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; margin-top: .6rem; }
+.locate {
+  font: inherit;
+  font-size: .95rem;
+  background: none;
+  border: 0;
+  padding: 0;
+  color: var(--link);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+.locate:hover { color: var(--accent); }
+
+.tag {
+  display: inline-block;
+  font-family: var(--display);
+  font-size: .78rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  border: 1px solid var(--rule);
+  padding: .05rem .5rem;
+  color: var(--ink-soft);
+}
+.tag--done { border-color: var(--st-standing); color: var(--st-standing); }
+.tag--warn { border-style: dashed; }
+
+/* ---------- Method ---------- */
+
+.steps {
+  list-style: none;
+  counter-reset: step;
+  margin: 0 0 2.5rem;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  gap: 2rem;
+}
+.steps li { counter-increment: step; border-top: 1px solid var(--rule); padding-top: 1rem; }
+.steps li::before {
+  content: counter(step, upper-roman) ".";
+  font-family: var(--display);
+  font-style: italic;
+  color: var(--accent);
+  font-size: 1.3rem;
+}
+.steps p { margin: .25rem 0 0; font-size: 1.05rem; }
+
+.statuses { display: grid; grid-template-columns: max-content 1fr; gap: .45rem 1.5rem; max-width: 40rem; }
+.statuses dt { font-family: var(--display); font-weight: 600; font-size: 1.1rem; }
+.statuses dd { margin: 0; color: var(--ink-soft); }
+
+/* ---------- Sources table ---------- */
+
+.sources { width: 100%; max-width: 56rem; border-collapse: collapse; font-size: 1.05rem; }
+.sources th {
+  text-align: left;
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: .85rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border-bottom: 1px solid var(--rule);
+  padding: .5rem .75rem .5rem 0;
+}
+.sources td { padding: .7rem .75rem .7rem 0; border-bottom: 1px dotted var(--rule); vertical-align: top; }
+.sources td:first-child { font-style: italic; color: var(--accent); white-space: nowrap; }
+
+.footer a { color: inherit; text-decoration: none; }
+
+@media (max-width: 640px) {
+  .map { height: 60vh; }
+  .statuses { grid-template-columns: 1fr; gap: 0; }
+  .statuses dd { margin-bottom: .6rem; }
+  .sources thead { display: none; }
+  .sources, .sources tbody, .sources tr, .sources td { display: block; }
+  .sources tr { padding: .6rem 0; border-bottom: 1px dotted var(--rule); }
+  .sources td { border: 0; padding: .1rem 0; }
+}

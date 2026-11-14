@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Alexandria's Lost Geography · Hasnaa Abdalla</title>
+  <meta name="description" content="Archival research on Alexandria's heritage sites, read through historical maps and GIS, and the stories behind the buildings that remain.">
+  <meta property="og:title" content="Alexandria's Lost Geography">
+  <meta property="og:description" content="Historical maps, GIS and the stories behind Alexandria's buildings, standing and lost.">
+  <meta property="og:type" content="article">
+  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Amiri&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="alexandria.css">
+</head>
+<body>
+
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="masthead masthead--project">
+    <nav class="nav" aria-label="Sections">
+      <a href="../">← Home</a>
+      <a href="#question">Question</a>
+      <a href="#atlas">Atlas</a>
+      <a href="#gazetteer">Gazetteer</a>
+      <a href="#method">Method</a>
+      <a href="#sources">Sources</a>
+    </nav>
+
+    <div class="title">
+      <p class="kicker">Research · Bibliotheca Alexandrina · In progress</p>
+      <h1 class="project-title">Alexandria's Lost Geography</h1>
+      <p class="title-ar" lang="ar" dir="rtl">الجغرافيا المفقودة للإسكندرية</p>
+      <p class="lede">
+        Archival research on the city's heritage sites, read through historical maps and GIS,
+        and the stories behind the buildings that remain.
+      </p>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <section id="question" class="section">
+      <h2><span class="num">I.</span> The Question</h2>
+      <div class="prose">
+        <p class="dropcap">
+          Every visit home to Alexandria brought news that another building had come down.
+          This project begins from that experience and turns it into a method. If the city
+          cannot keep all of its buildings, it can at least keep a record of where they stood,
+          what they looked like, and who remembers them.
+        </p>
+        <p>
+          Alexandria's past is layered: Ptolemaic, Roman, Mamluk, Ottoman, cosmopolitan and
+          modern. It is also spread across archives in Alexandria, Cairo, Paris and London.
+          The work here lays historical plans over today's streets and asks three questions
+          of each site. What stood here? What happened to it? What is still standing, and why?
+        </p>
+      </div>
+    </section>
+
+    <section id="atlas" class="section section--wide">
+      <h2><span class="num">II.</span> Atlas</h2>
+      <p class="section-note">
+        A working map. Points are placed approximately until checked against georeferenced
+        historical sheets. Choose a status to filter the map and the gazetteer.
+      </p>
+
+      <div class="filters" role="group" aria-label="Filter by status">
+        <button type="button" class="chip is-on" data-status="all">All</button>
+        <button type="button" class="chip" data-status="standing"><i class="dot dot--standing"></i>Standing</button>
+        <button type="button" class="chip" data-status="altered"><i class="dot dot--altered"></i>Altered</button>
+        <button type="button" class="chip" data-status="threatened"><i class="dot dot--threatened"></i>Threatened</button>
+        <button type="button" class="chip" data-status="lost"><i class="dot dot--lost"></i>Lost</button>
+        <button type="button" class="chip" data-status="removed"><i class="dot dot--removed"></i>Removed</button>
+      </div>
+
+      <figure class="atlas">
+        <div id="map" class="map" role="region" aria-label="Map of heritage sites in Alexandria"></div>
+        <figcaption class="atlas-caption">
+          Base map © OpenStreetMap contributors. Historical overlays will be added as sheets
+          are georeferenced.
+        </figcaption>
+      </figure>
+    </section>
+
+    <section id="gazetteer" class="section">
+      <h2><span class="num">III.</span> Gazetteer</h2>
+      <p class="section-note">
+        Draft entries. Each one will be checked against archival sources. Entries marked
+        <em>unverified</em> are working notes, not findings.
+      </p>
+      <p class="count" id="count" aria-live="polite"></p>
+      <ol class="gazetteer" id="sites">
+        <li class="loading">Loading sites…</li>
+      </ol>
+    </section>
+
+    <section id="method" class="section">
+      <h2><span class="num">IV.</span> Method</h2>
+      <ol class="steps">
+        <li>
+          <h3>Gather</h3>
+          <p>Historical plans, cadastral sheets, photographs, guidebooks, press and heritage
+             lists, starting from the collections of the Bibliotheca Alexandrina.</p>
+        </li>
+        <li>
+          <h3>Georeference</h3>
+          <p>Fix each historical sheet to modern coordinates with ground control points
+             (in QGIS), and record the error for every sheet.</p>
+        </li>
+        <li>
+          <h3>Read across time</h3>
+          <p>Compare the same block on maps from different decades to see when a building
+             appears, changes or disappears, and set those dates against the written record.</p>
+        </li>
+        <li>
+          <h3>Walk</h3>
+          <p>Visit each site to record what remains today, and collect the stories of the
+             people who live and work nearby.</p>
+        </li>
+      </ol>
+
+      <h3 class="small-head">Status, as used here</h3>
+      <dl class="statuses">
+        <dt><i class="dot dot--standing"></i>Standing</dt><dd>Survives in recognisable form.</dd>
+        <dt><i class="dot dot--altered"></i>Altered</dt><dd>Survives, but heavily rebuilt, cut back or with its setting changed.</dd>
+        <dt><i class="dot dot--threatened"></i>Threatened</dt><dd>At risk of demolition, or partly demolished.</dd>
+        <dt><i class="dot dot--lost"></i>Lost</dt><dd>Demolished or destroyed.</dd>
+        <dt><i class="dot dot--removed"></i>Removed</dt><dd>Survives, but taken away from Alexandria.</dd>
+      </dl>
+    </section>
+
+    <section id="sources" class="section">
+      <h2><span class="num">V.</span> Map Sources</h2>
+      <p class="section-note">Sheets to locate, digitise and georeference. A reading list in progress.</p>
+      <table class="sources">
+        <thead>
+          <tr><th scope="col">Date</th><th scope="col">Map</th><th scope="col">Use</th><th scope="col">Status</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1798–1801</td>
+            <td><em>Description de l'Égypte</em>, plans of Alexandria</td>
+            <td>The city before Muhammad Ali's rebuilding</td>
+            <td><span class="tag">To locate</span></td>
+          </tr>
+          <tr>
+            <td>1866</td>
+            <td>Mahmoud el-Falaki, <em>Carte de l'antique Alexandrie</em></td>
+            <td>Reconstructed ancient street grid over the 19th-century city</td>
+            <td><span class="tag">To locate</span></td>
+          </tr>
+          <tr>
+            <td>c. 1882</td>
+            <td>Plans and photographs of the bombardment</td>
+            <td>The Manshiyya before and after</td>
+            <td><span class="tag">To locate</span></td>
+          </tr>
+          <tr>
+            <td>20th c.</td>
+            <td>Survey of Egypt town sheets and cadastral plans</td>
+            <td>Plot-level detail for villas and apartment blocks</td>
+            <td><span class="tag">To locate</span></td>
+          </tr>
+          <tr>
+            <td>Today</td>
+            <td>OpenStreetMap, satellite imagery, fieldwork</td>
+            <td>Present-day ground truth</td>
+            <td><span class="tag tag--done">In use</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="notes" class="section">
+      <h2><span class="num">VI.</span> Field Notes</h2>
+      <p class="section-note">Short essays on single buildings will appear here as the research goes on.</p>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p><a href="../">Hasnaa Abdalla</a> · &copy; <span id="year">2026</span></p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+  <script src="alexandria.js"></script>
+</body>
+</html>

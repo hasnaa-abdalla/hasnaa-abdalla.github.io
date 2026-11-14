@@ -280,6 +280,8 @@ h3 {
   color: var(--ink-soft);
 }
 .piece--empty { opacity: .85; }
+.piece-link { color: inherit; text-decoration: none; }
+.piece-link:hover { color: var(--accent); }
 
 /* ---------- Timeline ---------- */
 
