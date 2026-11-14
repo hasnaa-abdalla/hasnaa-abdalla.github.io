@@ -80,6 +80,55 @@
   }
 }
 .map-fallback { display: grid; place-items: center; height: 100%; margin: 0; padding: 1rem; text-align: center; font-style: italic; color: var(--ink-soft); }
+/* ---------- Time slider ---------- */
+
+.timeline-ctl { margin: 1.75rem 0 0; }
+.timeline-ctl[hidden] { display: none; }
+.timeline-label {
+  display: block;
+  font-family: var(--display);
+  font-size: .85rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: .4rem;
+}
+.time-track { position: relative; padding: 0 1.4rem 2.4rem; }
+.time-track input[type=range] {
+  width: 100%;
+  margin: 0;
+  accent-color: var(--accent);
+  cursor: pointer;
+  height: 1.6rem;
+}
+.time-stops { position: absolute; left: 1.4rem; right: 1.4rem; top: 1.7rem; height: 2rem; }
+.time-stops button {
+  position: absolute;
+  transform: translateX(-50%);
+  font: inherit;
+  font-family: var(--display);
+  font-style: italic;
+  font-size: 1.05rem;
+  background: none;
+  border: 0;
+  padding: .1rem .2rem;
+  color: var(--ink-soft);
+  cursor: pointer;
+  white-space: nowrap;
+}
+.time-stops button::before {
+  content: "";
+  position: absolute; left: 50%; top: -.35rem;
+  width: 1px; height: .35rem;
+  background: var(--rule);
+}
+.time-stops button:hover { color: var(--accent); }
+.time-stops button.is-on { color: var(--accent); font-weight: 600; }
+.time-stops button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.map-info { margin: 0; font-size: 1.02rem; min-height: 3.2em; max-width: 52rem; }
+.map-info strong { font-family: var(--display); font-size: 1.15rem; font-weight: 600; }
+.map-info .fit { color: var(--ink-soft); font-style: italic; }
+
 .atlas-caption {
   margin-top: 1rem;
   font-size: .95rem;
@@ -198,6 +247,9 @@
 
 @media (max-width: 640px) {
   .map { height: 60vh; }
+  .time-stops button { font-size: .9rem; }
+  .time-stops button:nth-child(even):not(:last-child) { top: 1.1rem; }
+  .time-track { padding-bottom: 3.4rem; }
   .statuses { grid-template-columns: 1fr; gap: 0; }
   .statuses dd { margin-bottom: .6rem; }
   .sources thead { display: none; }

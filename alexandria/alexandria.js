@@ -1,13 +1,10 @@
-/* Alexandria's Lost Geography: atlas and gazetteer.
+/* Alexandria's Lost Geography: atlas, time slider and gazetteer.
    Site data lives in data/sites.geojson (it opens directly in QGIS).
-   Historical overlays: add georeferenced tile layers to OVERLAYS below. */
+   Historical maps are listed in maps/maps.json: each one is a scan warped to
+   Web Mercator, so it can be laid over the modern map with its bounds. */
 
 (function () {
   "use strict";
-
-  // Georeferenced historical maps, e.g. exported from QGIS or MapWarper as XYZ tiles.
-  // { name: "el-Falaki, 1866", url: "maps/falaki-1866/{z}/{x}/{y}.png", attribution: "…", maxNativeZoom: 18 }
-  var OVERLAYS = [];
 
   var STATUS_LABEL = {
     standing: "Standing",
@@ -37,17 +34,88 @@
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
   }).addTo(map);
 
-  if (hasMap && OVERLAYS.length) {
-    var overlayLayers = {};
-    OVERLAYS.forEach(function (o) {
-      overlayLayers[o.name] = L.tileLayer(o.url, {
-        opacity: 0.75,
-        attribution: o.attribution || "",
-        maxNativeZoom: o.maxNativeZoom || 18,
-        maxZoom: 19
-      });
+  // ---------- Time slider ----------
+  // Maps are stacked oldest to newest, with today's map as the final stop.
+  // Between two stops the next map fades in over the current one, from
+  // transparent to opaque, as the slider moves.
+
+  var timeline = document.getElementById("timeline");
+  var slider = document.getElementById("time");
+  var stopsEl = document.getElementById("time-stops");
+  var mapInfo = document.getElementById("map-info");
+  var historic = [];   // { meta, layer }
+
+  function setTime(v) {
+    var n = historic.length;               // stops 0..n-1 are maps, stop n is today
+    var i = Math.min(Math.floor(v), n), f = v - i;
+    historic.forEach(function (h, k) {
+      var o = 0;
+      if (k === i) o = (i + 1 === n) ? 1 - f : 1;   // the last map fades out to reveal today
+      else if (k === i + 1) o = f;                  // the next map fades in on top
+      if (o > 0 && !map.hasLayer(h.layer)) h.layer.addTo(map);
+      h.layer.setOpacity(o);
+      h.layer.getElement() && (h.layer.getElement().style.zIndex = k);
     });
-    L.control.layers({ "Today": base }, overlayLayers, { collapsed: false }).addTo(map);
+    var near = Math.round(v);
+    stopsEl.querySelectorAll("button").forEach(function (b, k) {
+      b.classList.toggle("is-on", k === near);
+      b.setAttribute("aria-pressed", k === near ? "true" : "false");
+    });
+    slider.setAttribute("aria-valuetext", near < n ? historic[near].meta.year + ", " + historic[near].meta.title : "Today");
+    showInfo(near);
+  }
+
+  function showInfo(k) {
+    if (k >= historic.length) {
+      mapInfo.innerHTML = "<strong>Today</strong> · OpenStreetMap. Move the slider back to lay the historical maps over the modern city.";
+      return;
+    }
+    var m = historic[k].meta;
+    mapInfo.innerHTML = "<strong>" + esc(m.year) + " · " + esc(m.title) + "</strong>" +
+      (m.author ? ", " + esc(m.author) : "") + ". " + esc(m.note || "") +
+      ' <span class="fit">Alignment: about ±' + esc(m.rms_m) + " m.</span>" +
+      ' <a href="' + esc(m.source) + '" rel="noopener">Source</a> (' + esc(m.credit) + ", " + esc(m.licence) + ")";
+  }
+
+  var anim = null;
+  function animateTo(target) {
+    cancelAnimationFrame(anim);
+    var from = parseFloat(slider.value), t0 = performance.now(), dur = 300 + 350 * Math.min(3, Math.abs(target - from));
+    (function step(now) {
+      var t = Math.min(1, (now - t0) / dur), e = t < .5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+      slider.value = from + (target - from) * e; setTime(parseFloat(slider.value));
+      if (t < 1) anim = requestAnimationFrame(step);
+    })(t0);
+  }
+
+  function initTimeline(list) {
+    if (!list.length) return;
+    map.createPane("historic").style.zIndex = 350;   // above the tiles, below the site markers
+    historic = list.map(function (m) {
+      return { meta: m, layer: L.imageOverlay(m.image, m.bounds, { pane: "historic", opacity: 0, alt: m.title, interactive: false }) };
+    });
+    slider.max = historic.length;
+    stopsEl.innerHTML = "";
+    historic.map(function (h) { return h.meta.year; }).concat(["Today"]).forEach(function (label, k) {
+      var b = document.createElement("button");
+      b.type = "button"; b.textContent = label;
+      b.style.left = (k / historic.length * 100) + "%";
+      b.addEventListener("click", function () { animateTo(k); });
+      stopsEl.appendChild(b);
+    });
+    slider.addEventListener("input", function () { cancelAnimationFrame(anim); setTime(parseFloat(slider.value)); });
+    slider.addEventListener("change", function () {     // settle on the nearest stop when released
+      var v = parseFloat(slider.value); if (Math.abs(v - Math.round(v)) < 0.08) animateTo(Math.round(v));
+    });
+    timeline.hidden = false;
+    slider.value = 0; setTime(0);
+  }
+
+  if (hasMap) {
+    fetch("maps/maps.json")
+      .then(function (r) { return r.ok ? r.json() : []; })
+      .then(initTimeline)
+      .catch(function () {});
   }
 
   // re-enable wheel zoom once the reader engages with the map

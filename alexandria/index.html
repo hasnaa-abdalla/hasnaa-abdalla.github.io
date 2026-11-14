@@ -64,8 +64,9 @@
     <section id="atlas" class="section section--wide">
       <h2><span class="num">II.</span> Atlas</h2>
       <p class="section-note">
-        A working map. Points are placed approximately until checked against georeferenced
-        historical sheets. Choose a status to filter the map and the gazetteer.
+        A working map. Drag the slider to lay historical maps of the city over today's
+        streets, one after another: each new map fades in over the last. Choose a status to
+        filter the sites.
       </p>
 
       <div class="filters" role="group" aria-label="Filter by status">
@@ -79,9 +80,20 @@
 
       <figure class="atlas">
         <div id="map" class="map" role="region" aria-label="Map of heritage sites in Alexandria"></div>
+
+        <div class="timeline-ctl" id="timeline" hidden>
+          <label for="time" class="timeline-label">Move through time</label>
+          <div class="time-track">
+            <input type="range" id="time" min="0" max="1" step="0.01" value="0">
+            <div class="time-stops" id="time-stops"></div>
+          </div>
+          <p class="map-info" id="map-info" aria-live="polite"></p>
+        </div>
+
         <figcaption class="atlas-caption">
-          Base map © OpenStreetMap contributors. Historical overlays will be added as sheets
-          are georeferenced.
+          Historical maps are public-domain scans, georeferenced for this project against
+          today's streets. Old surveys were not drawn to modern accuracy, so expect them to
+          drift, most of all at their edges. Base map © OpenStreetMap contributors.
         </figcaption>
       </figure>
     </section>

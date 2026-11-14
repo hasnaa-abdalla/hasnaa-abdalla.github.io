@@ -20,8 +20,10 @@ A project page with an interactive map (Leaflet) and a gazetteer of sites.
   (`approximate` · `surveyed` · `unlocated`) and `verified` (true/false).
   For a site that hasn't been located yet, set `"geometry": null`. It will then appear in the
   gazetteer but not on the map.
-- **Add a historical map overlay:** georeference the sheet (e.g. QGIS Georeferencer), export it
-  as XYZ tiles into `alexandria/maps/<name>/`, then add an entry to `OVERLAYS` at the top of
-  `alexandria/alexandria.js`. A layer switcher appears automatically.
+- **Historical maps and the time slider:** each map is a scan warped to Web Mercator
+  (`alexandria/maps/<id>.webp`) and listed, oldest first, in `alexandria/maps/maps.json`
+  with its year, title, author, `bounds` (`[[south, west], [north, east]]`), source link,
+  credit, licence and alignment error (`rms_m`). The slider gets one stop per map, plus
+  "Today". It stays hidden while the list is empty.
 - **Preview locally:** run `python3 -m http.server` in the repo root and open
   <http://localhost:8000/alexandria/>. The site list is fetched, so opening the file directly won't work.
