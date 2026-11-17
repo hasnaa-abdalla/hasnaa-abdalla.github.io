@@ -1,0 +1,174 @@
+/* ------------------------------------------------------------------
+   Thesis page: a bound copy on the table, then abstract, contents,
+   reader and citation. Builds on style.css tokens.
+------------------------------------------------------------------- */
+
+.thesis main { padding: 0 var(--gutter); }
+.thesis .prose { margin-left: auto; margin-right: auto; }
+.thesis h2 { margin-bottom: 1.5rem; }
+
+/* ---------- Head ---------- */
+
+.th-head {
+  max-width: var(--wide);
+  margin: 0 auto;
+  padding: clamp(2.5rem, 1.5rem + 4vw, 5rem) 0 clamp(2.5rem, 2rem + 3vw, 4.5rem);
+  display: grid;
+  grid-template-columns: minmax(13rem, 19rem) minmax(0, 1fr);
+  gap: clamp(2rem, 1rem + 4vw, 5rem);
+  align-items: center;
+  border-bottom: 1px solid var(--rule);
+}
+
+/* the cover: a typeset title page, like a bound copy */
+.th-cover {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  aspect-ratio: 1 / 1.414;
+  padding: 18% 9% 9%;
+  background:
+    linear-gradient(90deg, rgba(0,0,0,.07) 0, transparent 5%),
+    var(--paper);
+  border: 1px solid var(--rule);
+  outline: 1px solid var(--rule);
+  outline-offset: 6px;
+  box-shadow: var(--shadow), 10px 10px 0 -4px var(--paper-deep), 10px 10px 0 -3px var(--rule);
+  color: var(--ink);
+  text-decoration: none;
+  transform: rotate(-1.4deg);
+  transition: transform .5s var(--ease), outline-offset .5s var(--ease), outline-color .5s;
+}
+.th-cover:hover, .th-cover:focus-visible { transform: rotate(0) translateY(-4px); outline-offset: 2px; outline-color: var(--accent-soft); }
+.th-cover-kicker {
+  font-family: var(--display); font-size: .68rem; letter-spacing: .3em; text-transform: uppercase; color: var(--accent);
+}
+.th-cover-title {
+  margin-top: 1.1em;
+  font-family: var(--display); font-weight: 500; font-size: clamp(1.35rem, 1.1rem + .9vw, 1.75rem); line-height: 1.05;
+}
+.th-cover-sub {
+  margin-top: .7em;
+  font-family: var(--display); font-style: italic; font-size: .92rem; line-height: 1.3; color: var(--ink-soft);
+}
+.th-cover-rule { width: 2.5rem; margin: auto 0 1rem; border-top: 1px solid var(--accent-soft); }
+.th-cover-by { font-family: var(--display); font-size: 1rem; }
+.th-cover-inst { margin-top: .3em; font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-soft); }
+
+.th-title h1 { margin-bottom: .6rem; }
+.th-title h1 em { color: var(--accent); font-weight: 400; }
+.th-title .lede { margin: 0; max-width: 30rem; }
+
+.th-facts {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: .3rem 1.25rem;
+  margin: 1.75rem 0 2rem;
+  padding-top: 1.25rem;
+  border-top: 1px dotted var(--rule);
+  font-size: 1rem;
+}
+.th-facts dt {
+  font-family: var(--display); font-size: .78rem; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--ink-soft); padding-top: .2rem;
+}
+.th-facts dd { margin: 0; }
+
+.th-actions { display: flex; flex-wrap: wrap; gap: .75rem; }
+.th-btn {
+  display: inline-flex; align-items: center; gap: .55rem;
+  padding: .7rem 1.3rem;
+  font-family: var(--display); font-size: 1.05rem; letter-spacing: .06em;
+  color: var(--paper); background: var(--accent);
+  border: 1px solid var(--accent);
+  text-decoration: none;
+  transition: background-color .25s, color .25s, transform .25s var(--ease);
+}
+.th-btn svg { width: 1.1rem; height: 1.1rem; }
+.th-btn span { font-size: .8rem; opacity: .8; }
+.th-btn:hover { transform: translateY(-2px); }
+.th-btn--ghost { color: var(--accent); background: transparent; border-color: var(--rule); }
+.th-btn--ghost:hover { border-color: var(--accent-soft); background: var(--paper-deep); }
+
+/* ---------- Abstract & contents ---------- */
+
+.th-abstract, .th-contents, .th-more { padding: clamp(3rem, 2rem + 3vw, 5rem) 0 0; }
+.th-abstract p { margin: 0 0 1rem; }
+.th-keywords { display: flex; flex-wrap: wrap; align-items: baseline; gap: .4rem; margin-top: 1.5rem !important; }
+.th-keywords b {
+  margin-right: .4rem;
+  font-family: var(--display); font-weight: 500; font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-soft);
+}
+.th-keywords span { padding: .05rem .55rem; border: 1px solid var(--rule); font-size: .92rem; font-style: italic; background: var(--paper-deep); }
+
+.toc { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule); }
+.toc li {
+  display: grid;
+  grid-template-columns: 2rem 1fr auto;
+  gap: 1rem;
+  align-items: baseline;
+  padding: .85rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+.toc-n { font-family: var(--display); font-style: italic; font-size: 1.4rem; color: var(--accent); line-height: 1; }
+.toc-t { font-family: var(--display); font-size: 1.2rem; font-weight: 500; line-height: 1.25; }
+.toc-t small { display: block; margin-top: .25rem; font-family: var(--body); font-size: .92rem; font-weight: 400; font-style: italic; color: var(--ink-soft); }
+.toc-p { font-size: .9rem; color: var(--ink-soft); font-variant-numeric: lining-nums tabular-nums; }
+
+/* ---------- Reader ---------- */
+
+.th-read { max-width: var(--wide); margin: 0 auto; padding: clamp(3rem, 2rem + 3vw, 5rem) 0 0; }
+.th-viewer {
+  height: min(85vh, 60rem);
+  border: 1px solid var(--rule);
+  outline: 1px solid var(--rule);
+  outline-offset: 6px;
+  margin: 7px;
+  background: var(--paper-deep);
+  box-shadow: var(--shadow);
+}
+.th-viewer object { display: block; width: 100%; height: 100%; }
+.th-fallback { padding: 2rem; text-align: center; font-style: italic; color: var(--ink-soft); }
+
+/* ---------- More & cite ---------- */
+
+.th-more > p { margin: 0 0 1rem; }
+.th-links { list-style: none; margin: 0 0 1rem; padding: 0; display: grid; gap: .6rem; }
+.th-links a {
+  display: block; padding: .8rem 1rem;
+  border: 1px solid var(--rule); background: var(--paper);
+  text-decoration: none; color: var(--ink-soft); font-style: italic;
+  transition: border-color .25s, transform .25s var(--ease);
+}
+.th-links a:hover { border-color: var(--accent-soft); transform: translateX(3px); }
+.th-links b { display: block; font-family: var(--display); font-style: normal; font-weight: 600; font-size: 1.12rem; color: var(--accent); }
+
+.cite { border-top: 1px solid var(--rule); padding-top: 1.5rem; margin: 2.5rem 0 clamp(3.5rem, 2.5rem + 4vw, 6rem); font-size: 1rem; }
+.cite p { margin: 0 0 .75rem; }
+.th-cite { padding: .8rem 1rem; background: var(--paper-deep); border-left: 2px solid var(--accent-soft); }
+.th-copy {
+  font: inherit; font-family: var(--display); font-size: .85rem; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--link); background: none; border: 1px solid var(--rule); padding: .3rem .85rem; cursor: pointer;
+  margin: 0 0 1.25rem;
+}
+.th-copy:hover { color: var(--accent); border-color: var(--accent-soft); }
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 760px) {
+  .th-head { grid-template-columns: 1fr; text-align: left; }
+  .th-cover { width: min(15rem, 70%); margin: 0 auto .5rem; }
+  .th-facts { grid-template-columns: 1fr; gap: 0; }
+  .th-facts dd { margin-bottom: .55rem; }
+  /* phones rarely render PDFs inline: offer the link instead */
+  .th-read { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .th-cover, .th-btn, .th-links a { transition: none; transform: none; }
+}
+@media print {
+  .th-read, .th-actions, .th-copy { display: none; }
+}
